@@ -38,7 +38,7 @@ iframe {
   position: fixed;
   color: #a02a2a;
   left: 50%;
-  top: 85%;
+  top: 87.5%;
   transform: translate(-50%, -50%);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -50,16 +50,17 @@ iframe {
 }
 
 button {
-  width: 170px;
-  height: 65px;
+  width: 205px;
+  height: 35px;
   cursor: pointer;
   font-size: 17px;
   font-weight: bold;
   color: black;
   background: #f7f5f5;
-  border: 2px solid black;
-  box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
-    5px -5px 0 black;
+  border: 2px outset rgb(199, 195, 195);
+  box-shadow: 2px 2px 0 rgb(168, 167, 167), -2px -2px 0 rgb(226, 223, 223),
+    -2px 2px 0 rgb(243, 243, 243), 2px -2px 0 rgb(156, 155, 155);
+  border-radius: 10px 10px 10px 10px;
   transition: 500ms ease-in-out;
 }
 
@@ -71,24 +72,13 @@ button:focus {
   outline: none;
 }
 
-/* .text {
-  position: fixed;
-  color: #a02a2a;
-  left: 50%;
-  top: 15%;
-  transform: translate(-50%, -50%);
-  background: rgb(243, 241, 241);
-  border: 2px solid black;
-  border-radius: 15px 15px 15px 15px;
-} */
-
 .Iam {
-  padding: 0em 3em;
-  font: normal 40px/50px Montserrat, sans-serif;
+  padding: 0em 2em;
+  font: normal 40px/50px Montserrat;
   color: rgb(77, 67, 67);
-  background: rgb(245, 244, 244);
-  border: 1px solid black;
+  background: rgb(252, 252, 252);
   border-radius: 15px 15px 15px 15px;
+  border-style: outset;
   position: fixed;
   left: 50%;
   top: 15%;
@@ -96,9 +86,7 @@ button:focus {
   transform: translate(-50%, -50%);
 }
 .Iam p {
-  height: 50px;
-  float: left;
-  /* margin-right: -15rem; */
+  margin-bottom: 0em;
 }
 .Iam b {
   float: left;
