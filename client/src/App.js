@@ -1,10 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import HomePage from "./components/HomePage";
-// import Trips from "./pages/Trips";
-// import Detail from "./pages/Detail";
-// import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+// import UserTripPage from "./components/UserTripPage";
 
 function App() {
   return (
@@ -14,6 +12,9 @@ function App() {
         <div>
         <HomePage />
         </div>
+        {/* <div>
+        <UserTripPage />
+        </div> */}
       </div>
     </Router>
   );
