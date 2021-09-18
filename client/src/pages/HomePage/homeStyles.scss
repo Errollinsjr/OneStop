@@ -73,17 +73,18 @@ button:focus {
 }
 
 .Iam {
-  padding: 0em 2em;
+  padding: 0em 3em;
   font: normal 40px/50px Montserrat;
-  color: rgb(77, 67, 67);
-  background: rgb(252, 252, 252);
+  color: #f8f9fa;
+  background: #fcfcfc2e;
   border-radius: 15px 15px 15px 15px;
-  border-style: outset;
+  // border-style: outset;
   position: fixed;
   left: 50%;
   top: 15%;
   white-space: nowrap;
   transform: translate(-50%, -50%);
+  box-shadow: -3px 3px 3px;
 }
 .Iam p {
   margin-bottom: 0em;
@@ -99,7 +100,7 @@ button:focus {
 }
 .Iam .innerIam {
   /* display: inline-block; */
-  color: #e74c3c;
+  color: #38c3f9;
   position: relative;
   white-space: nowrap;
   top: 0;
