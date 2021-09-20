@@ -1,23 +1,30 @@
 import React from "react";
-import "./loginStyles.scss"
+import "./signupStyle.scss"
 
-function LoginPage() {
+function SignUpPage() {
   return (
     <>
     <div className="container">
         <div className="row justify-content-center">
             <div className="col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-5">
-                    <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Login</h3></div>
+                    <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Sign Up</h3></div>
                     <div className="card-body">
-                        <form id="loginForm">
+
+                        <form id="signupForm">
+
+                            <div className="form-floating mb-3">
+                            <label for="inputEmail">Name</label>
+                                <input className="form-control input-color" id="inputName" type="name" placeholder="John Doe" />
+                            </div>
+
                             <div className="form-floating mb-3">
                             <label for="inputEmail">Email address</label>
                                 <input className="form-control input-color" id="inputEmail" type="email" placeholder="name@example.com" />
                                 
                             </div>
                             <div className="form-floating mb-3">
-                            <label for="inputPassword">Password</label>
+                                <label for="inputPassword">Password</label>
                                 <input className="form-control input-color" id="inputPassword" type="password" placeholder="Password" />
                                 
                             </div>
@@ -26,14 +33,14 @@ function LoginPage() {
                                 <label className="form-check-label" for="inputRememberPassword">Remember Password</label>
                             </div>
                             <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
-                                <a className="small" href="/password">Forgot Password?</a>
-                                <button className="btn btn-primary login-btn" type="submit" id="loginBtn">Login</button>
+                                <a className="small forgotpass" href="/password">Forgot Password?</a>
+                                <button className="login-btn btn-info" type="submit" id="loginBtn">Login</button>
                             </div>
                         </form>
                     </div>
                     <div className="card-footer text-center py-3">
-                        <div className="small"><a href="/register">Need an account? Sign up!</a></div>
-                        <div className="small"><a href="/">Home</a></div>
+                        <div className="small forgotpass"><a href="/register">Need an account? Sign up!</a></div>
+                        <div className="small forgotpass"><a href="/">Home</a></div>
                     </div>
                 </div>
             </div>
@@ -43,7 +50,8 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignUpPage;
+
 //special class names:
 //login-btn
 //header-color

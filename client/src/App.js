@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 // import UserTripPage from "./components/UserTripPage";
 import LoginPage from "./pages/LoginPage";
 import UserTripPage from "./pages/UserTripPage";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
@@ -21,11 +22,11 @@ function App() {
             <LoginPage />
           </Route>
 
-          {/* <Route exact path="/SignUp">
+           <Route exact path={"/SignUp"} component={SignUpPage}>
             <SignUpPage/>
-          </Route> */}
+          </Route> 
 
-          <Route exact path="/User">
+          {/*<Route exact path="/User">
             <UserTripPage />
           </Route>
 
