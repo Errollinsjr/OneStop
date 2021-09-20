@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Link } from "react-router-dom";
 import "./homeStyles.scss"
 
 function HomePage() {
@@ -16,8 +17,10 @@ function HomePage() {
             </div>
         </b>
     </div>
-    <div className="createyourtrip-button">    
+    <div className="createyourtrip-button">
+      <Link to="/Login">    
         <button>Create Your Trip</button>
+      </Link>  
     </div>
     <div className="video-container">
     <iframe src='https://gfycat.com/ifr/AccurateVapidGrunion?controls=0&hd=1' scrolling="no" title="gif"></iframe>
