@@ -15,7 +15,7 @@ function SignUpPage() {
 
                             <div className="form-floating mb-3">
                             <label for="inputEmail">Name</label>
-                                <input className="form-control input-color" id="inputName" type="name" placeholder="John Doe" />
+                                <input className="form-control input-color" id="inputName" type="name" placeholder="Name" />
                             </div>
 
                             <div className="form-floating mb-3">
@@ -34,7 +34,7 @@ function SignUpPage() {
                             </div>
                             <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
                                 <a className="small forgotpass" href="/password">Forgot Password?</a>
-                                <button className="login-btn btn-info" type="submit" id="loginBtn">Login</button>
+                                <button className="login-btn btn btn-primary" type="submit" id="loginBtn">Sign Up</button>
                             </div>
                         </form>
                     </div>
