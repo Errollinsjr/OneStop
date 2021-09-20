@@ -5,10 +5,10 @@ import "./homeStyles.scss"
 function HomePage() {
   return (
     <>
-    <div className="Iam">    
+    <div className="HomePageText">    
      <p>One Stop For All Your</p>
         <b>
-            <div class="innerIam">
+            <div className="innerHomePageText">
             Trips<br /> 
             New Memories<br />
             Destinations<br />
@@ -19,7 +19,7 @@ function HomePage() {
     </div>
     <div className="createyourtrip-button">
       <Link to="/Login">    
-        <button>Create Your Trip</button>
+        <button className="homePageButton">Create Your Trip</button>
       </Link>  
     </div>
     <div className="video-container">

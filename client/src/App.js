@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 // import "./App.scss";
 // import UserTripPage from "./components/UserTripPage";
 import LoginPage from "./pages/LoginPage";
+import UserTripPage from "./pages/UserTripPage";
 
 function App() {
   return (
@@ -22,13 +23,13 @@ function App() {
 
           {/* <Route exact path="/SignUp">
             <SignUpPage/>
+          </Route> */}
+
+          <Route exact path="/User">
+            <UserTripPage />
           </Route>
 
-          <Route exact path="/UserPage">
-            <UserPage />
-          </Route>
-
-          <Route exact path="/Create">
+          {/* <Route exact path="/Create">
             <CreateTripPage />
           </Route> */}
 
