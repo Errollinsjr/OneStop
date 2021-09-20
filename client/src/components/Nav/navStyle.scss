@@ -73,6 +73,10 @@ section {
   }
 }
 
+.u-nav {
+  color: black;
+}
+
 .nav {
   display: flex;
   height: 4em;
@@ -160,6 +164,7 @@ a:hover {
     position: relative;
     left: 1.5em;
     height: auto;
+    line-height: 42px;
   }
 
   .btn-nav {
