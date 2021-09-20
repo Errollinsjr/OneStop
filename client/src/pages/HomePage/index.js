@@ -1,13 +1,14 @@
 import React from "react";
+import { BrowserRouter as Link } from "react-router-dom";
 import "./homeStyles.scss"
 
 function HomePage() {
   return (
     <>
-    <div className="Iam">    
+    <div className="HomePageText">    
      <p>One Stop For All Your</p>
         <b>
-            <div class="innerIam">
+            <div className="innerHomePageText">
             Trips<br /> 
             New Memories<br />
             Destinations<br />
@@ -16,8 +17,10 @@ function HomePage() {
             </div>
         </b>
     </div>
-    <div className="createyourtrip-button">    
-        <button>Create Your Trip</button>
+    <div className="createyourtrip-button">
+      <Link to="/Login">    
+        <button className="homePageButton">Create Your Trip</button>
+      </Link>  
     </div>
     <div className="video-container">
     <iframe src='https://gfycat.com/ifr/AccurateVapidGrunion?controls=0&hd=1' scrolling="no" title="gif"></iframe>

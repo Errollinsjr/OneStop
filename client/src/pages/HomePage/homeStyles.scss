@@ -36,7 +36,7 @@ iframe {
 
 .createyourtrip-button {
   position: fixed;
-  color: #a02a2a;
+  color: #110f0f;
   left: 50%;
   top: 87.5%;
   transform: translate(-50%, -50%);
@@ -47,9 +47,10 @@ iframe {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  
 }
 
-button {
+.homePageButton {
   width: 205px;
   height: 35px;
   cursor: pointer;
@@ -64,15 +65,15 @@ button {
   transition: 500ms ease-in-out;
 }
 
-button:hover {
+.homePageButton:hover {
   box-shadow: 20px 5px 0 black, -20px -5px 0 black;
 }
 
-button:focus {
+.homePageButton:focus {
   outline: none;
 }
 
-.Iam {
+.HomePageText {
   padding: 0em 3em;
   font: normal 40px/50px Montserrat;
   color: #f8f9fa;
@@ -86,10 +87,10 @@ button:focus {
   transform: translate(-50%, -50%);
   box-shadow: -3px 3px 3px;
 }
-.Iam p {
+.HomePageText p {
   margin-bottom: 0em;
 }
-.Iam b {
+.HomePageText b {
   float: left;
   overflow: hidden;
   position: relative;
@@ -98,7 +99,7 @@ button:focus {
   left: 15%;
   top: 5%;
 }
-.Iam .innerIam {
+.HomePageText .innerHomePageText {
   /* display: inline-block; */
   color: #38c3f9;
   position: relative;
