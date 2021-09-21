@@ -26,7 +26,7 @@ function App() {
             <SignUpPage/>
           </Route> 
 
-          {/*<Route exact path="/User">
+          <Route exact path="/User">
             <UserTripPage />
           </Route>
 

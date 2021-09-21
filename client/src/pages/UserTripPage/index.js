@@ -72,7 +72,7 @@ const dataSource = [
     key: '2',
     trip: 'Jamaica',
     address: 'Marley House',
-    tags: ['ganja'],
+    tags: ['islands'],
   },
   {
     key: '3',
