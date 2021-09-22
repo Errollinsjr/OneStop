@@ -30,14 +30,18 @@ Reservations.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-                unique: false
-            }
+        upload: {
+            type: DataTypes.BLOB,
+            allowNull: true
         },
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id',
+        //         unique: false
+        //     }
+        // },
         trip_id: {
             type: DataTypes.INTEGER,
             references: {
