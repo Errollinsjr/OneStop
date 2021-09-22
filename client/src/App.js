@@ -7,6 +7,8 @@ import Nav from "./components/Nav";
 import LoginPage from "./pages/LoginPage";
 import UserTripPage from "./pages/UserTripPage";
 import SignUpPage from "./pages/SignUpPage";
+import TripCreationPage from "./pages/TripCreationPage";
+import EditPage from "./pages/EditPage";
 
 function App() {
   return (
@@ -30,9 +32,13 @@ function App() {
             <UserTripPage />
           </Route>
 
-          {/* <Route exact path="/Create">
-            <CreateTripPage />
-          </Route> */}
+          <Route exact path="/Create">
+            <TripCreationPage />
+          </Route>
+
+          <Route exact path="/Edit">
+            <EditPage />
+          </Route>
 
           {/* <Route>
             <NoUrlMatch /> 

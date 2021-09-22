@@ -1,0 +1,41 @@
+.login-btn {
+  margin: 10px;
+}
+
+.header-color {
+  background-color: rgb(231, 173, 64);
+  color: white;
+}
+input:hover {
+  border-color: gold;
+}
+
+.input-color {
+  border-color: rgb(44, 129, 179);
+}
+
+body {
+  background-image: url("madrid.jpg");
+}
+
+.forgotpass {
+  color: black;
+}
+
+// .container {
+// margin: 0;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+// }
+
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important;
+  width: 127vh;
+  height: 92vh;
+  left: -59%;
+  top: -1%;
+}

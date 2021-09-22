@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Tag } from "antd";
+import { Table, Tag, Space } from "antd";
 import "./userStyles.scss"
 
 function UserTripPage() {
@@ -21,12 +21,17 @@ const columns = [
         },
     ],
     render: text => <span>{text}</span>,
-    width: '25%',
+    width: '40%',
   },
   {
-    title: 'Location',
-    dataIndex: 'address',
-    key: 'address',
+    title: 'Start Date',
+    dataIndex: 'startdate',
+    key: 'startdate',
+  },
+  {
+    title: 'End Date',
+    dataIndex: 'enddate',
+    key: 'enddate',
   },
   {
     title: 'Tags',
@@ -48,35 +53,42 @@ const columns = [
       </>
     ),
   },
+  {
+    title: 'Actions',
+    key: 'action',
+    render: (text, record) => (
+      <Space size="middle">
+        <button className="userTripPageButton">Delete</button>
+        <button className="userTripPageButton">Edit Trip</button>
+        <button className="userTripPageButton">Add Details</button>
+      </Space>
+    ),
+  },
 ];
 
-//   {
-//     title: 'Action',
-//     key: 'action',
-//     render: (text, record) => (
-//       <Space size="middle">
-//         <a>Invite {record.trip}</a>
-//         <a>Delete</a>
-//       </Space>
-//     ),
-//   },
+  
 
 const dataSource = [
   {
     key: '1',
     trip: 'Hawaii',
-    address: 'Honolulu',
-    tags: ['breeze', 'surfing'],
+    startdate: '8/10/21',
+    enddate: '9/01/21',
+    tags: ['breeze', 'surfing', 'weather'],
   },
   {
     key: '2',
     trip: 'Jamaica',
+    startdate: '8/10/21',
+    enddate: '9/01/21',
     address: 'Marley House',
     tags: ['islands'],
   },
   {
     key: '3',
     trip: 'Utopia',
+    startdate: '8/10/21',
+    enddate: '9/01/21',
     address: 'Atlantis',
     tags: ['water', 'mystery'],
   },
@@ -84,7 +96,6 @@ const dataSource = [
 
   return (
     <>
-    <h1 className="userTripPageTitle">User Trip Page</h1>
     <Table dataSource={dataSource} columns={columns}/>;
     </>
   );
