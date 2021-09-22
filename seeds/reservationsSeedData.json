@@ -1,0 +1,37 @@
+[
+    {
+        "type": "air",
+        "name": "Southwest",
+        "confirmation": "ABC123",
+        "description": "Flight into Honolulu.",
+        "trip_id": "1"
+    },
+    {
+        "type": "board",
+        "name": "Hilton Grand Resorts",
+        "confirmation": "DEF456",
+        "description": "Stay in paradise",
+        "trip_id": "1"
+    },
+    {
+        "type": "car",
+        "name": "Budget",
+        "confirmation": "GHI678",
+        "description": "Car rental; pick up at airport.",
+        "trip_id": "1"
+    },
+    {
+        "type": "air",
+        "name": "United",
+        "confirmation": "4H3MD0",
+        "description": "Layover in Chicago.",
+        "trip_id": "2"
+    },
+    {
+        "type": "food",
+        "name": "Favorite Restaurant",
+        "confirmation": "FOOD123",
+        "description": "Reservation at 6:30PM for 10.",
+        "trip_id": "2"
+    }
+]
