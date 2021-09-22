@@ -13,7 +13,7 @@ class User extends Model {
 }
 
 //create fields/column for User model
-Traveller.init(
+User.init(
     {
         id: {
             type:DataTypes.INTEGER,
@@ -49,12 +49,13 @@ Traveller.init(
     {
         hooks: {
             beforeCreate: async (newUserData) => {
-                newUserData.password = await crypto.hash(newUserData.password, 10);
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
             },
         },
         sequelize,
         timestamps: false,
-        freezeTableNames: true,
+        freezeTableName: true,
         underscored: true,
         modelName:'user',
     }

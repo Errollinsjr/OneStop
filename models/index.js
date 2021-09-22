@@ -11,7 +11,7 @@ User.hasMany(Trip, {
 });
 
 Trip.belongsTo(User, {
-    foreignKey: 'trip_id'
+    foreignKey: 'user_id'
 })
 
 
@@ -23,7 +23,7 @@ Trip.hasMany(Reservations, {
 })
 
 Reservations.belongsTo(Trip,{
-    foreignKey: 'reservations_id'
+    foreignKey: 'trip_id'
 })
 
 
@@ -36,3 +36,5 @@ Reservations.belongsTo(Trip,{
 // Reservations.belongsTo(User, {
 //     foreignKey: 'reservations_id'
 // })
+
+module.exports = { User, Trip, Reservations }

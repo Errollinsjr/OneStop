@@ -14,7 +14,7 @@ Trip.init(
             autoIncrement: true
         },
         trip_name: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         start_date: {
