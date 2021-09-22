@@ -25,6 +25,10 @@ Trip.init(
             type: DataTypes.DATE,
             allowNull: false
         },
+        tags: {
+            type: DataTypes.JSON,
+            allowNull: true
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

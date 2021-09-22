@@ -1,0 +1,24 @@
+[
+    {
+        "trip_name": "Hawaii",
+        "start_date": "11/18/2021",
+        "end_date":"11/28/2021",
+        "tags": ["Aloha", "surf", "sun"]
+    },
+    {
+        "trip_name": "Wine Country",
+        "start_date": "4/1/2022",
+        "end_date": "4/8/2022",
+        "tags": ["Cheers!"]
+    },
+    {
+        "trip_name": "Ski Getaway",
+        "start_date": "1/15/2022",
+        "end_date": "1/20/2022"
+    },
+    {
+        "trip_name": "Tour of Europe",
+        "start_date": "5/1/2022",
+        "end_date": "5/15/2022"
+    }
+]
