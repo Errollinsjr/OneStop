@@ -15,6 +15,7 @@ function Nav() {
             <a href="/Login" className="nav-link"><span className="nav-link-span"><span className="u-nav">Login</span></span></a>
             <a href="/SignUp" className="nav-link"><span className="nav-link-span"><span className="u-nav">SignUp</span></span></a>
             <a href="/User" className="nav-link"><span className="nav-link-span"><span className="u-nav">UserTrip</span></span></a>
+            <a href="/Create" className="nav-link"><span className="nav-link-span"><span className="u-nav">CreateTrip</span></span></a>
           </div>
         </nav>
       </header>
