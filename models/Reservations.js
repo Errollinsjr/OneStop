@@ -30,10 +30,6 @@ Reservations.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        upload: {
-            type: DataTypes.BLOB,
-            allowNull: true
-        },
         // user_id: {
         //     type: DataTypes.INTEGER,
         //     references: {
