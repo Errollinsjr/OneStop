@@ -68,8 +68,9 @@ const columns = [
       <>
         {tags.map(tag => {
             let color = tag.length > 5 ? 'geekblue' : 'green';
+            let visible = tag==='None' ? false : true;
             return (
-              <Tag color={color} key={tag}>
+              <Tag color={color} key={tag} visible={visible}>
                 {tag.toUpperCase()}
               </Tag>
           );

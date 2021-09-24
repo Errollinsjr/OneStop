@@ -27,7 +27,8 @@ Trip.init(
         },
         tags: {
             type: DataTypes.JSON,
-            allowNull: true
+            allowNull: true,
+            defaultValue: ["None"]
         },
         upload: {
             type: DataTypes.BLOB,
