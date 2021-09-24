@@ -29,6 +29,10 @@ Trip.init(
             type: DataTypes.JSON,
             allowNull: true
         },
+        upload: {
+            type: DataTypes.BLOB,
+            allowNull: true
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
