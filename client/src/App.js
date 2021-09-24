@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import UserTripPage from "./pages/UserTripPage";
 import SignUpPage from "./pages/SignUpPage";
 import TripCreationPage from "./pages/TripCreationPage";
-import EditPage from "./pages/EditPage";
+import AddDetailsPage from "./pages/AddDetailsPage";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           </Route>
 
            <Route exact path={"/SignUp"} component={SignUpPage}>
-            <SignUpPage/>
+            <SignUpPage />
           </Route> 
 
           <Route exact path="/User">
@@ -36,8 +36,8 @@ function App() {
             <TripCreationPage />
           </Route>
 
-          <Route exact path="/Edit">
-            <EditPage />
+          <Route exact path="/AddDetails">
+            <AddDetailsPage />
           </Route>
 
           {/* <Route>
