@@ -1,7 +1,33 @@
 import React from "react";
 import "./loginStyles.scss"
 
+
 function LoginPage() {
+    
+    handleLogin = (e)=>{
+    e.preventDefault();
+    const email = document.querySelector('#inputEmail').value.trim();
+    const password = document.querySelector('#inputPassword').value.trim();
+    
+        if (email && password) {
+            const response = await fetch('/api/user/login', {
+                method: 'POST',
+                body: JSON.stringify({email, password}),
+                headers: { 'Content-Type': 'application/json' },
+            });
+    
+            if (response.status === 409) {
+                response.json().then(data => {
+                    alert(data.message);
+                });   
+            } else if (response.ok) {
+                document.location.replace('/');
+            } else {
+                document.location.replace('/404');
+            }
+        }
+    }
+  
   return (
     <>
     <div className="container">
@@ -13,7 +39,10 @@ function LoginPage() {
                         <form id="loginForm">
                             <div className="form-floating mb-3">
                             <label for="inputEmail">Email address</label>
-                                <input className="form-control input-color" id="inputEmail" type="email" placeholder="name@example.com" />
+                                <input className="form-control input-color" 
+                                       id="inputEmail" 
+                                       type="email" 
+                                       placeholder="name@example.com" />
                                 
                             </div>
                             <div className="form-floating mb-3">
@@ -27,7 +56,7 @@ function LoginPage() {
                             </div>
                             <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
                                 <a className="small" href="/password">Forgot Password?</a>
-                                <button className="btn btn-primary login-btn" type="submit" id="loginBtn">Login</button>
+                                <button className="btn btn-primary login-btn" type="submit" id="loginBtn" onClick={this.handleLogin}>Login</button>
                             </div>
                         </form>
                     </div>
