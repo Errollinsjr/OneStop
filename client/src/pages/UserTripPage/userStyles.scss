@@ -5,29 +5,36 @@
   padding-top: 1em;
 }
 
-.userTripPageButton {
-  width: 89px;
-  height: 26px;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: bold;
-  color: black;
-  background: #f7f5f5;
-  border: 2px outset rgb(199, 195, 195);
-  box-shadow: 2px 2px 0 rgb(168, 167, 167), -2px -2px 0 rgb(226, 223, 223),
-    -2px 2px 0 rgb(243, 243, 243), 2px -2px 0 rgb(156, 155, 155);
-  border-radius: 10px 10px 10px 10px;
-  transition: 500ms ease-in-out;
-}
-
 .userTripPageButton:focus {
   outline: none;
 }
 
-.ant-table-wrapper {
+/* .ant-table-wrapper {
   clear: both;
   top: 12%;
   position: absolute;
   max-width: 300vh;
   right: 2%;
+}
+ */
+ .ant-table-wrapper {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+/* .ant-table-content, how to change header color to match others */
+/* .ant-table-head {
+  background-color: gold;
+}
+tr {
+  background-color: #ffeecc;
+} */
+
+body {
+  background-image: url("./mountainscape.jpg");
 }

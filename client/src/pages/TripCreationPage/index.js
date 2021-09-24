@@ -4,6 +4,7 @@ import "./tripCreationStyles.scss"
 function TripCreationPage() {
   return (
     <>
+    <div className="back1">
     <div className="container">
         <div className="row justify-content-center">
             <div className="col-lg-5">
@@ -38,11 +39,12 @@ function TripCreationPage() {
                         </form>
                     </div>
                     <div className="card-footer text-center py-3">
-                        <button className="large forgotpass"><a href="/Edit">Next Step<i class="fas fa-drum-steelpan    "></i></a></button>
+                        <button className="large forgotpass btn btn-primary next-btn"><a href="/Edit">Next Step<i class="fas fa-drum-steelpan    "></i></a></button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </>
   );
