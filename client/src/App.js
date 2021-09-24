@@ -16,15 +16,15 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={"/"} component={HomePage}>
+          <Route exact path={"/"}>
             <HomePage />
           </Route>
 
-          <Route exact path={"/Login"} component={LoginPage}>
+          <Route exact path={"/Login"}>
             <LoginPage />
           </Route>
 
-           <Route exact path={"/SignUp"} component={SignUpPage}>
+           <Route exact path={"/SignUp"}>
             <SignUpPage/>
           </Route> 
 
