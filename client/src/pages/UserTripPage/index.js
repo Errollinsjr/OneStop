@@ -58,9 +58,9 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <Space size="middle">
-        <button className="userTripPageButton">Delete</button>
-        <button className="userTripPageButton">Edit Trip</button>
-        <button className="userTripPageButton">Add Details</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Delete</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Edit Trip</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Add Details</button>
       </Space>
     ),
   },

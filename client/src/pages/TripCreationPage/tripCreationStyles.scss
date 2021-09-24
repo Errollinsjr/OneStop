@@ -2,6 +2,10 @@
     margin: 10px;
 }
 
+.next-btn {
+    color: white;
+}
+
 .header-color {
     background-color: rgb(231, 173, 64);
     color: white;
@@ -15,8 +19,10 @@ input:hover {
     border-color: rgb(44, 129, 179);
 }
 
-body {
-    background-image: url("madrid.jpg");
+.back1 { /*changes*/
+    background-image: url("mountainscape.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .forgotpass {
