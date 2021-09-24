@@ -21,7 +21,7 @@ function LoginPage() {
                     alert(data.message);
                 });   
             } else if (response.ok) {
-                document.location.replace('/');
+                document.location.replace('/User');
             } else {
                 document.location.replace('/404');
             }
