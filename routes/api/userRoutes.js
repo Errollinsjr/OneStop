@@ -33,4 +33,29 @@ router.post('/login', async (req, res) => {
     }
 });
 
+//create user account
+router.post('/signup', async (req, res) => {
+    try {
+        //check if user exists in DB
+        const userData = await User.findOne({
+            where: { email: req.body.email }
+        });
+        //if found, return error 409-conflict
+        if (userData) {
+            res.status(409).json({ message: 'Email address already associated with account.'})
+            return;
+        }
+        //otherwise create new user
+        await User.create({
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            password: req.body.password
+        })
+        res.status(200).json({ message: 'User account created successfully. Please login.'})
+    } catch (err) {
+        res.status(400).json({error: err })
+    };
+});
+
 module.exports = router;
