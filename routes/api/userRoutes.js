@@ -17,17 +17,17 @@ router.post('/login', async (req, res) => {
         const validPassword = await userData.checkPassword(req.body.password);
         //if password not valid send error - 409 conflict
         if (!validPassword) {
-            res.status(409).json({ message: 'Incorrect username or password, please try again.'})
+            res.status(409).json({ message: 'Incorrect email and/or password, please try again.'})
             return;
         }
         //otherwise, save user details to session
-        //     req.session.save(() => {
-        //     req.session.user_id = userData.id;
-        //     req.session.logged_in = true;
-        //     req.session.username = userData.username;
+            req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+            req.session.name = userData.name;
 
             res.status(200).json({message: 'Your are now logged in.'});
-        // });
+        });
     } catch (err) {
         res.status(400).json(err);
     }
