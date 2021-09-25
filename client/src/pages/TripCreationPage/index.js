@@ -1,7 +1,9 @@
 import React from "react";
 import "./tripCreationStyles.scss"
+import Uploader from "./Uploader.js";
 
 function TripCreationPage() {
+
   return (
     <>
     <div className="back1">
@@ -20,7 +22,7 @@ function TripCreationPage() {
                             </div>
 
                             <div className="form-floating mb-3">
-                            <label for="inputEmail">Start Dates</label>
+                            <label for="inputEmail">Start Date</label>
                                 <input className="form-control input-color" id="inputStartDate" type="date" />
                                 
                             </div>
@@ -37,9 +39,14 @@ function TripCreationPage() {
                                 
                             </div>     
                         </form>
+
+                        <label>Trip Image</label>
+                        <br/>
+                               <Uploader />
+
                     </div>
                     <div className="card-footer text-center py-3">
-                        <button className="large forgotpass btn btn-primary next-btn"><a href="/Edit">Next Step<i class="fas fa-drum-steelpan    "></i></a></button>
+                        <button className="large forgotpass"><a href="/AddDetails">Next Step<i class="fas fa-drum-steelpan"></i></a></button>
                     </div>
                 </div>
             </div>
