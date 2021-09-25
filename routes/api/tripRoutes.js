@@ -40,4 +40,31 @@ router.post('/createtrip', async(req, res) => {
     };
 });
 
+//PUT (edit) user trip
+router.put('/:trip_id', async(req, res) => {
+    try {
+        console.log(req.body)
+        console.log(req.params.id)
+        //call update method on trip model
+        const editedTrip = await Trip.update(
+            {
+                trip_name: req.body.trip_name,
+                start_date: req.body.start_date,
+                end_date: req.body.end_date,
+                tags: req.body.tags,
+                upload: req.body.upload,
+            },
+            {
+                //get trip based on id in request parameter
+                where: {
+                    id: req.params.trip_id
+                },
+            }
+        )
+        res.status(200).json(editedTrip);
+    } catch (err) {
+        res.status(400).json({ error: err })
+    }
+})
+
 module.exports = router;
