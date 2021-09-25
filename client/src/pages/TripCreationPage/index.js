@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import API from "../../utils/API"
 import "./tripCreationStyles.scss"
 import Uploader from "./Uploader.js";
 
 function TripCreationPage() {
+
+  //setting initial state
+  const [formObject, setFormObject] = useState({
+      trip_name: "",
+      start_date: "",
+      end_date: "",
+      tags: [""],
+      upload: ""
+  });
+
+  //handle updating component state when user types into input fields
+  function handleInputChange(event) {
+      const { name, value } = event.target;
+      setFormObject({...formObject, [name]: value})
+      console.log(formObject.tags)
+  };
+
+  //when form is submitted use API.saveTrip method to save trip to DB
+  function handleFormSubmit(event) {
+      event.preventDefault();
+      if (formObject.trip_name && formObject.start_date && formObject.end_date) {
+          API.saveTrip({
+            trip_name: formObject.trip_name,
+            start_date: formObject.start_date,
+            end_date: formObject.end_date,
+            tags: formObject.tags,
+            upload: formObject.upload
+          })
+          .then(() => setFormObject({
+            trip_name: "",
+            start_date: "",
+            end_date: "",
+            tags: [],
+            upload: ""
+          }))
+          .then(document.location.replace('/AddDetails'))
+          .catch(err => console.log(err));
+      }
+  }
+
 
   return (
     <>
@@ -17,36 +58,78 @@ function TripCreationPage() {
                         <form id="signupForm">
 
                             <div className="form-floating mb-3">
-                            <label for="inputEmail">Title of Trip</label>
-                                <input className="form-control input-color" id="inputName" type="name" placeholder="Name" />
+                            <label for="inputName">Title of Trip</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputName" 
+                                    type="name" 
+                                    name="trip_name" 
+                                    placeholder="Trip Name" 
+                                    value={formObject.trip_name}
+                                    onChange={handleInputChange}
+                                />
                             </div>
 
                             <div className="form-floating mb-3">
-                            <label for="inputEmail">Start Date</label>
-                                <input className="form-control input-color" id="inputStartDate" type="date" />
+                            <label for="inputStartDate">Start Date</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputStartDate" 
+                                    type="date" 
+                                    name="start_date"
+                                    placeholder="Trip Start Date"
+                                    value={formObject.start_date}
+                                    onChange={handleInputChange}
+                                    />
                                 
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label for="inputPassword">End Date</label>
-                                <input className="form-control input-color" id="inputEndDate" type="date"/>
-                                
+                                <label for="inputEndDate">End Date</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputEndDate" 
+                                    type="date"
+                                    name="end_date"
+                                    placeholder="Trip End Date"
+                                    value={formObject.end_date}
+                                    onChange={handleInputChange}
+                                />
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label for="inputPassword">Tags</label>
-                                <input className="form-control input-color" id="inputTags" type="Tags" placeholder="Up to 5 tags" />
-                                
+                                <label for="inputTags">Tags</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputTags" 
+                                    type="Tags" 
+                                    placeholder="Up to 5 tags" 
+                                    name="tags"
+                                    value={formObject.tags}
+                                    onChange={handleInputChange}
+                                />
                             </div>     
+
+                            <div>
+                                <label>Trip Image</label>
+                                <br/>
+                                <Uploader 
+                                    name="upload"
+                                    value={formObject.upload}
+                                    onChange={handleInputChange}/>
+                            </div>
                         </form>
 
-                        <label>Trip Image</label>
-                        <br/>
-                               <Uploader />
+
 
                     </div>
                     <div className="card-footer text-center py-3">
-                        <button className="large forgotpass"><a href="/AddDetails">Next Step<i class="fas fa-drum-steelpan"></i></a></button>
+                        <button 
+                            className="large fas fa-drum-steelpan"
+                            disabled={!(formObject.trip_name && formObject.start_date && formObject.end_date)}
+                            onClick={handleFormSubmit}> Next Step
+                            {/* <a href="/AddDetails">Next Step<i className="fas fa-drum-steelpan"></i></a> */}
+                        </button>
                     </div>
                 </div>
             </div>
