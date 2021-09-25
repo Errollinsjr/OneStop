@@ -24,8 +24,8 @@ function App() {
             <LoginPage />
           </Route>
 
-           <Route exact path={"/SignUp"} component={SignUpPage}>
-            <SignUpPage />
+           <Route exact path={"/SignUp"}>
+            <SignUpPage/>
           </Route> 
 
           <Route exact path="/User">
