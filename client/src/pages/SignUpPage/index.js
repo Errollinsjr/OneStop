@@ -2,6 +2,54 @@ import React from "react";
 import "./signUpStyles.scss"
 
 function SignUpPage() {
+  async function handleSignup(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const name = document.querySelector('#inputName').value.trim();
+    const email = document.querySelector('#inputEmail').value.trim();
+    const phone = document.querySelector('#inputPhone').value.trim();
+    const password = document.querySelector('#inputPassword').value.trim();
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const phonePattern = /^[0-9]$/;
+
+
+    
+
+    if (!name) {
+        alert('Name is required.');
+        return;
+    } else if (!emailPattern.test(email)) {
+        alert('Please provide a valid email address for registration.');
+        return;
+    } else if (password.length < 6) {
+        alert('Password length must be greater than or equal to 6.');
+        return;
+    } else if (!phonePattern.test(phone)) {
+        alert('Please provide a valid North American phone number for registration.');
+        return;
+    }
+        else {
+        const response = await fetch('/api/user/signup', {
+            method: 'POST',
+            body: JSON.stringify({name, email, phone, password}),
+            headers: { 'Content-Type': 'application/json' },
+            });
+            if (response.status === 409) {
+                response.json().then(data => {
+                    alert("Welcome to OneStop!");
+                });
+            } else if (response.ok) {
+                document.location.replace('/login');
+                response.json().then(data => {
+                    alert(data.message);
+                });
+            } else {
+                alert('test');
+            };
+        } 
+        
+    }
   return (
     <>
     <div className="container">
@@ -24,6 +72,11 @@ function SignUpPage() {
                                 
                             </div>
                             <div className="form-floating mb-3">
+                            <label for="inputPhone">Phone number</label>
+                                <input className="form-control input-color" id="inputPhone" type="phoneNumber" placeholder="Enter 9 digit phone number" />
+                                
+                            </div>
+                            <div className="form-floating mb-3">
                                 <label for="inputPassword">Password</label>
                                 <input className="form-control input-color" id="inputPassword" type="password" placeholder="Password" />
                                 
@@ -34,7 +87,7 @@ function SignUpPage() {
                             </div>
                             <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
                                 <a className="small forgotpass" href="/password">Forgot Password?</a>
-                                <button className="login-btn btn btn-primary" type="submit" id="loginBtn">Sign Up</button>
+                                <button className="login-btn btn btn-primary" type="submit" id="loginBtn" onClick={handleSignup}>Sign Up</button>
                             </div>
                         </form>
                     </div>
