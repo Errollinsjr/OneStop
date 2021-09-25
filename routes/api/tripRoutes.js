@@ -67,4 +67,22 @@ router.put('/:trip_id', async(req, res) => {
     }
 })
 
+//DELETE user trip
+router.delete('/:trip_id', async (req, res) => {
+    try {
+        //look for trip id given in request param
+        const deletedTrip = await Trip.destroy({
+            where: {
+                id: req.params.trip_id,
+            },
+        });
+
+        res.status(200).json(deletedTrip)
+    } catch (err) {
+        res.status(400).json({ error: err })
+    }
+
+
+})
+
 module.exports = router;
