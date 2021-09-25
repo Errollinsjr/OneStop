@@ -9,27 +9,21 @@
   outline: none;
 }
 
-/* .ant-table-wrapper {
-  clear: both;
+.ant-table-wrapper {
   top: 12%;
   position: absolute;
-  max-width: 300vh;
-  right: 2%;
-}
- */
- .ant-table-wrapper {
-   top: 12%;
-   position: absolute;
-   right: 3%;
-   left: 3%;
-  // margin: 0;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // -ms-transform: translate(-50%, -50%);
-  // transform: translate(-50%, -50%);
+  right: 3%;
+  left: 3%;
 }
 
+//  .ant-table-wrapper {
+//   margin: 0;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+// }
 
 /* .ant-table-content, how to change header color to match others */
 /* .ant-table-head {
