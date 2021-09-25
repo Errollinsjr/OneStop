@@ -124,12 +124,14 @@ function TripCreationPage() {
 
                     </div>
                     <div className="card-footer text-center py-3">
+                    <Link to="/AddDetails">   
                         <button 
                             className="large fas fa-drum-steelpan"
                             disabled={!(formObject.trip_name && formObject.start_date && formObject.end_date)}
                             onClick={handleFormSubmit}> Next Step
                             {/* <a href="/AddDetails">Next Step<i className="fas fa-drum-steelpan"></i></a> */}
                         </button>
+                    </Link>    
                     </div>
                 </div>
             </div>
