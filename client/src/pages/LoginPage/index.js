@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./loginStyles.scss"
 
 
@@ -56,13 +57,19 @@ function LoginPage() {
                             </div>
                             <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
                                 <a className="small" href="/password">Forgot Password?</a>
+                                <Link to="/User"> 
                                 <button className="btn btn-primary login-btn" type="submit" id="loginBtn" onClick= {handleLogin}>Login</button>
+                                </Link>
                             </div>
                         </form>
                     </div>
                     <div className="card-footer text-center py-3">
-                        <div className="small"><a href="/register">Need an account? Sign up!</a></div>
+                        <Link to="/SignUp">
+                        <div className="small"><a href="/SignUp">Need an account? Sign up!</a></div>
+                        </Link>
+                        <Link to="/"> 
                         <div className="small"><a href="/">Home</a></div>
+                        </Link>
                     </div>
                 </div>
             </div>

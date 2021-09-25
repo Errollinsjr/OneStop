@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import { Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
@@ -81,9 +82,9 @@ const columns = [
     key: 'action',
     render: () => (
       <Space size="middle">
-        <button className="userTripPageButton btn btn-primary btn-sm" >Delete</button>
-        <button className="userTripPageButton btn btn-primary btn-sm" >Edit Trip</button>
-        <button className="userTripPageButton btn btn-primary btn-sm" >Add Details</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Delete</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Edit Trip</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Add Details</button>
       </Space>
     ),
   },

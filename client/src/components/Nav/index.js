@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./navStyle.scss";
 
 function Nav() {
@@ -7,8 +8,10 @@ function Nav() {
       <header id="nav-wrapper">
         <nav id="nav">
           <div className="nav left">
+          <Link to="/"> 
             <span className="gradient skew"><h1 className="logo un-skew"><a href="/">OneStop</a></h1></span>
             <button id="menu" className="btn-nav"><span className="fas fa-bars"></span></button>
+          </Link>  
           </div>
           <div className="nav right">
           <Link to="/"> 

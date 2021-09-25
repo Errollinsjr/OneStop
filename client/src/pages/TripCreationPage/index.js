@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import API from "../../utils/API"
 import "./tripCreationStyles.scss"
 import Uploader from "./Uploader.js";

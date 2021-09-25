@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ReservationButton from "./ReservationButton";
 import "./addDetailsPageStyles.scss"
 
