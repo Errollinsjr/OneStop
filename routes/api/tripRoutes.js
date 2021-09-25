@@ -22,6 +22,19 @@ router.get('/usertrips', withAuth, async(req, res) => {
     }
 });
 
+//GET user trip by trip_id
+router.get('/:trip_id', async(req, res) => {
+    try {
+        //get trip by id
+        const tripDetails = await Trip.findOne({
+            where: {id: req.params.trip_id},
+        });
+        res.status(200).json(tripDetails);
+    } catch (err) {
+        res.status(200).json(err);
+    }
+});
+
 //POST create user trip
 router.post('/createtrip', async(req, res) => {
     try {
