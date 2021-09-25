@@ -16,16 +16,21 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={"/"} component={HomePage}>
+          <Route exact path={"/"}>
             <HomePage />
           </Route>
 
-          <Route exact path={"/Login"} component={LoginPage}>
+          <Route exact path={"/Login"}>
             <LoginPage />
           </Route>
 
+<<<<<<< HEAD
+           <Route exact path={"/SignUp"}>
+            <SignUpPage/>
+=======
            <Route exact path={"/SignUp"} component={SignUpPage}>
             <SignUpPage />
+>>>>>>> 69758419349d50fda674e2796ba23bb5b58f8695
           </Route> 
 
           <Route exact path="/User">

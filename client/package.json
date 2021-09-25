@@ -8,7 +8,11 @@
     "@popperjs/core": "^2.10.1",
     "antd": "^4.16.13",
     "axios": "^0.18.0",
+<<<<<<< HEAD
+    "moment": "^2.29.1",
+=======
     "bootstrap": "^5.1.1",
+>>>>>>> 69758419349d50fda674e2796ba23bb5b58f8695
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
