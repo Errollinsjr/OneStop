@@ -1,27 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API"
-import EditTripPage from "../EditTripPage";
 import "./editTripStyle.scss"
 import Uploader from "./Uploader.js";
+import moment from "moment";
 
 function EditTripPage() {
 
   //setting initial state
-  const [trip, setTrip] = useState();
   const [formObject, setFormObject] = useState({
-      trip_name: trip.trip_name,
-      start_date: trip.start_date,
-      end_date: trip.end_date,
-      tags: trip.tags,
-      upload: trip.upload
+      trip_name: "",
+      start_date:"",
+      end_date:"",
+      tags:[],
+      upload: ""
   });
 
   //when this page mounts, grab trip id from props.match.params.id
-  const { id } = useParams();
+  const {id} = useParams();
   useEffect(() => {
       API.getTrip(id)
-        .then(res => setTrip(res.data))
+        .then(res => {
+            setFormObject({
+                trip_name: res.data.trip_name,
+                start_date: moment(res.data.start_date).format("yyyy-MM-DD"),
+                end_date: moment(res.data.end_date).format("yyyy-MM-DD"),
+                tags: res.data.tags.join(', '),
+                upload: res.data.upload
+            })
+        })
         .catch(err => console.log(err));
   }, [])
 
@@ -29,28 +36,21 @@ function EditTripPage() {
   function handleInputChange(event) {
       const { name, value } = event.target;
       setFormObject({...formObject, [name]: value})
-      console.log(formObject.tags)
+      console.log(formObject);
   };
 
   //when form is submitted use API.saveTrip method to save trip to DB
   function handleFormSubmit(event) {
       event.preventDefault();
       if (formObject.trip_name && formObject.start_date && formObject.end_date) {
-          API.saveTrip({
+          API.editTrip(id, {
             trip_name: formObject.trip_name,
             start_date: formObject.start_date,
             end_date: formObject.end_date,
-            tags: formObject.tags,
+            tags: (!formObject.tags.length) ? ["None"] : formObject.tags.split(','),
             upload: formObject.upload
           })
-          .then(() => setFormObject({
-            trip_name: "",
-            start_date: "",
-            end_date: "",
-            tags: [],
-            upload: ""
-          }))
-          .then(document.location.replace('/User'))
+          .then(window.location = '/User')
           .catch(err => console.log(err));
       }
   }
@@ -69,54 +69,54 @@ function EditTripPage() {
                         <form id="signupForm">
 
                             <div className="form-floating mb-3">
-                            <label for="inputName">Title of Trip</label>
+                            <label htmlFor="inputName">Title of Trip</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputName" 
                                     type="name" 
                                     name="trip_name" 
                                     placeholder="Trip Name" 
-                                    value={formObject.trip_name}
+                                    defaultValue={formObject.trip_name}
                                     onChange={handleInputChange}
                                 />
                             </div>
 
                             <div className="form-floating mb-3">
-                            <label for="inputStartDate">Start Date</label>
+                            <label htmlFor="inputStartDate">Start Date</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputStartDate" 
                                     type="date" 
                                     name="start_date"
                                     placeholder="Trip Start Date"
-                                    value={formObject.start_date}
+                                    defaultValue={formObject.start_date}
                                     onChange={handleInputChange}
                                     />
                                 
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label for="inputEndDate">End Date</label>
+                                <label htmlFor="inputEndDate">End Date</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputEndDate" 
                                     type="date"
                                     name="end_date"
                                     placeholder="Trip End Date"
-                                    value={formObject.end_date}
+                                    defaultValue={formObject.end_date}
                                     onChange={handleInputChange}
                                 />
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label for="inputTags">Tags</label>
+                                <label htmlFor="inputTags">Tags</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputTags" 
                                     type="Tags" 
                                     placeholder="Up to 5 tags" 
                                     name="tags"
-                                    value={formObject.tags}
+                                    defaultValue={formObject.tags}
                                     onChange={handleInputChange}
                                 />
                             </div>     
@@ -126,7 +126,7 @@ function EditTripPage() {
                                 <br/>
                                 <Uploader 
                                     name="upload"
-                                    value={formObject.upload}
+                                    defaultValue={formObject.upload}
                                     onChange={handleInputChange}/>
                             </div>
                         </form>
@@ -135,14 +135,11 @@ function EditTripPage() {
 
                     </div>
                     <div className="card-footer text-center py-3">
-                    <Link to="/AddDetails">   
                         <button 
-                            className="large fas fa-drum-steelpan"
+                            className="btn btn-primary btn-md"
                             disabled={!(formObject.trip_name && formObject.start_date && formObject.end_date)}
                             onClick={handleFormSubmit}> Save Changes
-                            {/* <a href="/AddDetails">Next Step<i className="fas fa-drum-steelpan"></i></a> */}
                         </button>
-                    </Link>    
                     </div>
                 </div>
             </div>

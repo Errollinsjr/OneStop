@@ -9,7 +9,7 @@ import UserTripPage from "./pages/UserTripPage";
 import SignUpPage from "./pages/SignUpPage";
 import TripCreationPage from "./pages/TripCreationPage";
 import AddDetailsPage from "./pages/AddDetailsPage";
-import EditTripPage from "./pages/TripCreationPage";
+import EditTripPage from "./pages/EditTripPage";
 
 function App() {
   return (

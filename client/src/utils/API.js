@@ -13,6 +13,10 @@ export default {
   deleteTrip: function(id) {
     return axios.delete("/api/trip/delete/" + id);
   },
+  //Edit trip by id
+  editTrip: function(id, tripData) {
+    return axios.put("/api/trip/edit/" + id, tripData)
+  },
   // Saves a trip to the database
   saveTrip: function(tripData) {
     return axios.post("/api/trip/createtrip", tripData);
