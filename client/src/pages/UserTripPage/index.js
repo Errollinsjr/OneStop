@@ -31,7 +31,7 @@ function UserTripPage() {
   function deleteTrip(id) {
     API.deleteTrip(id)
       .then(res => loadTrips())
-      .catch(err => console.log);
+      .catch(err => console.log(err));
   }
 
   const columns = [
@@ -112,7 +112,7 @@ function UserTripPage() {
 
   return (
     <>
-    <Table dataSource={trips} columns={columns}/>,
+    <Table dataSource={trips} columns={columns} rowKey="id"/>,
     </>
   );
 }
