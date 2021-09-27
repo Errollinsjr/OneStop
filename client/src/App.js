@@ -9,6 +9,7 @@ import UserTripPage from "./pages/UserTripPage";
 import SignUpPage from "./pages/SignUpPage";
 import TripCreationPage from "./pages/TripCreationPage";
 import AddDetailsPage from "./pages/AddDetailsPage";
+import EditTripPage from "./pages/TripCreationPage";
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
 
           <Route exact path={"/AddDetails"}>
             <AddDetailsPage />
+          </Route>
+
+          <Route exact path={"/edit_trip/:id"}>
+            <EditTripPage />
           </Route>
 
           {/* <Route>

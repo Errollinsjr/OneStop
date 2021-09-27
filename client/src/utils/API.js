@@ -7,7 +7,7 @@ export default {
   },
   // Gets the trip with the given id
   getTrip: function(id) {
-    return axios.get("/api/trips/" + id);
+    return axios.get("/api/trip/" + id);
   },
   // Deletes the trip with the given id
   deleteTrip: function(id) {

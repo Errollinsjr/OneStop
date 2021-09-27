@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
@@ -33,7 +33,6 @@ function UserTripPage() {
       .then(res => loadTrips())
       .catch(err => console.log);
   }
-
 
   const columns = [
     {
@@ -96,9 +95,10 @@ function UserTripPage() {
             Delete 
           </button>
           <button 
-            className="userTripPageButton btn btn-primary btn-sm" 
-            data-id={datasource.id}>
-            Edit Trip
+            className="userTripPageButton btn btn-primary btn-sm" >
+              <Link to={"/edit_trip/" + datasource.id}>
+                Edit Trip
+              </Link>
           </button>
           <button 
             className="userTripPageButton btn btn-primary btn-sm" 

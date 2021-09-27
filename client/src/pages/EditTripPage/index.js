@@ -1,25 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API"
-import "./tripCreationStyles.scss"
+import EditTripPage from "../EditTripPage";
+import "./editTripStyle.scss"
 import Uploader from "./Uploader.js";
 
-function TripCreationPage() {
+function EditTripPage() {
 
   //setting initial state
+  const [trip, setTrip] = useState();
   const [formObject, setFormObject] = useState({
-      trip_name: "",
-      start_date: "",
-      end_date: "",
-      tags: [],
-      upload: ""
+      trip_name: trip.trip_name,
+      start_date: trip.start_date,
+      end_date: trip.end_date,
+      tags: trip.tags,
+      upload: trip.upload
   });
+
+  //when this page mounts, grab trip id from props.match.params.id
+  const { id } = useParams();
+  useEffect(() => {
+      API.getTrip(id)
+        .then(res => setTrip(res.data))
+        .catch(err => console.log(err));
+  }, [])
 
   //handle updating component state when user types into input fields
   function handleInputChange(event) {
       const { name, value } = event.target;
       setFormObject({...formObject, [name]: value})
-      console.log(formObject.tags);
-      console.log(formObject.tags.length)
+      console.log(formObject.tags)
   };
 
   //when form is submitted use API.saveTrip method to save trip to DB
@@ -30,7 +40,7 @@ function TripCreationPage() {
             trip_name: formObject.trip_name,
             start_date: formObject.start_date,
             end_date: formObject.end_date,
-            tags: (!formObject.tags.length) ? ["None"] : formObject.tags.split(','),
+            tags: formObject.tags,
             upload: formObject.upload
           })
           .then(() => setFormObject({
@@ -40,10 +50,11 @@ function TripCreationPage() {
             tags: [],
             upload: ""
           }))
-          .then(window.location = "/AddDetails")
+          .then(document.location.replace('/User'))
           .catch(err => console.log(err));
       }
   }
+
 
   return (
     <>
@@ -52,13 +63,13 @@ function TripCreationPage() {
         <div className="row justify-content-center">
             <div className="col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-5">
-                    <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Create Your Trip</h3></div>
+                    <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Edit Trip</h3></div>
                     <div className="card-body">
 
                         <form id="signupForm">
 
                             <div className="form-floating mb-3">
-                            <label htmlFor="inputName">Title of Trip</label>
+                            <label for="inputName">Title of Trip</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputName" 
@@ -71,7 +82,7 @@ function TripCreationPage() {
                             </div>
 
                             <div className="form-floating mb-3">
-                            <label htmlFor="inputStartDate">Start Date</label>
+                            <label for="inputStartDate">Start Date</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputStartDate" 
@@ -85,7 +96,7 @@ function TripCreationPage() {
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label htmlFor="inputEndDate">End Date</label>
+                                <label for="inputEndDate">End Date</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputEndDate" 
@@ -98,7 +109,7 @@ function TripCreationPage() {
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label htmlFor="inputTags">Tags</label>
+                                <label for="inputTags">Tags</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputTags" 
@@ -124,11 +135,14 @@ function TripCreationPage() {
 
                     </div>
                     <div className="card-footer text-center py-3">
+                    <Link to="/AddDetails">   
                         <button 
-                            className="btn btn-primary btn-md"
+                            className="large fas fa-drum-steelpan"
                             disabled={!(formObject.trip_name && formObject.start_date && formObject.end_date)}
-                            onClick={handleFormSubmit}> Next
+                            onClick={handleFormSubmit}> Save Changes
+                            {/* <a href="/AddDetails">Next Step<i className="fas fa-drum-steelpan"></i></a> */}
                         </button>
+                    </Link>    
                     </div>
                 </div>
             </div>
@@ -139,4 +153,4 @@ function TripCreationPage() {
   );
 }
 
-export default TripCreationPage;
+export default EditTripPage;
