@@ -24,19 +24,19 @@ function App() {
             <LoginPage />
           </Route>
 
-           <Route exact path={"/SignUp"} component={SignUpPage}>
-            <SignUpPage />
+           <Route exact path={"/SignUp"}>
+            <SignUpPage/>
           </Route> 
 
-          <Route exact path="/User">
+          <Route exact path={"/User"}>
             <UserTripPage />
           </Route>
 
-          <Route exact path="/Create">
+          <Route exact path={"/Create"}>
             <TripCreationPage />
           </Route>
 
-          <Route exact path="/AddDetails">
+          <Route exact path={"/AddDetails"}>
             <AddDetailsPage />
           </Route>
 

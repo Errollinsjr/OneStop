@@ -14,7 +14,7 @@ export default {
     return axios.delete("/api/trips/" + id);
   },
   // Saves a trip to the database
-  savetrip: function(tripData) {
-    return axios.post("/api/trips", tripData);
+  saveTrip: function(tripData) {
+    return axios.post("/api/trip/createtrip", tripData);
   }
 };

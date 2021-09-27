@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import { Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
@@ -44,21 +45,19 @@ const columns = [
         },
     ],
     render: text => <span>{text}</span>,
-    width: '40%',
+    width: '30%',
   },
   {
     title: 'Start Date',
     dataIndex: 'start_date',
     key: 'start_date',
     render: (text) => moment(text).format("MM-DD-YYYY"),
-    width: '10%'
   },
   {
     title: 'End Date',
     dataIndex: 'end_date',
     key: 'end_date',
     render: (text) => moment(text).format("MM-DD-YYYY"),
-    width: '10%'
   },
   {
     title: 'Tags',
@@ -68,7 +67,7 @@ const columns = [
       <>
         {tags.map(tag => {
             let color = tag.length > 5 ? 'geekblue' : 'green';
-            let visible = tag==='None' ? false : true;
+            let visible = (tag==='None' || tag==="") ? false : true;
             return (
               <Tag color={color} key={tag} visible={visible}>
                 {tag.toUpperCase()}
@@ -83,9 +82,9 @@ const columns = [
     key: 'action',
     render: () => (
       <Space size="middle">
-        <button className="userTripPageButton btn btn-primary btn-sm" >Delete</button>
-        <button className="userTripPageButton btn btn-primary btn-sm" >Edit Trip</button>
-        <button className="userTripPageButton btn btn-primary btn-sm" >Add Details</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Delete</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Edit Trip</button>
+        <button className="userTripPageButton btn btn-primary btn-sm">Add Details</button>
       </Space>
     ),
   },
