@@ -123,7 +123,7 @@ h1.logo #{$a-tags} {
   color: $color-primary;
 }
 
-a:hover {
+.a-tag:hover {
   text-decoration: underline;
 }
 
@@ -190,7 +190,7 @@ a:hover {
     }
   }
 
-  a:hover.nav-link:not(.active) {
+  .a-tag:hover.nav-link:not(.active) {
     color: $color-neutral-dk;
     background: $color-neutral-med;
     background: linear-gradient(45deg, $color-neutral-lt, #ddd);
