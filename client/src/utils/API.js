@@ -11,7 +11,7 @@ export default {
   },
   // Deletes the trip with the given id
   deleteTrip: function(id) {
-    return axios.delete("/api/trips/" + id);
+    return axios.delete("/api/trip/delete/" + id);
   },
   // Saves a trip to the database
   saveTrip: function(tripData) {

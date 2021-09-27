@@ -54,7 +54,7 @@ router.post('/createtrip', async(req, res) => {
 });
 
 //PUT (edit) user trip
-router.put('/:trip_id', async(req, res) => {
+router.put('/edit/:trip_id', async(req, res) => {
     try {
         console.log(req.body)
         console.log(req.params.id)
@@ -81,7 +81,7 @@ router.put('/:trip_id', async(req, res) => {
 })
 
 //DELETE user trip
-router.delete('/:trip_id', async (req, res) => {
+router.delete('/delete/:trip_id', async (req, res) => {
     try {
         //look for trip id given in request param
         const deletedTrip = await Trip.destroy({
