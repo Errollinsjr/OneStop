@@ -33,14 +33,7 @@ function TripCreationPage() {
             tags: (!formObject.tags.length) ? ["None"] : formObject.tags.split(','),
             upload: formObject.upload
           })
-          .then(() => setFormObject({
-            trip_name: "",
-            start_date: "",
-            end_date: "",
-            tags: [],
-            upload: ""
-          }))
-          .then(window.location = "/AddDetails")
+          .then(res => window.location="/AddDetails/" + res.data.data.id)
           .catch(err => console.log(err));
       }
   }

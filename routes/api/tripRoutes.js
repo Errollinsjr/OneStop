@@ -39,7 +39,7 @@ router.get('/:trip_id', async(req, res) => {
 router.post('/createtrip', async(req, res) => {
     try {
         //create new trip
-        await Trip.create({
+        const newTrip = await Trip.create({
             trip_name: req.body.trip_name,
             start_date: req.body.start_date,
             end_date: req.body.end_date,
@@ -47,7 +47,8 @@ router.post('/createtrip', async(req, res) => {
             upload: req.body.upload,
             user_id: req.session.user_id
         })
-        res.status(200).json({ message: 'Trip created.'})
+        console.log(newTrip);
+        res.status(200).json({ message: 'Trip created.', data: newTrip })
     } catch (err) {
         res.status(400).json({ error: err })
     };
