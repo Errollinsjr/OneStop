@@ -30,7 +30,7 @@ function EditTripPage() {
             })
         })
         .catch(err => console.log(err));
-  }, [])
+  }, [id])
 
   //handle updating component state when user types into input fields
   function handleInputChange(event) {
