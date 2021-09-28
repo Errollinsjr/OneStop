@@ -101,9 +101,10 @@ function UserTripPage() {
               </Link>
           </button>
           <button 
-            className="userTripPageButton btn btn-primary btn-sm" 
-            data-id={datasource.id}>
-            Add Details
+            className="userTripPageButton btn btn-primary btn-sm" >
+              <Link to={"/AddDetails/" + datasource.id}>
+                Reservations
+              </Link>
           </button>
         </Space>
       ),

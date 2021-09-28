@@ -37,7 +37,7 @@ function App() {
             <TripCreationPage />
           </Route>
 
-          <Route exact path={"/AddDetails"}>
+          <Route exact path={"/AddDetails/:id"}>
             <AddDetailsPage />
           </Route>
 
