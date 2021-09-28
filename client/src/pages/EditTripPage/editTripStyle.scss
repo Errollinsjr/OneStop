@@ -1,0 +1,41 @@
+@import "~antd/dist/antd.css";
+
+.login-btn {
+    margin: 10px;
+}
+
+.next-btn {
+    color: white;
+}
+
+.header-color {
+    background-color: rgb(231, 173, 64);
+    color: white;
+    
+}
+input:hover {
+    border-color: gold;
+}
+
+.input-color {
+    border-color: rgb(44, 129, 179);
+}
+
+.back1 { /*changes*/
+    background-image: url("mountainscape.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.forgotpass {
+    color: black;
+}
+
+.container {
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

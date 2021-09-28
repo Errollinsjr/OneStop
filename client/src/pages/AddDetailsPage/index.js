@@ -138,9 +138,13 @@ function AddDetailsPage() {
                                                                            
                     </div>
                     <div className="card-footer text-center py-3">
-                    <Link to="/User"> 
-                        <button className="btn btn-primary btn-md"><a href="/User" id="addDetailsSubBtn">Finalize</a></button>
-                    </Link>
+                        <button className="btn btn-primary btn-md">
+                            <div id="addDetailsSubBtn">
+                                <Link to="/User"> 
+                                    Finalize
+                                </Link>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>

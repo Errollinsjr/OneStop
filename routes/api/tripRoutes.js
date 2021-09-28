@@ -39,7 +39,7 @@ router.get('/:trip_id', async(req, res) => {
 router.post('/createtrip', async(req, res) => {
     try {
         //create new trip
-        await Trip.create({
+        const newTrip = await Trip.create({
             trip_name: req.body.trip_name,
             start_date: req.body.start_date,
             end_date: req.body.end_date,
@@ -47,14 +47,15 @@ router.post('/createtrip', async(req, res) => {
             upload: req.body.upload,
             user_id: req.session.user_id
         })
-        res.status(200).json({ message: 'Trip created.'})
+        console.log(newTrip);
+        res.status(200).json({ message: 'Trip created.', data: newTrip })
     } catch (err) {
         res.status(400).json({ error: err })
     };
 });
 
 //PUT (edit) user trip
-router.put('/:trip_id', async(req, res) => {
+router.put('/edit/:trip_id', async(req, res) => {
     try {
         console.log(req.body)
         console.log(req.params.id)
@@ -81,7 +82,7 @@ router.put('/:trip_id', async(req, res) => {
 })
 
 //DELETE user trip
-router.delete('/:trip_id', async (req, res) => {
+router.delete('/delete/:trip_id', async (req, res) => {
     try {
         //look for trip id given in request param
         const deletedTrip = await Trip.destroy({

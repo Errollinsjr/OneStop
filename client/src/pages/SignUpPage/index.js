@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./signUpStyles.scss"
 
 function SignUpPage() {
@@ -40,7 +41,7 @@ function SignUpPage() {
                     alert("Welcome to OneStop!");
                 });
             } else if (response.ok) {
-                document.location.replace('/login');
+                window.location = '/login';
                 response.json().then(data => {
                     alert(data.message);
                 });
@@ -62,38 +63,46 @@ function SignUpPage() {
                         <form id="signupForm">
 
                             <div className="form-floating mb-3">
-                            <label for="inputEmail">Name</label>
+                            <label htmlFor="inputEmail">Name</label>
                                 <input className="form-control input-color" id="inputName" type="name" placeholder="Name" />
                             </div>
 
                             <div className="form-floating mb-3">
-                            <label for="inputEmail">Email address</label>
+                            <label htmlFor="inputEmail">Email address</label>
                                 <input className="form-control input-color" id="inputEmail" type="email" placeholder="name@example.com" />
                                 
                             </div>
                             <div className="form-floating mb-3">
-                            <label for="inputPhone">Phone number</label>
+                            <label htmlFor="inputPhone">Phone number</label>
                                 <input className="form-control input-color" id="inputPhone" type="phoneNumber" placeholder="Enter 9 digit phone number" />
                                 
                             </div>
                             <div className="form-floating mb-3">
-                                <label for="inputPassword">Password</label>
+                                <label htmlFor="inputPassword">Password</label>
                                 <input className="form-control input-color" id="inputPassword" type="password" placeholder="Password" />
                                 
                             </div>
                             <div className="form-check mb-3">
                                 <input className="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                <label className="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                <label className="form-check-label" htmlFor="inputRememberPassword">Remember Password</label>
                             </div>
                             <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
-                                <a className="small forgotpass" href="/password">Forgot Password?</a>
+                                <Link className="small forgotpass" to="/password">Forgot Password?</Link>
                                 <button className="login-btn btn btn-primary" type="submit" id="loginBtn" onClick={handleSignup}>Sign Up</button>
                             </div>
                         </form>
                     </div>
                     <div className="card-footer text-center py-3">
-                        <div className="small forgotpass"><a href="/register">Need an account? Sign up!</a></div>
-                        <div className="small forgotpass"><a href="/">Home</a></div>
+                        <div className="small forgotpass">
+                            <Link to="/register">
+                                Need an account? Sign up!
+                            </Link>
+                        </div>
+                        <div className="small forgotpass">
+                            <Link to="/">
+                                Home
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
