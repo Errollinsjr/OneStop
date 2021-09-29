@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import "./loginStyles.scss"
+import "./loginStyles.scss";
+import { UserContext } from "../../UserContext";
 
 
 function LoginPage() {
+    const { user, setUser } = useContext(UserContext);
     
     async function handleLogin(e) {
     e.preventDefault();
@@ -20,9 +22,15 @@ function LoginPage() {
             if (response.status === 409) {
                 response.json().then(data => {
                     alert(data.message);
+
                 });   
             } else if (response.ok) {
-                window.location ='/User' ;
+                response.json().then(data => {
+                    console.log(data);
+                    setUser(data.Logged_in);
+                    window.location ='/User' ;
+                })
+
             } else {
                 window.location = '/404';
             }
