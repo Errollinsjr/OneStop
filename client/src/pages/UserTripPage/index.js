@@ -57,13 +57,13 @@ function UserTripPage() {
       title: 'Start Date',
       dataIndex: 'start_date',
       key: 'start_date',
-      render: (text) => moment(text).format("MM-DD-YYYY"),
+      render: (text) => moment.utc(text).format("MM-DD-YYYY"),
     },
     {
       title: 'End Date',
       dataIndex: 'end_date',
       key: 'end_date',
-      render: (text) => moment(text).format("MM-DD-YYYY"),
+      render: (text) => moment.utc(text).format("MM-DD-YYYY"),
     },
     {
       title: 'Tags',

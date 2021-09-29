@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import { useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import "./editTripStyle.scss"
 import Uploader from "./Uploader.js";
 import moment from "moment";
+import { UserContext } from "../../UserContext";
 
 function EditTripPage() {
-    const history = useHistory();
+
+const { user, setUser } = useContext(UserContext);
+const history = useHistory();
+
 
   //setting initial state
   const [formObject, setFormObject] = useState({
@@ -24,8 +28,8 @@ function EditTripPage() {
         .then(res => {
             setFormObject({
                 trip_name: res.data.trip_name,
-                start_date: moment(res.data.start_date).format("yyyy-MM-DD"),
-                end_date: moment(res.data.end_date).format("yyyy-MM-DD"),
+                start_date: moment.utc(res.data.start_date).format("yyyy-MM-DD"),
+                end_date: moment.utc(res.data.end_date).format("yyyy-MM-DD"),
                 tags: res.data.tags.join(', '),
                 upload: res.data.upload
             })
