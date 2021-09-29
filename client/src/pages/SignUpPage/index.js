@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./signUpStyles.scss"
 
 function SignUpPage() {
+    const history = useHistory();
+
   async function handleSignup(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -12,10 +14,7 @@ function SignUpPage() {
     const phone = document.querySelector('#inputPhone').value.trim();
     const password = document.querySelector('#inputPassword').value.trim();
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    const phonePattern = /^[0-9]$/;
-
-
-    
+    const phonePattern = /^\d{10}$/;
 
     if (!name) {
         alert('Name is required.');
@@ -27,24 +26,25 @@ function SignUpPage() {
         alert('Password length must be greater than or equal to 6.');
         return;
     } else if (!phonePattern.test(phone)) {
-        alert('Please provide a valid North American phone number for registration.');
+        alert('Please provide a 10-digit phone number for registration.');
         return;
     }
         else {
-        const response = await fetch('/api/user/signup', {
-            method: 'POST',
-            body: JSON.stringify({name, email, phone, password}),
-            headers: { 'Content-Type': 'application/json' },
+            const response = await fetch('/api/user/signup', {
+                method: 'POST',
+                body: JSON.stringify({name, email, phone, password}),
+                headers: { 'Content-Type': 'application/json' },
             });
+            console.log(response);
             if (response.status === 409) {
-                response.json().then(data => {
-                    alert("Welcome to OneStop!");
-                });
-            } else if (response.ok) {
-                window.location = '/login';
                 response.json().then(data => {
                     alert(data.message);
                 });
+            } else if (response.status === 200) {
+                response.json().then(data => {
+                    alert(data.message);
+                });
+                history.push("/Login");
             } else {
                 alert('test');
             };
@@ -94,8 +94,8 @@ function SignUpPage() {
                     </div>
                     <div className="card-footer text-center py-3">
                         <div className="small forgotpass">
-                            <Link to="/register">
-                                Need an account? Sign up!
+                            <Link to="/Login">
+                                Have an account? Login!
                             </Link>
                         </div>
                         <div className="small forgotpass">

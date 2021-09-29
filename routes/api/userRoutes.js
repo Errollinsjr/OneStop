@@ -45,6 +45,13 @@ router.post('/signup', async (req, res) => {
             res.status(409).json({ message: 'Email address already associated with account.'})
             return;
         }
+        const phoneNumber = await User.findOne({
+            where: {phone: req.body.phone }
+        })
+        //if found, return error 409-conflict
+        if(phoneNumber) {
+            res.status(409).json({ message: 'Phone number already associated with account. Please provide a different number.'})
+        }
         //otherwise create new user
         await User.create({
             name: req.body.name,
