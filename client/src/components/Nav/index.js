@@ -6,7 +6,7 @@ import { UserContext } from "../../UserContext";
 
 function Nav() {
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
+  console.log("nav component line 9:" + user);
 
   function handleLogout(event) {
     event.preventDefault();

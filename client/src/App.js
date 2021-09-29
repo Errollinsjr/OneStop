@@ -13,8 +13,11 @@ import EditTripPage from "./pages/EditTripPage";
 import { UserContext } from "./UserContext";
 
 function App() {
-  const [user, setUser] = useState(false);
+  console.log("app line 16:" + user);
+  const [user, setUser] = useState(null);
+  console.log("app line 18:" + user);
   const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
+  console.log("provider value, app line 20:" + providerValue);
   return (
     <Router>
       <div>

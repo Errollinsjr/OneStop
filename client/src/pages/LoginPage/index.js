@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./loginStyles.scss";
 import { UserContext } from "../../UserContext";
 
 
 function LoginPage() {
     const { user, setUser } = useContext(UserContext);
+    const history = useHistory();
     
     async function handleLogin(e) {
     e.preventDefault();
@@ -27,8 +28,15 @@ function LoginPage() {
             } else if (response.ok) {
                 response.json().then(data => {
                     console.log(data);
-                    setUser(data.Logged_in);
-                    window.location ='/User' ;
+                    console.log(data.message)
+                    console.log(data.logged_in)
+                    console.log(data.user_id)
+                    console.log(data.user_name)
+                    setUser(user => {
+                        return user=data.user_name
+                    });
+                    console.log("login after state-set:" + user);
+                    history.push("/User");
                 })
 
             } else {
