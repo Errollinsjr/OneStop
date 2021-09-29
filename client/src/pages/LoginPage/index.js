@@ -33,7 +33,7 @@ function LoginPage() {
                     console.log(data.user_id)
                     console.log(data.user_name)
                     setUser(user => {
-                        return user=data.user_name
+                        return user=data.logged_in
                     });
                     console.log("login after state-set:" + user);
                     history.push("/User");

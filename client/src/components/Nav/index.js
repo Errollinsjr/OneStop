@@ -1,23 +1,32 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./navStyle.scss";
 import API from "../../utils/API"
 import { UserContext } from "../../UserContext";
 
 function Nav() {
+  const history = useHistory();
   const { user, setUser } = useContext(UserContext);
   console.log("nav component line 9:" + user);
 
-  function handleLogout(event) {
+  async function handleLogout(event) {
     event.preventDefault();
+    console.log('handleLogout function called')
     API.logoutUser()
-      .then(res => {
-        if (res.ok) {
-          alert("Logged out successfully.")
-          window.location = ("/")
-        } else {
+      .then(response => {
+        console.log(response);
+        if (response.status === 200) {
+            console.log("handlelogout line 19:" + response.data);
+            console.log("handlelogout line 20:" + response.data.message)
+            console.log("handlelogout line 21:" + response.data.logged_in)
+            setUser(user => {
+              return user=response.data.logged_in
+              })
+            history.push("/");
+            alert(response.data.message)
+         } else {
           alert("You are not currently logged in.");
-          window.location = ("/Login");
+          history.push("/Login");
         }
       })
       .catch(err => console.log(err));
@@ -75,10 +84,11 @@ function Nav() {
                 <div className="a-tag nav-link">
                   <span className="nav-link-span">
                     <span className="u-nav">
-                      <Link to="/"
+                      <button
+                          className="btn-nav"
                           onClick = {handleLogout}>
                         Logout
-                      </Link>
+                      </button>
                     </span>
                   </span>
                 </div>
