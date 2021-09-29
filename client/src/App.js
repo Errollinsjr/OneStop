@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Nav from "./components/Nav";
@@ -13,9 +13,19 @@ import EditTripPage from "./pages/EditTripPage";
 import { UserContext } from "./UserContext";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(false);
   console.log("app line 17:" + user);
+
+  useEffect(() => {
+    setUser(JSON.parse(window.localStorage.getItem('user')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('user', user);
+  }, [user]);
+
   const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
+
   console.log("provider value, app line 19:" + providerValue);
   return (
     <Router>
