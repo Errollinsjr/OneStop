@@ -8,6 +8,18 @@ $a-tags-no-hov: "a:link, a:visited, a:active";
 $headings-font: "Saira Semi Condensed", sans-serif;
 $shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 
+
+
+/*magic rabbit edits*/
+
+#nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: $color-neutral-lt; 
+}
+
 @mixin main-gradient {
   background: $color-primary;
   background: -webkit-linear-gradient(45deg, $color-primary, $color-secondary);
@@ -26,6 +38,8 @@ $shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 @mixin unskew {
   transform: skew(20deg);
 }
+
+
 
 /*-------------Reset-------------*/
 

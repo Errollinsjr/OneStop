@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import ReservationButton from "./ReservationButton";
 import "./addDetailsPageStyles.scss"
+import ReservationEditButton from "./ReservationModal/ReservationEdit";
+import Modal from "./ReservationModal/Modal";
 
 function AddDetailsPage() {
-
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     // var down = document.getElementById("Reservations");
 
     const handleReservationAppend = event => {
@@ -121,22 +125,24 @@ function AddDetailsPage() {
             <div className="col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-6">
                     <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Add Details</h3></div>
-                    <div className="card-body">
+                        <div className="card-body">
+                            <div className="dropdown">
+                                <button className="btn btn-primary btn-md">Reservations</button>
+                                    <div className="dropdown-content">
+                                        <ReservationButton type={"air"} onClick={handleReservationAppend}>Airplane</ReservationButton>
+                                        <ReservationButton type={"car"} onClick={handleReservationAppend}>Car</ReservationButton>
+                                        <ReservationButton type={"hotel"} onClick={handleReservationAppend}>Hotel</ReservationButton>
+                                        <ReservationButton type={"restaurant"} onClick={handleReservationAppend}>Restaurant</ReservationButton>
+                                        <ReservationButton type={"misc"} onClick={handleReservationAppend}>Other</ReservationButton>
+                                    </div>
+                            </div>
 
-                    <div className="dropdown">
-                    <button className="btn btn-primary btn-md">Reservations</button>
-                    <div className="dropdown-content">
-                    <ReservationButton type={"air"} onClick={handleReservationAppend}>Airplane</ReservationButton>
-                    <ReservationButton type={"car"} onClick={handleReservationAppend}>Car</ReservationButton>
-                    <ReservationButton type={"hotel"} onClick={handleReservationAppend}>Hotel</ReservationButton>
-                    <ReservationButton type={"restaurant"} onClick={handleReservationAppend}>Restaurant</ReservationButton>
-                    <ReservationButton type={"misc"} onClick={handleReservationAppend}>Other</ReservationButton>
-                    </div>
-                    </div>
+                            <h1 id="addDetailsRes">Type of Reservation Here</h1>                                                                         
+                        </div>
+                    
+                    <ReservationEditButton onClick={handleShow} >View Reservations</ReservationEditButton>                    
+                    <Modal onClose={handleClose} show={show}/>
 
-                    <h1 id="addDetailsRes">Type of Reservation Here</h1>
-                                                                           
-                    </div>
                     <div className="card-footer text-center py-3">
                         <button className="btn btn-primary btn-md">
                             <div id="addDetailsSubBtn">
