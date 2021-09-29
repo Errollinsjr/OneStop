@@ -78,3 +78,48 @@ body {
   left: 30%;
   position: absolute;
 }
+
+.tripModal {
+  width: 17%;
+  height: 6%;
+  top: 17.5%;
+  left: 81.5%;
+  position: absolute;
+  border-radius: 8px;
+  border-style: dashed;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 117vh;
+  background-color: white;
+}
+
+.modal-header {
+  padding: 10px;
+}
+
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
