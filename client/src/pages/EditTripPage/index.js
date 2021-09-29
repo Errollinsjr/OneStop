@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useState, useEffect} from "react";
 import { useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import "./editTripStyle.scss"
 import Uploader from "./Uploader.js";
 import moment from "moment";
-import { UserContext } from "../../UserContext";
 
 function EditTripPage() {
 
-const { user, setUser } = useContext(UserContext);
 const history = useHistory();
 
 
