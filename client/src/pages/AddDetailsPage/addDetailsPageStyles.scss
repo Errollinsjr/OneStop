@@ -22,14 +22,14 @@ body {
   color: black;
 }
 
-// .container {
-// margin: 0;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   -ms-transform: translate(-50%, -50%);
-//   transform: translate(-50%, -50%);
-// }
+.reservationContainer {
+  margin-top: 3rem !important;
+  width: 127vh;
+  height: 92vh;
+  left: -59%;
+  top: -1%;
+  background-color: red;
+}
 
 .mt-6,
 .my-6 {
@@ -49,9 +49,9 @@ body {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
+  min-width: 115px;
+  // box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+  /* padding: 0px 0px; */
   z-index: 1;
 }
 
@@ -62,5 +62,64 @@ body {
 #reservationForm {
   position: absolute;
   top: 38%;
-  left: 43%;
+  left: 31%;
+}
+
+#addDetailsSubBtn {
+  color: #f9f9f9;
+}
+
+#inputFieldAddDetails {
+  width: 550px;
+}
+
+#addDetailsRes {
+  top: 27%;
+  left: 30%;
+  position: absolute;
+}
+
+.tripModal {
+  width: 17%;
+  height: 6%;
+  top: 17.5%;
+  left: 81.5%;
+  position: absolute;
+  border-radius: 8px;
+  border-style: dashed;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 117vh;
+  background-color: white;
+}
+
+.modal-header {
+  padding: 10px;
+}
+
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }

@@ -8,6 +8,18 @@ $a-tags-no-hov: "a:link, a:visited, a:active";
 $headings-font: "Saira Semi Condensed", sans-serif;
 $shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 
+
+
+/*magic rabbit edits*/
+
+#nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: $color-neutral-lt; 
+}
+
 @mixin main-gradient {
   background: $color-primary;
   background: -webkit-linear-gradient(45deg, $color-primary, $color-secondary);
@@ -26,6 +38,8 @@ $shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 @mixin unskew {
   transform: skew(20deg);
 }
+
+
 
 /*-------------Reset-------------*/
 
@@ -123,7 +137,7 @@ h1.logo #{$a-tags} {
   color: $color-primary;
 }
 
-a:hover {
+.a-tag:hover {
   text-decoration: underline;
 }
 
@@ -190,7 +204,7 @@ a:hover {
     }
   }
 
-  a:hover.nav-link:not(.active) {
+  .a-tag:hover.nav-link:not(.active) {
     color: $color-neutral-dk;
     background: $color-neutral-med;
     background: linear-gradient(45deg, $color-neutral-lt, #ddd);

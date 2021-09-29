@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./loginStyles.scss"
 
 
@@ -21,9 +22,9 @@ function LoginPage() {
                     alert(data.message);
                 });   
             } else if (response.ok) {
-                document.location.replace('/User');
+                window.location ='/User' ;
             } else {
-                document.location.replace('/404');
+                window.location = '/404';
             }
         }
     }
@@ -38,7 +39,7 @@ function LoginPage() {
                     <div className="card-body">
                         <form id="loginForm">
                             <div className="form-floating mb-3">
-                            <label for="inputEmail">Email address</label>
+                            <label htmlFor="inputEmail">Email address</label>
                                 <input className="form-control input-color" 
                                        id="inputEmail" 
                                        type="email" 
@@ -46,13 +47,13 @@ function LoginPage() {
                                 
                             </div>
                             <div className="form-floating mb-3">
-                            <label for="inputPassword">Password</label>
+                            <label htmlFor="inputPassword">Password</label>
                                 <input className="form-control input-color" id="inputPassword" type="password" placeholder="Password" />
                                 
                             </div>
                             <div className="form-check mb-3">
                                 <input className="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                <label className="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                <label className="form-check-label" htmlFor="inputRememberPassword">Remember Password</label>
                             </div>
                             <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
                                 <a className="small" href="/password">Forgot Password?</a>
@@ -61,8 +62,16 @@ function LoginPage() {
                         </form>
                     </div>
                     <div className="card-footer text-center py-3">
-                        <div className="small"><a href="/register">Need an account? Sign up!</a></div>
-                        <div className="small"><a href="/">Home</a></div>
+                        <div className="small">
+                            <Link to="/SignUp">
+                                Need an account? Sign up!
+                            </Link>
+                        </div>
+                        <div className="small">
+                            <Link to="/">
+                                Home
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

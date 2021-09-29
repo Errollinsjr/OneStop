@@ -7,14 +7,18 @@ export default {
   },
   // Gets the trip with the given id
   getTrip: function(id) {
-    return axios.get("/api/trips/" + id);
+    return axios.get("/api/trip/" + id);
   },
   // Deletes the trip with the given id
   deleteTrip: function(id) {
-    return axios.delete("/api/trips/" + id);
+    return axios.delete("/api/trip/delete/" + id);
+  },
+  //Edit trip by id
+  editTrip: function(id, tripData) {
+    return axios.put("/api/trip/edit/" + id, tripData)
   },
   // Saves a trip to the database
-  savetrip: function(tripData) {
-    return axios.post("/api/trips", tripData);
+  saveTrip: function(tripData) {
+    return axios.post("/api/trip/createtrip", tripData);
   }
 };
