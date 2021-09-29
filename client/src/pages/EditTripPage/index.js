@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import "./editTripStyle.scss"
 import Uploader from "./Uploader.js";
 import moment from "moment";
 
 function EditTripPage() {
+    const history = useHistory();
 
   //setting initial state
   const [formObject, setFormObject] = useState({
@@ -50,7 +51,7 @@ function EditTripPage() {
             tags: (!formObject.tags.length) ? ["None"] : formObject.tags.split(','),
             upload: formObject.upload
           })
-          .then(window.location = '/User')
+          .then(history.push("/User"))
           .catch(err => console.log(err));
       }
   }
