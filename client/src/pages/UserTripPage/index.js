@@ -1,20 +1,33 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import { Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
 import "./userStyles.scss"
 
 function UserTripPage() {
+  const history = useHistory();
 
   //setting component's initial state
   const [trips, setTrips] = useState();
 
   //load trips and store them with setTrips
+  let isRendered = useRef(false);
   useEffect(() => {
-    loadTrips()
-  }, []
-  );
+    isRendered = true;
+    API.getTrips()
+    .then(res => {
+      if(isRendered) {
+          // console.log(res.data.trips)
+          setTrips(res.data.trips)
+        }
+        return null;
+    })
+    .catch(err => console.log(err))
+    return () => {
+      isRendered = false;
+    }
+  }, [trips]);
 
   //make api call to get all user trips
   function loadTrips() {
@@ -22,8 +35,7 @@ function UserTripPage() {
       .then(res => {
         console.log(res.data.trips)
         setTrips(res.data.trips)
-      }  
-      )
+      })
       .catch(err => console.log(err))  
   };
 
@@ -57,13 +69,13 @@ function UserTripPage() {
       title: 'Start Date',
       dataIndex: 'start_date',
       key: 'start_date',
-      render: (text) => moment(text).format("MM-DD-YYYY"),
+      render: (text) => moment.utc(text).format("MM-DD-YYYY"),
     },
     {
       title: 'End Date',
       dataIndex: 'end_date',
       key: 'end_date',
-      render: (text) => moment(text).format("MM-DD-YYYY"),
+      render: (text) => moment.utc(text).format("MM-DD-YYYY"),
     },
     {
       title: 'Tags',
@@ -95,16 +107,14 @@ function UserTripPage() {
             Delete 
           </button>
           <button 
-            className="userTripPageButton btn btn-primary btn-sm" >
-              <Link to={"/edit_trip/" + datasource.id}>
-                Edit Trip
-              </Link>
+            className="userTripPageButton btn btn-primary btn-sm"
+            onClick={() => history.push("/edit_trip/" + datasource.id)}>
+            Edit Trip
           </button>
           <button 
-            className="userTripPageButton btn btn-primary btn-sm" >
-              <Link to={"/AddDetails/" + datasource.id}>
+            className="userTripPageButton btn btn-primary btn-sm" 
+            onClick={() => history.push("/AddDetails/" + datasource.id)}>
                 Reservations
-              </Link>
           </button>
         </Space>
       ),

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import API from "../../utils/API"
 import "./tripCreationStyles.scss"
 import Uploader from "./Uploader.js";
+import { useHistory } from "react-router-dom";
 
 function TripCreationPage() {
+    const history = useHistory();
 
   //setting initial state
   const [formObject, setFormObject] = useState({
@@ -33,7 +35,7 @@ function TripCreationPage() {
             tags: (!formObject.tags.length) ? ["None"] : formObject.tags.split(','),
             upload: formObject.upload
           })
-          .then(res => window.location="/AddDetails/" + res.data.data.id)
+          .then(res => history.push("/AddDetails/" + res.data.data.id))
           .catch(err => console.log(err));
       }
   }

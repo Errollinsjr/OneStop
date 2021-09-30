@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
             req.session.logged_in = true;
             req.session.name = userData.name;
 
-            res.status(200).json({message: 'Your are now logged in.'});
+            res.status(200).json({message: 'Your are now logged in.', logged_in: req.session.logged_in, user_id: req.session.user_id, user_name:req.session.name });
         });
     } catch (err) {
         res.status(400).json(err);
@@ -45,6 +45,13 @@ router.post('/signup', async (req, res) => {
             res.status(409).json({ message: 'Email address already associated with account.'})
             return;
         }
+        const phoneNumber = await User.findOne({
+            where: {phone: req.body.phone }
+        })
+        //if found, return error 409-conflict
+        if(phoneNumber) {
+            res.status(409).json({ message: 'Phone number already associated with account. Please provide a different number.'})
+        }
         //otherwise create new user
         await User.create({
             name: req.body.name,
@@ -62,7 +69,7 @@ router.post('/signup', async (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            res.status(200).json({message: "Logged out successfully.", logged_in: false}).end();
         });
     } else {
         res.status(404).end();
