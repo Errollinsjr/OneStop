@@ -25,6 +25,9 @@ router.post('/login', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             req.session.name = userData.name;
+            req.session.sessID = req.sessionID;
+
+            
 
             res.status(200).json({message: 'Your are now logged in.', logged_in: req.session.logged_in, user_id: req.session.user_id, user_name:req.session.name });
         });
@@ -32,6 +35,20 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+//check user authorized route
+router.post('/authorized', async (req, res) => {
+    try {
+        if (req.sessionID === req.session.sessID) {
+            res.status(200).json({ message: 'User authorized.', authorized: true})
+        } else {
+            res.status(200).json({ message: 'User not authorized.', authorized: false})
+        }
+    }
+    catch (err) {
+        res.status(400).json(err);
+    }
+})
 
 //create user account
 router.post('/signup', async (req, res) => {
