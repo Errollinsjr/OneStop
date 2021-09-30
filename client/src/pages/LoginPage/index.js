@@ -1,9 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./loginStyles.scss"
+import React, { useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import "./loginStyles.scss";
+import { UserContext } from "../../UserContext";
 
 
 function LoginPage() {
+    const { user, setUser } = useContext(UserContext);
+    const history = useHistory();
     
     async function handleLogin(e) {
     e.preventDefault();
@@ -20,9 +23,22 @@ function LoginPage() {
             if (response.status === 409) {
                 response.json().then(data => {
                     alert(data.message);
+
                 });   
             } else if (response.ok) {
-                window.location ='/User' ;
+                response.json().then(data => {
+                    console.log(data);
+                    console.log(data.message)
+                    console.log(data.logged_in)
+                    console.log(data.user_id)
+                    console.log(data.user_name)
+                    setUser(user => {
+                        return user=data.logged_in
+                    });
+                    console.log("login after state-set:" + user);
+                    history.push("/User");
+                })
+
             } else {
                 window.location = '/404';
             }
