@@ -68,6 +68,9 @@ router.post('/signup', async (req, res) => {
 //logout user
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
+        res.status(200).clearCookie('connect.sid', {
+            path:'/',
+        })
         req.session.destroy(() => {
             res.status(200).json({message: "Logged out successfully.", logged_in: false}).end();
         });
