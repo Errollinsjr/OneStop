@@ -26,8 +26,20 @@ export default {
     return axios.post("/api/user/logout")
   },
 
-  //
+  //Get all reservations
   getReservations: function() {
     return axios.get("/api/reservations/:trip_id");
+  },
+  // Deletes reservation witht the given id
+  deleteReservation: function(id) {
+    return axios.delete("/api/reservations/delete" + id)
+  },
+  //Edit reservation by id
+  editReservation: function(id, reservationData) {
+    return axios.put("/api/reservations/edit" + id, reservationData)
+  },
+  //Save reservation
+  saveReservation: function(reservationData) {
+    return axios.post("/api/reservations/createreservation", reservationData)
   }
 };

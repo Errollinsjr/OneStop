@@ -1,25 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { Table, Tag, Space } from "antd";
+import { Table } from "antd";
 import API from "../../utils/API.js"
-import moment from "moment";
-import "./userStyles.scss"
+// import moment from "moment";
+import "./reservationStyles.scss"
 
 function ReservationsPage() {
   const history = useHistory();
 
   //setting component's initial state
-  const [reservs, setReservs] = useState();
+  const [reservations, setReservations] = useState();
 
-  //load trips and store them with setTrips
+  //load reservations and store them with setReservations
   let isRendered = useRef(false);
   useEffect(() => {
     isRendered = true;
     API.getReservations()
     .then(res => {
       if(isRendered) {
-          // console.log(res.data.trips)
-          setReserv(res.data.reservations)
+          // console.log(res.data.reservations)
+          setReservations(res.data.reservations)
         }
         return null;
     })
@@ -27,36 +27,46 @@ function ReservationsPage() {
     return () => {
       isRendered = false;
     }
-  }, [trips]);
+  }, [reservations]);
 
-  //make api call to get all user trips
-  function loadReservs() {
-    API.getReservs()
+  //make api call to get all user reservations
+  function loadReservations() {
+    API.getReservations()
       .then(res => {
         console.log(res.data.reservations)
-        setReservs(res.data.reservations)
+        setResevations(res.data.reservations)
       })
       .catch(err => console.log(err))  
   };
 
   //make api call to delete selected trip
-  function deleteReservations(id) {
-    API.deleteReservs(id)
-      .then(res => loadReservs())
+  function deleteReservation(id) {
+    API.deleteReservation(id)
+      .then(res => loadReservation())
       .catch(err => console.log(err));
   }
 
   const columns = [
     {
-      title: 'Id',
+      title: 'ID',
       dataIndex: 'id',
       key: 'id',
     },  
     {
-      title: 'Trip',
-      dataIndex: 'trip_name',
-      key: 'trip_name',
-      filters: [
+      title: 'Type',
+      dataIndex: 'type',
+      key: 'type',
+    },
+    {
+        title: 'Confirmation',
+        dataIndex: 'confirmation',
+        key: 'confirmation',
+      },
+      {
+        title: 'Description',
+        dataIndex: 'description',
+        key: 'description',
+        filters: [
           {
             text: '1',
             value: '1',
@@ -64,68 +74,37 @@ function ReservationsPage() {
       ],
       render: text => <span>{text}</span>,
       width: '30%',
-    },
-    {
-      title: 'Start Date',
-      dataIndex: 'start_date',
-      key: 'start_date',
-      render: (text) => moment.utc(text).format("MM-DD-YYYY"),
-    },
-    {
-      title: 'End Date',
-      dataIndex: 'end_date',
-      key: 'end_date',
-      render: (text) => moment.utc(text).format("MM-DD-YYYY"),
-    },
-    {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: tags => (
-        <>
-          {tags.map(tag => {
-              let color = tag.length > 5 ? 'geekblue' : 'green';
-              let visible = (tag==='None' || tag==="") ? false : true;
-              return (
-                <Tag color={color} key={tag} visible={visible}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })
-          } 
-        </>
-      ),
-    },
-    {
-      title: 'Actions',
-      key: 'action',
-      render: (datasource) => (
-        <Space size="middle">
-          <button 
-            className="userTripPageButton btn btn-primary btn-sm" 
-            onClick={() => deleteTrip(datasource.id)}>
-            Delete 
-          </button>
-          <button 
-            className="userTripPageButton btn btn-primary btn-sm"
-            onClick={() => history.push("/edit_trip/" + datasource.id)}>
-            Edit Trip
-          </button>
-          <button 
-            className="userTripPageButton btn btn-primary btn-sm" 
-            onClick={() => history.push("/AddDetails/" + datasource.id)}>
-                Reservations
-          </button>
-        </Space>
-      ),
-    },
+      },
+    // {
+    //   title: 'Actions',
+    //   key: 'action',
+    //   render: (datasource) => (
+    //     <Space size="middle">
+    //       <button 
+    //         className="userTripPageButton btn btn-primary btn-sm" 
+    //         onClick={() => deleteReservation(datasource.id)}>
+    //         Delete 
+    //       </button>
+    //       <button 
+    //         className="userTripPageButton btn btn-primary btn-sm"
+    //         onClick={() => history.push("/edit_trip/" + datasource.id)}>
+    //         Edit Trip
+    //       </button>
+    //       <button 
+    //         className="userTripPageButton btn btn-primary btn-sm" 
+    //         onClick={() => history.push("/AddDetails/" + datasource.id)}>
+    //             Reservations
+    //       </button>
+    //     </Space>
+    //   ),
+    // },
   ];
 
   return (
     <>
-    <Table dataSource={trips} columns={columns} rowKey="id"/>,
+    <Table dataSource={reservations} columns={columns} rowKey="id"/>,
     </>
   );
 }
 
-export default UserTripPage;
+export default ReservationsPage;
