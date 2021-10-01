@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
@@ -12,28 +12,16 @@ function UserTripPage() {
   const [trips, setTrips] = useState();
 
   //load trips and store them with setTrips
-  let isRendered = useRef(false);
+  // let isRendered = useRef(false);
   useEffect(() => {
-    isRendered = true;
-    API.getTrips()
-    .then(res => {
-      if(isRendered) {
-          // console.log(res.data.trips)
-          setTrips(res.data.trips)
-        }
-        return null;
-    })
-    .catch(err => console.log(err))
-    return () => {
-      isRendered = false;
-    }
-  }, [trips]);
+    loadTrips();
+  }, []);
 
   //make api call to get all user trips
   function loadTrips() {
     API.getTrips()
       .then(res => {
-        console.log(res.data.trips)
+        // console.log(res.data.trips)
         setTrips(res.data.trips)
       })
       .catch(err => console.log(err))  
