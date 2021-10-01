@@ -4,7 +4,7 @@ import "./loginStyles.scss";
 import { UserContext } from "../../UserContext";
 
 
-function LoginPage() {
+function LoginPage({ authorizedStatus }) {
     const { user, setUser } = useContext(UserContext);
     const history = useHistory();
     
@@ -35,7 +35,7 @@ function LoginPage() {
                     setUser(user => {
                         return user=data.logged_in
                     });
-                    console.log("login after state-set:" + user);
+                    authorizedStatus()
                     history.push("/User");
                 })
 

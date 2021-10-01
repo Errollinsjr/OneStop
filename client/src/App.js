@@ -9,10 +9,12 @@ import TripCreationPage from "./pages/TripCreationPage";
 import AddDetailsPage from "./pages/AddDetailsPage";
 import EditTripPage from "./pages/EditTripPage";
 import { UserContext } from "./UserContext";
+import { AuthContext } from "./AuthContext"
 import API from "./utils/Auth";
 
 function App() {
   const [user, setUser] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
  
   console.log("app line 17:" + user);
 
@@ -31,36 +33,33 @@ function App() {
     console.log('requireAuth called')
     const data = await API.checkAuthorization();
     console.log(data.data.authorized);
+      setAuthorized(data.data.authorized);
       return data.data.authorized;
-        // .then (res => {
-        //   console.log(res.data.authorized);
-        //   if (!res.data.authorized) {
-        //     setAuthorized(false);
-        //     setLoading(false);
-        //     return false;
-        //   } else {
-        //     setAuthorized(true);
-        //     setLoading(false);
-        //     console.log("set authorized true");
-        //     return true;
-        //   }
-        // })
-        // .catch(err => console.log(err));
   }
 
   console.log("provider value, app line 19:" + providerValue);
+
+  function authorizedStatus() {
+    setAuthorized(true);
+  }
+
+  function unAuthorizedStatus() {
+    setAuthorized(false);
+  }
+
   return (
     <Router>
       <div>
+        <AuthContext.Provider value={authorized}>
         <UserContext.Provider value={providerValue}>
-          <Nav />
+          <Nav unAuthorizedStatus={unAuthorizedStatus}/>
           <Switch>
             <Route exact path="/">
               <HomePage />
             </Route>
 
             <Route exact path="/Login">
-              <LoginPage />
+              <LoginPage authorizedStatus ={authorizedStatus} />
             </Route>
 
             <Route exact path="/SignUp">
@@ -68,21 +67,19 @@ function App() {
             </Route> 
 
             <Route exact path="/User" >
-              {/* <UserTripPage /> */}
-              {(returnAuthStat()) ?  ( <UserTripPage />) : (<Redirect from ="/User" to = "/Login" />)}
-              {/* {(loading) ? (<div>loading...</div>) : (authorized && !loading) ? ( <UserTripPage />) : (<Redirect to="/Login" />)} */}
+              {(authorized) ?  ( <UserTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
             </Route>
 
-            <Route exact path="/Create" render ={() => ((!returnAuthStat()) ? (<Redirect to ="/Login" />) : <TripCreationPage />)}>
-              {/* <TripCreationPage /> */}
+            <Route exact path="/Create" >
+              {(authorized) ? (<TripCreationPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
             </Route>
 
-            <Route exact path="/AddDetails/:id" render ={() => ((!returnAuthStat()) ? (<Redirect to ="/Login" />) : <AddDetailsPage />)}>
-              {/* <AddDetailsPage /> */}
+            <Route exact path="/AddDetails/:id" >
+              {(authorized) ? (<AddDetailsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
             </Route>
 
-            <Route exact path="/edit_trip/:id" render ={() => ((!returnAuthStat()) ? (<Redirect to ="/Login" />) : <EditTripPage />)}>
-              {/* <EditTripPage /> */}
+            <Route exact path="/edit_trip/:id" >
+            {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
             </Route>
 
             {/* <Route>
@@ -90,6 +87,7 @@ function App() {
             </Route> */}
           </Switch>
         </UserContext.Provider>
+        </AuthContext.Provider>
       </div>
     </Router>
   );
