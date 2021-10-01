@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.65448f70.chunk.css",
+    "main.js": "/static/js/main.a4a93e81.chunk.js",
+    "main.js.map": "/static/js/main.a4a93e81.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.256345bc.js",
+    "runtime-main.js.map": "/static/js/runtime-main.256345bc.js.map",
+    "static/css/2.6b2da726.chunk.css": "/static/css/2.6b2da726.chunk.css",
+    "static/js/2.5fa63a60.chunk.js": "/static/js/2.5fa63a60.chunk.js",
+    "static/js/2.5fa63a60.chunk.js.map": "/static/js/2.5fa63a60.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.fc23609eda87059fcdd86498c7b74907.js": "/precache-manifest.fc23609eda87059fcdd86498c7b74907.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.6b2da726.chunk.css.map": "/static/css/2.6b2da726.chunk.css.map",
+    "static/css/main.65448f70.chunk.css.map": "/static/css/main.65448f70.chunk.css.map",
+    "static/js/2.5fa63a60.chunk.js.LICENSE.txt": "/static/js/2.5fa63a60.chunk.js.LICENSE.txt",
+    "static/media/addDetailsPageStyles.scss": "/static/media/madrid.4a1a04d2.jpg",
+    "static/media/editTripStyle.scss": "/static/media/mountainscape.966c7375.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.256345bc.js",
+    "static/css/2.6b2da726.chunk.css",
+    "static/js/2.5fa63a60.chunk.js",
+    "static/css/main.65448f70.chunk.css",
+    "static/js/main.a4a93e81.chunk.js"
+  ]
+}
