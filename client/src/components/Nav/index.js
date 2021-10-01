@@ -4,7 +4,7 @@ import "./navStyle.scss";
 import API from "../../utils/API"
 import { UserContext } from "../../UserContext";
 
-function Nav() {
+function Nav( { unAuthorizedStatus }) {
   const history = useHistory();
   const { user, setUser } = useContext(UserContext);
   console.log("nav component line 9:" + user);
@@ -22,6 +22,7 @@ function Nav() {
             setUser(user => {
               return user=response.data.logged_in
               })
+            unAuthorizedStatus();
             history.push("/");
             alert(response.data.message)
          } else {
@@ -57,6 +58,7 @@ function Nav() {
                   </span>
                 </span>
               </div>
+
             {!user ? (
               <>
               <div className="a-tag nav-link">
