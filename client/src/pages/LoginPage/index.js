@@ -5,7 +5,7 @@ import { UserContext } from "../../UserContext";
 
 
 function LoginPage({ authorizedStatus }) {
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     const history = useHistory();
     
     async function handleLogin(e) {
