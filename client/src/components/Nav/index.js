@@ -59,15 +59,6 @@ function Nav( { unAuthorizedStatus }) {
                 </span>
               </div>
 
-              <div className="a-tag nav-link">
-                <span className="nav-link-span">
-                  <span className="u-nav">
-                    <Link to="/User">
-                      User
-                    </Link> 
-                  </span>
-                </span>
-              </div>
             {!user ? (
               <>
               <div className="a-tag nav-link">
