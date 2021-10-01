@@ -24,5 +24,10 @@ export default {
   //logout user
   logoutUser: function() {
     return axios.post("/api/user/logout")
+  },
+
+  //
+  getReservations: function() {
+    return axios.get("/api/reservations/:trip_id");
   }
 };
