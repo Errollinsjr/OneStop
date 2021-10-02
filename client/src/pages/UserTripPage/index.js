@@ -87,22 +87,22 @@ function UserTripPage() {
     {
       title: 'Actions',
       key: 'action',
-      render: (datasource) => (
+      render: (dataSource) => (
         <Space size="middle">
           <button 
             className="userTripPageButton btn btn-primary btn-sm" 
-            onClick={() => deleteTrip(datasource.id)}>
-            Delete 
+            onClick={() => deleteTrip(dataSource.id)}>
+              Delete 
           </button>
           <button 
             className="userTripPageButton btn btn-primary btn-sm"
-            onClick={() => history.push("/edit_trip/" + datasource.id)}>
-            Edit Trip
+            onClick={() => history.push("/edit_trip/" + dataSource.id)}>
+              Edit Trip
           </button>
           <button 
             className="userTripPageButton btn btn-primary btn-sm" 
-            onClick={() => history.push("/AddDetails/" + datasource.id)}>
-                Reservations
+            onClick={() => history.push("/AddDetails/" + dataSource.id)}>
+              Reservations
           </button>
         </Space>
       ),

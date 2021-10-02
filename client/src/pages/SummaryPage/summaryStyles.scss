@@ -1,0 +1,38 @@
+@import "~antd/dist/antd.css";
+
+.userTripPageTitle {
+  color: black;
+  padding-top: 1em;
+}
+
+.userTripPageButton:focus {
+  outline: none;
+}
+
+.ant-table-wrapper {
+  top: 12%;
+  position: absolute;
+  right: 3%;
+  left: 3%;
+}
+
+//  .ant-table-wrapper {
+//   margin: 0;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+// }
+
+/* .ant-table-content, how to change header color to match others */
+/* .ant-table-head {
+  background-color: gold;
+}
+tr {
+  background-color: #ffeecc;
+} */
+
+// body {
+//   background-image: url("./mountainscape.jpg");
+// }

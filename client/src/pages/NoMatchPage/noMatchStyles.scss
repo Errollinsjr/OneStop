@@ -1,0 +1,30 @@
+.header-color {
+  background-color: rgb(231, 173, 64);
+  color: white;
+}
+input:hover {
+  border-color: gold;
+}
+
+.input-color {
+  border-color: rgb(44, 129, 179);
+}
+
+body {
+  background-image: url("madrid.jpg");
+}
+
+.mt-6,
+.my-6 {
+  margin-top: 3rem !important;
+  width: 127vh;
+  height: 92vh;
+  left: -59%;
+  top: -1%;
+}
+
+#noMatchHeader {
+  top: 35%;
+  left: 33%;
+  position: absolute;
+}
