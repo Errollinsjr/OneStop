@@ -5,15 +5,17 @@ import ReservationButton from "./ReservationButton";
 import "./addDetailsPageStyles.scss"
 import ReservationEditButton from "./ReservationModal/ReservationEdit";
 import Modal from "./ReservationModal/Modal";
-
+import {useParams} from 'react-router-dom';
 
 function AddDetailsPage() {
     const [show, setShow] = useState(false);
+    const {id} = useParams() 
     const [formObject, setFormObject] = useState({
         type: "",
         name: "",
         confirmation: "",
-        description: ""
+        description: "",
+        trip_id: id
     })
     
     const handleClose = () => setShow(false);
@@ -143,6 +145,7 @@ function AddDetailsPage() {
             name: formObject.name,
             confirmation: formObject.confirmation,
             description: formObject.description,
+            trip_id: formObject.trip_id
             })
             // .then(res => history.push("/AddDetails/" + res.data.data.id))
             .catch(err => console.log(err));
