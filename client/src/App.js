@@ -11,6 +11,7 @@ import EditTripPage from "./pages/EditTripPage";
 import { UserContext } from "./UserContext";
 import { AuthContext } from "./AuthContext"
 import API from "./utils/Auth";
+import Modal from "./pages/AddDetailsPage";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -80,6 +81,10 @@ function App() {
 
             <Route exact path="/edit_trip/:id" >
             {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+            </Route>
+
+            <Route exact path="/reservations/:id" >
+            {(authorized) ? (<Modal />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
             </Route>
 
             {/* <Route>

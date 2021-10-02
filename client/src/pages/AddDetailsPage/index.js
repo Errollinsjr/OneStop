@@ -5,6 +5,7 @@ import "./addDetailsPageStyles.scss"
 import ReservationEditButton from "./ReservationModal/ReservationEdit";
 import Modal from "./ReservationModal/Modal";
 import { useHistory } from "react-router-dom";
+import API from "../../utils/API"
 
 function AddDetailsPage() {
 const history = useHistory();   
@@ -26,13 +27,13 @@ const history = useHistory();
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.name && formObject.confirmation) {
-            API.saveTrip({
+            API.saveReservation({
             type: formObject.type,
             name: formObject.name,
             confirmation: formObject.confirmation,
             description: formObject.description,
             })
-            .then(res => history.push("/AddDetails/" + res.data.data.id))
+            .then(res => history.push("/Reservations/" + res.data.data.id))
             .catch(err => console.log(err));
         }
     }
@@ -58,7 +59,7 @@ const history = useHistory();
         var form = document.createElement("form");
         form.setAttribute("id", "reservationForm")
         form.setAttribute("method", "post");
-        form.setAttribute("action", "submit.php");
+        // form.setAttribute("action", "submit.php");
 
         // Create an header above appended
         // var headerAppend = document.createElement("h1");
@@ -103,12 +104,12 @@ const history = useHistory();
         s.setAttribute("class", "btn btn-primary btn-sm");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
-        s.setAttribute("disabled", !(formObject.name && formObject.confirmation));
+        // s.setAttribute("disabled", !(formObject.name && formObject.confirmation));
         s.setAttribute("onClick", {handleFormSubmit});
 
         // header
-        form.appendChild(headerAppend);
-        form.appendChild(br.cloneNode()); 
+        // form.appendChild(headerAppend);
+        // form.appendChild(br.cloneNode()); 
 
         // Append the full name input to the form
         form.appendChild(ResNumber); 
