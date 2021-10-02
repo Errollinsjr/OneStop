@@ -19,111 +19,113 @@ function AddDetailsPage() {
 
     // var down = document.getElementById("Reservations");
 
-    const handleReservationAppend = event => {
-        event.preventDefault();
-        // create container
-        // var container = document.createElement("container");
-        // // container.setAttribute("id", "reserverationContainer")
-        // container.setAttribute("class", "container");
-        // var rowJustify = document.createElement("row");
-        // // rowJustify.setAttribute("id", "reserverationContainer")
-        // rowJustify.setAttribute("class", "row justify-content-center");
-        // var column = document.createElement("col");
-        // // column.setAttribute("id", "reserverationContainer")
-        // column.setAttribute("class", "col-lg-5");
-        // var card = document.createElement("card");
-        // // card.setAttribute("id", "reserverationContainer")
-        // card.setAttribute("class", "card shadow-lg border-0 rounded-lg mt-5");
-        // var cardHeader = document.createElement("card-header");
-        // // cardHeader.setAttribute("id", "reserverationContainer")
-        // cardHeader.setAttribute("class", "card-header header-color");
-        // var cardBody = document.createElement("card-body");
-        // // cardBody.setAttribute("id", "reserverationContainer")
-        // cardBody.setAttribute("class", "card-body");
+    // const handleReservationAppend = event => {
+    //     event.preventDefault();
+    //     // create container
+    //     // var container = document.createElement("container");
+    //     // // container.setAttribute("id", "reserverationContainer")
+    //     // container.setAttribute("class", "container");
+    //     // var rowJustify = document.createElement("row");
+    //     // // rowJustify.setAttribute("id", "reserverationContainer")
+    //     // rowJustify.setAttribute("class", "row justify-content-center");
+    //     // var column = document.createElement("col");
+    //     // // column.setAttribute("id", "reserverationContainer")
+    //     // column.setAttribute("class", "col-lg-5");
+    //     // var card = document.createElement("card");
+    //     // // card.setAttribute("id", "reserverationContainer")
+    //     // card.setAttribute("class", "card shadow-lg border-0 rounded-lg mt-5");
+    //     // var cardHeader = document.createElement("card-header");
+    //     // // cardHeader.setAttribute("id", "reserverationContainer")
+    //     // cardHeader.setAttribute("class", "card-header header-color");
+    //     // var cardBody = document.createElement("card-body");
+    //     // // cardBody.setAttribute("id", "reserverationContainer")
+    //     // cardBody.setAttribute("class", "card-body");
         
-        // Create a break line element
-        var br = document.createElement("br"); 
+    //     // Create a break line element
+    //     var br = document.createElement("br"); 
 
-        // Create a form synamically
-        var form = document.createElement("form");
-        form.setAttribute("id", "reservationForm")
-        form.setAttribute("method", "post");
-        form.setAttribute("action", "submit.php");
+    //     // Create a form synamically
+    //     var form = document.createElement("form");
+    //     form.setAttribute("id", "reservationForm")
+    //     form.setAttribute("method", "post");
+    //     form.setAttribute("action", "submit.php");
 
-        // Create an header above appended
-        var headerAppend = document.createElement("h1");
-        // ResNumber.setAttribute("id", "inputFieldAddDetails")
-        headerAppend.setAttribute("class", "h1");
-        // ResNumber.setAttribute("type", "text");
-        headerAppend.setAttribute("name", "Reservation Type Here");
-        headerAppend.setAttribute("placeholder", "Reservation Name");
+    //     // Create an header above appended
+    //     var headerAppend = document.createElement("h1");
+    //     // ResNumber.setAttribute("id", "inputFieldAddDetails")
+    //     headerAppend.setAttribute("class", "h1");
+    //     // ResNumber.setAttribute("type", "text");
+    //     headerAppend.setAttribute("name", "Reservation Type Here");
+    //     headerAppend.setAttribute("placeholder", "Reservation Name");
 
-        // Create an input element for Reservation
-        var ResNumber = document.createElement("input");
-        ResNumber.setAttribute("id", "inputFieldAddDetails")
-        ResNumber.setAttribute("class", "form-control input-color");
-        ResNumber.setAttribute("type", "text");
-        ResNumber.setAttribute("name", "ReservationName");
-        ResNumber.setAttribute("placeholder", "Reservation Name");
+    //     // Create an input element for Reservation
+    //     var ResNumber = document.createElement("input");
+    //     ResNumber.setAttribute("id", "inputFieldAddDetails")
+    //     ResNumber.setAttribute("class", "form-control input-color");
+    //     ResNumber.setAttribute("type", "text");
+    //     ResNumber.setAttribute("name", "ReservationName");
+    //     ResNumber.setAttribute("placeholder", "Reservation Name");
 
-        // Create an input element for Confirmation #
-        var CN = document.createElement("input");
-        CN.setAttribute("id", "inputFieldAddDetails")
-        CN.setAttribute("class", "form-control input-color");
-        CN.setAttribute("type", "text");
-        CN.setAttribute("name", "ConfirmationNumber");
-        CN.setAttribute("placeholder", "Confirmation Number");
+    //     // Create an input element for Confirmation #
+    //     var CN = document.createElement("input");
+    //     CN.setAttribute("id", "inputFieldAddDetails")
+    //     CN.setAttribute("class", "form-control input-color");
+    //     CN.setAttribute("type", "text");
+    //     CN.setAttribute("name", "ConfirmationNumber");
+    //     CN.setAttribute("placeholder", "Confirmation Number");
 
-        // Create an input element for description
-        var description = document.createElement("input");
-        description.setAttribute("id", "inputFieldAddDetails")
-        description.setAttribute("class", "form-control input-color");
-        description.setAttribute("type", "text");
-        description.setAttribute("name", "description");
-        description.setAttribute("placeholder", "Description or Link");
+    //     // Create an input element for description
+    //     var description = document.createElement("input");
+    //     description.setAttribute("id", "inputFieldAddDetails")
+    //     description.setAttribute("class", "form-control input-color");
+    //     description.setAttribute("type", "text");
+    //     description.setAttribute("name", "description");
+    //     description.setAttribute("placeholder", "Description or Link");
 
-        // create a submit button
-        var s = document.createElement("input");
-        s.setAttribute("class", "btn btn-primary btn-sm");
-        s.setAttribute("type", "submit");
-        s.setAttribute("value", "Submit");
-        s.onClick = {handleInputChange, handleFormSubmit};
+    //     // create a submit button
+    //     var s = document.createElement("input");
+    //     s.setAttribute("class", "btn btn-primary btn-sm");
+    //     s.setAttribute("type", "submit");
+    //     s.setAttribute("value", "Submit");
+    //     s.onClick = {handleInputChange, handleFormSubmit};
 
-        // creates card around form
-        // form.appendChild(container);
-        // container.appendChild(rowJustify);
-        // container.appendChild(column);
-        // container.appendChild(card);
-        // container.appendChild(cardHeader);
-        // container.appendChild(cardBody);
+    //     // creates card around form
+    //     // form.appendChild(container);
+    //     // container.appendChild(rowJustify);
+    //     // container.appendChild(column);
+    //     // container.appendChild(card);
+    //     // container.appendChild(cardHeader);
+    //     // container.appendChild(cardBody);
 
-        // header
-        form.appendChild(headerAppend);
-        form.appendChild(br.cloneNode()); 
+    //     // header
+    //     form.appendChild(headerAppend);
+    //     form.appendChild(br.cloneNode()); 
 
-        // Append the full name input to the form
-        form.appendChild(ResNumber); 
+    //     // Append the full name input to the form
+    //     form.appendChild(ResNumber); 
 
-        // Inserting a line break
-        form.appendChild(br.cloneNode()); 
+    //     // Inserting a line break
+    //     form.appendChild(br.cloneNode()); 
 
-        // Append the DOB to the form
-        form.appendChild(CN); 
-        form.appendChild(br.cloneNode()); 
+    //     // Append the DOB to the form
+    //     form.appendChild(CN); 
+    //     form.appendChild(br.cloneNode()); 
 
-        // Append the emailID to the form
-        form.appendChild(description); 
-        form.appendChild(br.cloneNode()); 
+    //     // Append the emailID to the form
+    //     form.appendChild(description); 
+    //     form.appendChild(br.cloneNode()); 
 
-        // Append the submit button to the form
-        form.appendChild(s); 
+    //     // Append the submit button to the form
+    //     form.appendChild(s); 
 
-        // document.getElementsByTagName("body")[0]
-        // .appendChild(container);
+    //     // document.getElementsByTagName("body")[0]
+    //     // .appendChild(container);
 
-        document.getElementsByTagName("body")[0]
-        .appendChild(form);
-        
+    //     document.getElementsByTagName("body")[0]
+    //     .appendChild(form);
+
+    // }
+
     //handle updating component state when user types into input fields
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -133,7 +135,7 @@ function AddDetailsPage() {
     //when form is submitted use API.saveTrip method to save trip to DB
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (formObject.trip_name && formObject.start_date && formObject.end_date) {
+        if (formObject.name && formObject.confirmation ) {
             API.saveReservation({
             type: ReservationButton.type,
             name: formObject.name,
@@ -144,8 +146,6 @@ function AddDetailsPage() {
             .catch(err => console.log(err));
         }
 }
-
-    }
 
 
   return (
@@ -169,66 +169,45 @@ function AddDetailsPage() {
                             <form id="signupForm">
 
                             <div className="form-floating mb-3">
-                            <label htmlFor="inputName">Title of Trip</label>
+                            <label>Reservation Name</label>
                                 <input 
                                     className="form-control input-color" 
-                                    id="inputName" 
-                                    type="name" 
-                                    name="name" 
-                                    placeholder="Trip Name" 
+                                    id="inputFieldAddDetails" 
+                                    type="text" 
+                                    name="ReservationName" 
+                                    placeholder="Reservation Name" 
                                     value={formObject.name}
                                     onChange={ handleInputChange }
                                 />
                             </div>
 
                             <div className="form-floating mb-3">
-                            <label htmlFor="inputStartDate">Start Date</label>
+                            <label>Confirmation Number</label>
                                 <input 
                                     className="form-control input-color" 
-                                    id="inputStartDate" 
-                                    type="date" 
-                                    name="start_date"
-                                    placeholder="Trip Start Date"
-                                    value={formObject.start_date}
+                                    id="inputFieldAddDetails" 
+                                    type="text" 
+                                    name="ConfirmationNumber"
+                                    placeholder="Confirmation Number"
+                                    value={formObject.confirmation}
                                     onChange={handleInputChange}
                                     />
                                 
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label htmlFor="inputEndDate">End Date</label>
+                                <label htmlFor="inputEndDate">Description</label>
                                 <input 
                                     className="form-control input-color" 
-                                    id="inputEndDate" 
-                                    type="date"
-                                    name="end_date"
-                                    placeholder="Trip End Date"
-                                    value={formObject.end_date}
+                                    id="inputFieldAddDetails" 
+                                    type="text"
+                                    name="description"
+                                    placeholder="Description or Link"
+                                    value={formObject.description}
                                     onChange={handleInputChange}
                                 />
                             </div>
 
-                            <div className="form-floating mb-3">
-                                <label htmlFor="inputTags">Tags</label>
-                                <input 
-                                    className="form-control input-color" 
-                                    id="inputTags" 
-                                    type="Tags" 
-                                    placeholder="Up to 5 tags" 
-                                    name="tags"
-                                    value={formObject.tags}
-                                    onChange={handleInputChange}
-                                />
-                            </div>     
-
-                            <div>
-                                <label>Trip Image</label>
-                                <br/>
-                                <Uploader 
-                                    name="upload"
-                                    value={formObject.upload}
-                                    onChange={handleInputChange}/>
-                            </div>
                         </form>
         
                             </div>
