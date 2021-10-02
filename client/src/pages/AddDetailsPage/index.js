@@ -4,34 +4,52 @@ import ReservationButton from "./ReservationButton";
 import "./addDetailsPageStyles.scss"
 import ReservationEditButton from "./ReservationModal/ReservationEdit";
 import Modal from "./ReservationModal/Modal";
+import { useHistory } from "react-router-dom";
 
 function AddDetailsPage() {
+const history = useHistory();   
+
+    const [formObject, setFormObject] = useState({
+        type: "",
+        name: "",
+        confirmation: "",
+        description: "",
+    });
+
+    //handle updating component state when user types into input fields
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+    };
+
+    //when form is submitted use API.saveTrip method to save trip to DB
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.name && formObject.confirmation) {
+            API.saveTrip({
+            type: formObject.type,
+            name: formObject.name,
+            confirmation: formObject.confirmation,
+            description: formObject.description,
+            })
+            .then(res => history.push("/AddDetails/" + res.data.data.id))
+            .catch(err => console.log(err));
+        }
+    }
+
+    // const [title, setTitle] = useState("");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    // const handleTitle = (...ReservationButton) => {
+    //     title = ReservationButton.title;
+    //     setTitle = title;
+    //     return setTitle; 
+    // }
     // var down = document.getElementById("Reservations");
 
     const handleReservationAppend = event => {
         event.preventDefault();
-        // create container
-        // var container = document.createElement("container");
-        // // container.setAttribute("id", "reserverationContainer")
-        // container.setAttribute("class", "container");
-        // var rowJustify = document.createElement("row");
-        // // rowJustify.setAttribute("id", "reserverationContainer")
-        // rowJustify.setAttribute("class", "row justify-content-center");
-        // var column = document.createElement("col");
-        // // column.setAttribute("id", "reserverationContainer")
-        // column.setAttribute("class", "col-lg-5");
-        // var card = document.createElement("card");
-        // // card.setAttribute("id", "reserverationContainer")
-        // card.setAttribute("class", "card shadow-lg border-0 rounded-lg mt-5");
-        // var cardHeader = document.createElement("card-header");
-        // // cardHeader.setAttribute("id", "reserverationContainer")
-        // cardHeader.setAttribute("class", "card-header header-color");
-        // var cardBody = document.createElement("card-body");
-        // // cardBody.setAttribute("id", "reserverationContainer")
-        // cardBody.setAttribute("class", "card-body");
         
         // Create a break line element
         var br = document.createElement("br"); 
@@ -43,12 +61,12 @@ function AddDetailsPage() {
         form.setAttribute("action", "submit.php");
 
         // Create an header above appended
-        var headerAppend = document.createElement("h1");
+        // var headerAppend = document.createElement("h1");
         // ResNumber.setAttribute("id", "inputFieldAddDetails")
-        headerAppend.setAttribute("class", "h1");
+        // headerAppend.setAttribute("class", "h1");
         // ResNumber.setAttribute("type", "text");
-        headerAppend.setAttribute("name", "Reservation Type Here");
-        headerAppend.setAttribute("placeholder", "Reservation Name");
+        // headerAppend.setAttribute("name", "Reservation Type Here");
+        // headerAppend.setAttribute("placeholder", "Reservation Name");
 
         // Create an input element for Reservation
         var ResNumber = document.createElement("input");
@@ -57,6 +75,8 @@ function AddDetailsPage() {
         ResNumber.setAttribute("type", "text");
         ResNumber.setAttribute("name", "ReservationName");
         ResNumber.setAttribute("placeholder", "Reservation Name");
+        ResNumber.setAttribute("value", formObject.name);
+        ResNumber.setAttribute("onChange", {handleInputChange});
 
         // Create an input element for Confirmation #
         var CN = document.createElement("input");
@@ -65,6 +85,8 @@ function AddDetailsPage() {
         CN.setAttribute("type", "text");
         CN.setAttribute("name", "ConfirmationNumber");
         CN.setAttribute("placeholder", "Confirmation Number");
+        CN.setAttribute("value", formObject.confirmation);
+        CN.setAttribute("onChange", {handleInputChange});
 
         // Create an input element for description
         var description = document.createElement("input");
@@ -73,20 +95,16 @@ function AddDetailsPage() {
         description.setAttribute("type", "text");
         description.setAttribute("name", "description");
         description.setAttribute("placeholder", "Description or Link");
+        description.setAttribute("value", formObject.description);
+        description.setAttribute("onChange", {handleInputChange});
 
         // create a submit button
         var s = document.createElement("input");
         s.setAttribute("class", "btn btn-primary btn-sm");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
-
-        // creates card around form
-        // form.appendChild(container);
-        // container.appendChild(rowJustify);
-        // container.appendChild(column);
-        // container.appendChild(card);
-        // container.appendChild(cardHeader);
-        // container.appendChild(cardBody);
+        s.setAttribute("disabled", !(formObject.name && formObject.confirmation));
+        s.setAttribute("onClick", {handleFormSubmit});
 
         // header
         form.appendChild(headerAppend);
@@ -129,11 +147,11 @@ function AddDetailsPage() {
                             <div className="dropdown">
                                 <button className="btn btn-primary btn-md">Reservations</button>
                                     <div className="dropdown-content">
-                                        <ReservationButton type={"air"} onClick={handleReservationAppend}>Airplane</ReservationButton>
-                                        <ReservationButton type={"car"} onClick={handleReservationAppend}>Car</ReservationButton>
-                                        <ReservationButton type={"hotel"} onClick={handleReservationAppend}>Hotel</ReservationButton>
-                                        <ReservationButton type={"restaurant"} onClick={handleReservationAppend}>Restaurant</ReservationButton>
-                                        <ReservationButton type={"misc"} onClick={handleReservationAppend}>Other</ReservationButton>
+                                        <ReservationButton title={"Airplane Reservation"} onClick={handleReservationAppend}>Airplane</ReservationButton>
+                                        <ReservationButton title={"Rental Reservation"} onClick={handleReservationAppend}>Car</ReservationButton>
+                                        <ReservationButton title={"Hotel Reservation"} onClick={handleReservationAppend}>Hotel</ReservationButton>
+                                        <ReservationButton title={"Restaurant Reservation"} onClick={handleReservationAppend}>Restaurant</ReservationButton>
+                                        <ReservationButton title={"Misc"} onClick={handleReservationAppend}>Other</ReservationButton>
                                     </div>
                             </div>
 

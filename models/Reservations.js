@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
-const Trip = require('./Trip');
+// const Trip = require('./Trip');
 
 //create Reservations model
 class Reservations extends Model {}
@@ -45,7 +45,7 @@ Reservations.init(
                 key: 'id',
                 unique: false
             }
-        }
+        },
     },
     {
         sequelize,

@@ -42,7 +42,6 @@ Trip.init(
                 unique: false
             }
         },
-
     },
     {
         sequelize,

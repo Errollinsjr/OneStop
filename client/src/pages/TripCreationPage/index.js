@@ -5,7 +5,7 @@ import Uploader from "./Uploader.js";
 import { useHistory } from "react-router-dom";
 
 function TripCreationPage() {
-    const history = useHistory();
+const history = useHistory();
 
   //setting initial state
   const [formObject, setFormObject] = useState({

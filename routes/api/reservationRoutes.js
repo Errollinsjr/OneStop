@@ -43,14 +43,14 @@ router.put('/:reservations_id', async(req, res) => {
 
         const editedReservation = await Reservations.update(
             {
-            type: req.body.type,
-            name: req.body.name,
-            confirmation: req.body.confirmation,
-            description: req.body.description,
-            trip_id: req.session.trip_id
-
+                type: req.body.type,
+                name: req.body.name,
+                confirmation: req.body.confirmation,
+                description: req.body.description,
+                trip_id: req.session.trip_id,
             }, 
-            { where:{
+            { 
+                where:{
                 id: req.params.reservations_id
             }
                
