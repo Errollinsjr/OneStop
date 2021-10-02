@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { Table } from "antd";
+import { Table, Space } from "antd";
 import API from "../../utils/API.js"
 // import moment from "moment";
-import "./reservationStyles.scss"
+import "./summaryStyles.scss"
 
-function ReservationsPage() {
+function SummaryPage() {
   const history = useHistory();
 
   //setting component's initial state
@@ -34,7 +34,7 @@ function ReservationsPage() {
     API.getReservations()
       .then(res => {
         console.log(res.data.reservations)
-        setResevations(res.data.reservations)
+        setReservations(res.data.reservations)
       })
       .catch(err => console.log(err))  
   };
@@ -97,4 +97,4 @@ function ReservationsPage() {
   );
 }
 
-export default ReservationsPage;
+export default SummaryPage;
