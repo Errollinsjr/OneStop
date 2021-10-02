@@ -75,29 +75,29 @@ function ReservationsPage() {
       render: text => <span>{text}</span>,
       width: '30%',
       },
-    // {
-    //   title: 'Actions',
-    //   key: 'action',
-    //   render: (datasource) => (
-    //     <Space size="middle">
-    //       <button 
-    //         className="userTripPageButton btn btn-primary btn-sm" 
-    //         onClick={() => deleteReservation(datasource.id)}>
-    //         Delete 
-    //       </button>
-    //       <button 
-    //         className="userTripPageButton btn btn-primary btn-sm"
-    //         onClick={() => history.push("/edit_trip/" + datasource.id)}>
-    //         Edit Trip
-    //       </button>
-    //       <button 
-    //         className="userTripPageButton btn btn-primary btn-sm" 
-    //         onClick={() => history.push("/AddDetails/" + datasource.id)}>
-    //             Reservations
-    //       </button>
-    //     </Space>
-    //   ),
-    // },
+    {
+      title: 'Actions',
+      key: 'action',
+      render: (datasource) => (
+        <Space size="middle">
+          <button 
+            className="userTripPageButton btn btn-primary btn-sm" 
+            onClick={() => deleteReservation(datasource.id)}>
+            Delete 
+          </button>
+          <button 
+            className="userTripPageButton btn btn-primary btn-sm"
+            onClick={() => history.push("/edit_trip/" + datasource.id)}>
+            Edit Trip
+          </button>
+          <button 
+            className="userTripPageButton btn btn-primary btn-sm" 
+            onClick={() => history.push("/AddDetails/" + datasource.id)}>
+                Reservations
+          </button>
+        </Space>
+      ),
+    },
   ];
 
   return (

@@ -7,8 +7,16 @@ import Modal from "./ReservationModal/Modal";
 
 function AddDetailsPage() {
     const [show, setShow] = useState(false);
+    const [formObject, setFormObject] = useState({
+        type: "",
+        name: "",
+        confirmation: "",
+        description: ""
+    })
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     // var down = document.getElementById("Reservations");
 
     const handleReservationAppend = event => {
@@ -79,6 +87,7 @@ function AddDetailsPage() {
         s.setAttribute("class", "btn btn-primary btn-sm");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
+        s.onClick = {handleInputChange, handleFormSubmit};
 
         // creates card around form
         // form.appendChild(container);
@@ -114,7 +123,28 @@ function AddDetailsPage() {
 
         document.getElementsByTagName("body")[0]
         .appendChild(form);
-            
+        
+    //handle updating component state when user types into input fields
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+    };
+
+    //when form is submitted use API.saveTrip method to save trip to DB
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.trip_name && formObject.start_date && formObject.end_date) {
+            API.saveReservation({
+            type: ReservationButton.type,
+            name: formObject.name,
+            confirmation: formObject.confirmation,
+            description: formObject.description
+            })
+            // .then(res => history.push("/AddDetails/" + res.data.data.id))
+            .catch(err => console.log(err));
+        }
+}
+
     }
 
 
@@ -135,6 +165,72 @@ function AddDetailsPage() {
                                         <ReservationButton type={"restaurant"} onClick={handleReservationAppend}>Restaurant</ReservationButton>
                                         <ReservationButton type={"misc"} onClick={handleReservationAppend}>Other</ReservationButton>
                                     </div>
+
+                            <form id="signupForm">
+
+                            <div className="form-floating mb-3">
+                            <label htmlFor="inputName">Title of Trip</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputName" 
+                                    type="name" 
+                                    name="trip_name" 
+                                    placeholder="Trip Name" 
+                                    value={formObject.trip_name}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+
+                            <div className="form-floating mb-3">
+                            <label htmlFor="inputStartDate">Start Date</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputStartDate" 
+                                    type="date" 
+                                    name="start_date"
+                                    placeholder="Trip Start Date"
+                                    value={formObject.start_date}
+                                    onChange={handleInputChange}
+                                    />
+                                
+                            </div>
+
+                            <div className="form-floating mb-3">
+                                <label htmlFor="inputEndDate">End Date</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputEndDate" 
+                                    type="date"
+                                    name="end_date"
+                                    placeholder="Trip End Date"
+                                    value={formObject.end_date}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+
+                            <div className="form-floating mb-3">
+                                <label htmlFor="inputTags">Tags</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputTags" 
+                                    type="Tags" 
+                                    placeholder="Up to 5 tags" 
+                                    name="tags"
+                                    value={formObject.tags}
+                                    onChange={handleInputChange}
+                                />
+                            </div>     
+
+                            <div>
+                                <label>Trip Image</label>
+                                <br/>
+                                <Uploader 
+                                    name="upload"
+                                    value={formObject.upload}
+                                    onChange={handleInputChange}/>
+                            </div>
+                        </form>
+        
                             </div>
 
                             <h1 id="addDetailsRes">Type of Reservation Here</h1>                                                                         
