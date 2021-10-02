@@ -1,9 +1,11 @@
 import React, {useState} from "react";
+import API from "../../utils/API"
 import { Link } from "react-router-dom";
 import ReservationButton from "./ReservationButton";
 import "./addDetailsPageStyles.scss"
 import ReservationEditButton from "./ReservationModal/ReservationEdit";
 import Modal from "./ReservationModal/Modal";
+
 
 function AddDetailsPage() {
     const [show, setShow] = useState(false);
@@ -168,15 +170,18 @@ function AddDetailsPage() {
                             </div>
 
                             <h1 id="addDetailsRes">Type of Reservation Here</h1>
-                            <form id="signupForm">
+                            <form 
+                                id="reservationForm"
+                                method= "post"
+                                action = "submit">
 
                             <div className="form-floating mb-3">
-                            <label>Reservation Name</label>
+                            <label htmlFor="inputName">Reservation Name</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputFieldAddDetails" 
                                     type="text" 
-                                    name="ReservationName" 
+                                    name="name" 
                                     placeholder="Reservation Name" 
                                     value={formObject.name}
                                     onChange={ handleInputChange }
@@ -189,7 +194,7 @@ function AddDetailsPage() {
                                     className="form-control input-color" 
                                     id="inputFieldAddDetails" 
                                     type="text" 
-                                    name="ConfirmationNumber"
+                                    name="confirmation"
                                     placeholder="Confirmation Number"
                                     value={formObject.confirmation}
                                     onChange={handleInputChange}
