@@ -26,7 +26,7 @@ LINK WILL GO HERE
 ## Contributors
 
 Elizabeth Mangano
-Edward Rollings Jr.
+Edward Rollins Jr.
 Melissa Armand
 Michael Pierre-Louis
 Shenilla Smith
