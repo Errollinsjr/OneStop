@@ -174,10 +174,10 @@ function AddDetailsPage() {
                                     className="form-control input-color" 
                                     id="inputName" 
                                     type="name" 
-                                    name="trip_name" 
+                                    name="name" 
                                     placeholder="Trip Name" 
-                                    value={formObject.trip_name}
-                                    onChange={handleInputChange}
+                                    value={formObject.name}
+                                    onChange={ handleInputChange }
                                 />
                             </div>
 
