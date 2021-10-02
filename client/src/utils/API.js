@@ -27,8 +27,8 @@ export default {
   },
 
   //Get all reservations
-  getReservations: function() {
-    return axios.get("/api/reservations/:trip_id");
+  getReservations: function(id) {
+    return axios.get("/api/reservations/" + id);
   },
   // Deletes reservation witht the given id
   deleteReservation: function(id) {

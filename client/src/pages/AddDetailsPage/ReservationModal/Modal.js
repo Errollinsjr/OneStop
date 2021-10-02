@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Table, Space } from "antd";
+import API from "../../../utils/API";
+import {useParams} from 'react-router-dom';
 import "./modalTable.scss";
 
 const Modal = props => {
+    const history = useHistory();
+    const {id} = useParams() 
+    //setting component's initial state
+    const [reservations, setReservations] = useState();
+
+    //load trips and store them with setTrips
+    useEffect(() => {
+        loadReservations();
+    }, []);
+
+    //make api call to get all user trips
+    function loadReservations() {
+        API.getReservations(id)
+        .then(res => {
+            console.log(res)
+            setReservations(res.data.reservations)
+        })
+        .catch(err => console.log(err))  
+    };
+
+    //make api call to delete selected trip
+    function deleteReservations(id) {
+        API.deleteReservation(id)
+        .then(res => loadReservations())
+        .catch(err => console.log(err));
+    }
+
     if (!props.show) {
         return null;
     }
@@ -42,15 +72,16 @@ const Modal = props => {
         {
           title: 'Actions',
           key: 'action',
-          render: () => (
+          render: (dataSource) => (
             <Space size="middle">
               <button 
                 className="userTripPageButton btn btn-primary btn-sm" 
-                >
-                Delete 
+                onClick={() => deleteReservations(dataSource.id)}>
+                    Delete 
               </button>
               <button 
-                className="userTripPageButton btn btn-primary btn-sm" >
+                className="userTripPageButton btn btn-primary btn-sm" 
+                onClick={() => history.push("/AddDetails/" + dataSource.id)}>
                     Edit Reservation   
               </button>
             </Space>
@@ -58,14 +89,7 @@ const Modal = props => {
         },
       ];
 
-      const dataSource = [
-        {
-          id: '1',
-          name: 'Airplane',
-          confirmation: 654321,
-          description: 'Soul plane',
-        },
-      ];
+      //TODO: FIX EDIT RES BUTTON INSIDE MODAL
 
     return (
      <div className="modal">
@@ -75,7 +99,7 @@ const Modal = props => {
              </div>
 
              <div className="modal-body">
-                 <Table dataSource={dataSource} columns={columns} rowKey="id"/>
+                 <Table dataSource={reservations} columns={columns} rowKey="id"/>
              </div>
 
              <div className="modal-footer">
