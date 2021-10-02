@@ -101,12 +101,18 @@ body {
   justify-content: center;
 }
 
+.model {
+  padding-top: 40px;
+}
+
 .modal-content {
-  width: 117vh;
+ /*  width: 117vh; */
+  padding: 40px;
   background-color: white;
 }
 
 .modal-header {
+  background-color: rgb(231, 173, 64);
   padding: 10px;
 }
 

@@ -103,7 +103,7 @@ const Modal = props => {
              </div>
 
              <div className="modal-footer">
-                 <button onClick={props.onClose} className="button">Close</button>
+                 <button onClick={props.onClose} className="button btn btn-primary">Close</button>
              </div>
          </div>
      </div>
