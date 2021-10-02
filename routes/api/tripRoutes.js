@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Trip } = require("../../models");
+const { User, Trip, Reservations } = require("../../models");
 const withAuth = require("../../utils/auth.js");
 
 //GET all user trips
@@ -30,6 +30,24 @@ router.get('/:trip_id', async(req, res) => {
             where: {id: req.params.trip_id},
         });
         res.status(200).json(tripDetails);
+    } catch (err) {
+        res.status(200).json(err);
+    }
+});
+
+//GET summary of all trip details
+router.get('/Summary/:trip_id', async(req, res) => {
+    try {
+        //get trip by id
+        const tripSummary = await Trip.findOne({
+            where: {id: req.params.trip_id},
+            include: [
+                    {model: Reservations}
+                ]
+            
+        }
+        );
+        res.status(200).json(tripSummary);
     } catch (err) {
         res.status(200).json(err);
     }
