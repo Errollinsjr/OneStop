@@ -159,13 +159,14 @@ function AddDetailsPage() {
                             <div className="dropdown">
                                 <button className="btn btn-primary btn-md">Reservations</button>
                                     <div className="dropdown-content">
-                                        <ReservationButton type={"air"} onClick={handleReservationAppend}>Airplane</ReservationButton>
-                                        <ReservationButton type={"car"} onClick={handleReservationAppend}>Car</ReservationButton>
-                                        <ReservationButton type={"hotel"} onClick={handleReservationAppend}>Hotel</ReservationButton>
-                                        <ReservationButton type={"restaurant"} onClick={handleReservationAppend}>Restaurant</ReservationButton>
-                                        <ReservationButton type={"misc"} onClick={handleReservationAppend}>Other</ReservationButton>
+                                        <ReservationButton type={"air"} onClick={handleInputChange}>Airplane</ReservationButton>
+                                        <ReservationButton type={"car"} onClick={handleInputChange}>Car</ReservationButton>
+                                        <ReservationButton type={"hotel"} onClick={handleInputChange}>Hotel</ReservationButton>
+                                        <ReservationButton type={"restaurant"} onClick={handleInputChange}>Restaurant</ReservationButton>
+                                        <ReservationButton type={"misc"} onClick={handleInputChange}>Other</ReservationButton>
                                     </div>
 
+                            
                             <form id="signupForm">
 
                             <div className="form-floating mb-3">
