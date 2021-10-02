@@ -7,6 +7,7 @@ import UserTripPage from "./pages/UserTripPage";
 import SignUpPage from "./pages/SignUpPage";
 import TripCreationPage from "./pages/TripCreationPage";
 import AddDetailsPage from "./pages/AddDetailsPage";
+import ReservationsPage from "./pages/ReservationsPage";
 import EditTripPage from "./pages/EditTripPage";
 import { UserContext } from "./UserContext";
 import { AuthContext } from "./AuthContext"
