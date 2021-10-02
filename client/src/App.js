@@ -78,8 +78,8 @@ function App() {
             <Route exact path="/AddDetails/:id" >
               {(authorized) ? (<AddDetailsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
             </Route>
-            <Route exact path={"/:trip_id"}>
-              <ReservationsPage />
+            <Route exact path={"/User/:trip_id"}>
+              {(authorized) ? (<ReservationsPage />) : (<LoginPage authorizedStatus = {authorizedStatus}/>)}
             </Route>
 
             <Route exact path="/edit_trip/:id" >

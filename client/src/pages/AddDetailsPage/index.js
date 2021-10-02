@@ -139,10 +139,10 @@ function AddDetailsPage() {
         event.preventDefault();
         if (formObject.name && formObject.confirmation ) {
             API.saveReservation({
-            type: ReservationButton.type,
+            type: formObject.type,
             name: formObject.name,
             confirmation: formObject.confirmation,
-            description: formObject.description
+            description: formObject.description,
             })
             // .then(res => history.push("/AddDetails/" + res.data.data.id))
             .catch(err => console.log(err));
@@ -158,7 +158,7 @@ function AddDetailsPage() {
                 <div className="card shadow-lg border-0 rounded-lg mt-6">
                     <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Add Details</h3></div>
                         <div className="card-body">
-                            <div className="dropdown">
+                            {/* <div className="dropdown">
                                 <button className="btn btn-primary btn-md">Reservations</button>
                                     <div className="dropdown-content">
                                         <ReservationButton type={"air"} onClick={handleInputChange}>Airplane</ReservationButton>
@@ -167,7 +167,7 @@ function AddDetailsPage() {
                                         <ReservationButton type={"restaurant"} onClick={handleInputChange}>Restaurant</ReservationButton>
                                         <ReservationButton type={"misc"} onClick={handleInputChange}>Other</ReservationButton>
                                     </div>
-                            </div>
+                            </div> */}
 
                             <h1 id="addDetailsRes">Type of Reservation Here</h1>
                             <form 
@@ -176,7 +176,19 @@ function AddDetailsPage() {
                                 action = "submit">
 
                             <div className="form-floating mb-3">
-                            <label htmlFor="inputName">Reservation Name</label>
+                            <label>Reservation Type</label>
+                                <input 
+                                    className="form-control input-color" 
+                                    id="inputFieldAddDetails" 
+                                    type="text" 
+                                    name="type" 
+                                    placeholder="Reservation Name" 
+                                    value={formObject.type}
+                                    onChange={ handleInputChange }
+                                />
+                            </div>
+                            <div className="form-floating mb-3">
+                            <label>Reservation Name</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputFieldAddDetails" 
@@ -187,7 +199,6 @@ function AddDetailsPage() {
                                     onChange={ handleInputChange }
                                 />
                             </div>
-
                             <div className="form-floating mb-3">
                             <label>Confirmation Number</label>
                                 <input 

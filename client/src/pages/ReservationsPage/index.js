@@ -42,7 +42,7 @@ function ReservationsPage() {
   //make api call to delete selected trip
   function deleteReservation(id) {
     API.deleteReservation(id)
-      .then(res => loadReservation())
+      .then(res => loadReservations())
       .catch(err => console.log(err));
   }
 
@@ -84,16 +84,6 @@ function ReservationsPage() {
             className="userTripPageButton btn btn-primary btn-sm" 
             onClick={() => deleteReservation(datasource.id)}>
             Delete 
-          </button>
-          <button 
-            className="userTripPageButton btn btn-primary btn-sm"
-            onClick={() => history.push("/edit_trip/" + datasource.id)}>
-            Edit Trip
-          </button>
-          <button 
-            className="userTripPageButton btn btn-primary btn-sm" 
-            onClick={() => history.push("/AddDetails/" + datasource.id)}>
-                Reservations
           </button>
         </Space>
       ),
