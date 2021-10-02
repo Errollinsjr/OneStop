@@ -12,6 +12,7 @@ import EditTripPage from "./pages/EditTripPage";
 import { UserContext } from "./UserContext";
 import { AuthContext } from "./AuthContext"
 import API from "./utils/Auth";
+import NoMatch from "./pages/NoMatchPage";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -52,45 +53,42 @@ function App() {
     <Router>
       <div>
         <AuthContext.Provider value={authorized}>
-        <UserContext.Provider value={providerValue}>
-          <Nav unAuthorizedStatus={unAuthorizedStatus}/>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
+          <UserContext.Provider value={providerValue}>
+            <Nav unAuthorizedStatus={unAuthorizedStatus}/>
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
 
-            <Route exact path="/Login">
-              <LoginPage authorizedStatus ={authorizedStatus} />
-            </Route>
+              <Route exact path="/Login">
+                <LoginPage authorizedStatus ={authorizedStatus} />
+              </Route>
 
-            <Route exact path="/SignUp">
-              <SignUpPage/>
-            </Route> 
+              <Route exact path="/SignUp">
+                <SignUpPage/>
+              </Route> 
 
-            <Route exact path="/User" >
-              {(authorized) ?  ( <UserTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
-            </Route>
+              <Route exact path="/User">
+                {(authorized) ?  ( <UserTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+              </Route>
 
-            <Route exact path="/Create" >
-              {(authorized) ? (<TripCreationPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
-            </Route>
+              <Route exact path="/Create">
+                {(authorized) ? (<TripCreationPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+              </Route>
 
-            <Route exact path="/AddDetails/:id" >
-              {(authorized) ? (<AddDetailsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
-            </Route>
-            <Route exact path={"/User/:trip_id"}>
-              {(authorized) ? (<ReservationsPage />) : (<LoginPage authorizedStatus = {authorizedStatus}/>)}
-            </Route>
+              <Route exact path="/AddDetails/:id">
+                {(authorized) ? (<AddDetailsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+              </Route>
 
-            <Route exact path="/edit_trip/:id" >
-            {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
-            </Route>
+              <Route exact path="/edit_trip/:id">
+              {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+              </Route>
 
-            {/* <Route>
-              <NoUrlMatch /> 
-            </Route> */}
-          </Switch>
-        </UserContext.Provider>
+              <Route exact path="/404">
+                <NoMatch /> 
+              </Route>
+            </Switch>
+          </UserContext.Provider>
         </AuthContext.Provider>
       </div>
     </Router>
