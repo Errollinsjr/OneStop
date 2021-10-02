@@ -165,8 +165,9 @@ function AddDetailsPage() {
                                         <ReservationButton type={"restaurant"} onClick={handleInputChange}>Restaurant</ReservationButton>
                                         <ReservationButton type={"misc"} onClick={handleInputChange}>Other</ReservationButton>
                                     </div>
+                            </div>
 
-                            
+                            <h1 id="addDetailsRes">Type of Reservation Here</h1>
                             <form id="signupForm">
 
                             <div className="form-floating mb-3">
@@ -197,7 +198,7 @@ function AddDetailsPage() {
                             </div>
 
                             <div className="form-floating mb-3">
-                                <label htmlFor="inputEndDate">Description</label>
+                                <label>Description</label>
                                 <input 
                                     className="form-control input-color" 
                                     id="inputFieldAddDetails" 
@@ -208,12 +209,17 @@ function AddDetailsPage() {
                                     onChange={handleInputChange}
                                 />
                             </div>
-
-                        </form>
-        
+                            
+                            <div className="form-floating mb-3">
+                                <input
+                                    className= "btn btn-primary btn-sm"
+                                    type= "submit"
+                                    value="Submit"
+                                    onClick= {handleFormSubmit}
+                                />
                             </div>
 
-                            <h1 id="addDetailsRes">Type of Reservation Here</h1>                                                                         
+                        </form>                                                                         
                         </div>
                     
                     <ReservationEditButton onClick={handleShow} >View Reservations</ReservationEditButton>                    
