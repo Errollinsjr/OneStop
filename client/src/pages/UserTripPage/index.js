@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Table, Tag, Space } from "antd";
+import { Layout, Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
 import "./userStyles.scss"
 
 function UserTripPage() {
+  const { Header, Content } = Layout;
   const history = useHistory();
 
   //setting component's initial state
@@ -111,7 +112,7 @@ function UserTripPage() {
 
   return (
     <>
-    <Table dataSource={trips} columns={columns} rowKey="id"/>,
+      <Table dataSource={trips} columns={columns} rowKey="id"/>
     </>
   );
 }

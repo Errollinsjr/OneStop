@@ -62,7 +62,7 @@ const history = useHistory();
   return (
     <>
     <div className="back1">
-    <div className="container">
+    <div className="edit-trip-container">
         <div className="row justify-content-center">
             <div className="col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-5">
