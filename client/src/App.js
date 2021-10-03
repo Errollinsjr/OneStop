@@ -84,6 +84,10 @@ function App() {
               {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
               </Route>
 
+              <Route exact path="/Summary/:id">
+              {(authorized) ? (<SummaryPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+              </Route>
+
               <Route exact path="/404">
                 <NoMatch /> 
               </Route>

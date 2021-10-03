@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import API from "../../utils/API"
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./addDetailsPageStyles.scss"
 import ReservationEditButton from "./ReservationModal/ReservationEdit";
 import Modal from "./ReservationModal/Modal";

@@ -10,10 +10,19 @@
 }
 
 .ant-table-wrapper {
-  top: 12%;
+  top: 80%;
   position: absolute;
   right: 3%;
   left: 3%;
+}
+
+.mt-6,
+.my-6 {
+  margin-top: 3rem !important;
+  width: 110vh;
+  height: 73vh;
+  left: -56%;
+  top: -10%;
 }
 
 //  .ant-table-wrapper {
@@ -25,14 +34,8 @@
 //   transform: translate(-50%, -50%);
 // }
 
-/* .ant-table-content, how to change header color to match others */
-/* .ant-table-head {
-  background-color: gold;
+.customWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-tr {
-  background-color: #ffeecc;
-} */
-
-// body {
-//   background-image: url("./mountainscape.jpg");
-// }
