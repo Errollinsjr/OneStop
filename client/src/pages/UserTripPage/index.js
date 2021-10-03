@@ -98,12 +98,17 @@ function UserTripPage() {
           <button 
             className="userTripPageButton btn btn-primary btn-sm"
             onClick={() => history.push("/edit_trip/" + dataSource.id)}>
-              Edit Trip
+              Edit
           </button>
           <button 
             className="userTripPageButton btn btn-primary btn-sm" 
             onClick={() => history.push("/AddDetails/" + dataSource.id)}>
               Reservations
+          </button>
+          <button 
+            className="userTripPageButton btn btn-primary btn-sm" 
+            onClick={() => history.push("/Summary/" + dataSource.id)}>
+              Summary
           </button>
         </Space>
       ),
@@ -112,7 +117,9 @@ function UserTripPage() {
 
   return (
     <>
+    <div className='height back1'>
       <Table dataSource={trips} columns={columns} rowKey="id"/>
+    </div>
     </>
   );
 }
