@@ -1,20 +1,14 @@
+/*Summary page styles*/
+
 @import "~antd/dist/antd.css";
 
-.userTripPageTitle {
-  color: black;
-  padding-top: 1em;
-}
 
-.userTripPageButton:focus {
-  outline: none;
-}
-
-.ant-table-wrapper {
-  top: 80%;
-  position: absolute;
-  right: 3%;
-  left: 3%;
-}
+// .ant-table-wrapper {
+//   top: 80%;
+//   position: absolute;
+//   right: 3%;
+//   left: 3%;
+// }
 
 .mt-6,
 .my-6 {

@@ -53,7 +53,7 @@ function SignUpPage() {
     }
   return (
     <>
-    <div className="container">
+    <div className="sign-up-container">
         <div className="row justify-content-center">
             <div className="col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-5">
