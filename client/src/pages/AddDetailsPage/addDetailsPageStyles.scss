@@ -1,108 +1,22 @@
-.login-btn {
-  margin: 10px;
+/*Add Details page styles*/
+.reservaion-detail{
+  width: 100%;
 }
 
-.header-color {
-  background-color: rgb(231, 173, 64);
-  color: white;
-}
-input:hover {
-  border-color: gold;
-}
-
-.input-color {
-  border-color: rgb(44, 129, 179);
-}
-
-body {
-  background-image: url("madrid.jpg");
-}
-
-.forgotpass {
-  color: black;
-}
-
-.reservationContainer {
-  margin-top: 3rem !important;
-  width: 127vh;
-  height: 92vh;
-  left: -59%;
-  top: -1%;
-  background-color: red;
-}
-
-.mt-6,
-.my-6 {
-  margin-top: 3rem !important;
-  width: 127vh;
-  height: 92vh;
-  left: -59%;
-  top: -1%;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 115px;
-  // box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
-  /* padding: 0px 0px; */
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-#reservationForm {
-  position: absolute;
-  top: 25%;
-  left: 23%;
-}
-
-#addDetailsSubBtn {
-  color: #f9f9f9;
-}
-
-#inputFieldAddDetails {
-  width: 550px;
-}
-
-#addDetailsRes {
-  top: 27%;
-  left: 30%;
-  position: absolute;
-}
-
-.tripModal {
-  width: 17%;
-  height: 5%;
-  top: 92.5%;
-  left: 81.5%;
-  position: absolute;
-  border-radius: 5px;
-  border-style: dashed;
+.card-footer:last-child {
+  display: flex;
 }
 
 .modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ffffff;
+  background-color:transparent;
   display: flex;
-  // align-items: center;
   justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .modal-content {
-  width: 117vh;
+  width: 75%;
   background-color: white;
 }
 
@@ -124,6 +38,11 @@ body {
   border-bottom: 1px solid white;
 }
 
-.card-footer:last-child {
-  display: flex;
+
+@media screen and (max-width: 400px) {
+  .reservation-footer {
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
 }

@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./homeStyles.scss"
 
 function HomePage() {
+  const history = useHistory();
+
   return (
     <>
     <div className="HomePageText">    
@@ -18,9 +20,7 @@ function HomePage() {
         </b>
     </div>
     <div className="createyourtrip-button">
-      <Link to="/Login">    
-        <button className="homePageButton">Create Your Trip</button>
-      </Link>  
+        <button className="homePageButton" onClick={() => history.push("/Create")}>Create Your Trip</button>
     </div>
     <div className="video-container">
     <iframe src='https://gfycat.com/ifr/AccurateVapidGrunion?controls=0&hd=1' scrolling="no" title="gif"></iframe>

@@ -1,33 +1,25 @@
-.login-btn {
-    margin: 10px;
+/*SignUp Page Styles*/
+
+
+
+.sign-up-container{
+    width: 100%;
+    margin-top: 1%;
+    margin-left: 2%
+
+//   margin: 0;
+// //   padding: 5%;
+//   position: absolute;
+//   top: 25%;
+//   left: 25%;
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
 }
 
-.header-color {
-    background-color: rgb(231, 173, 64);
-    color: white;
-    
-}
-input:hover {
-    border-color: gold;
-}
+@media screen and (max-width: 994px) {
+    .sign-up-container {
+        width: 50%;
+        margin-left: 25%;
+    }
 
-.input-color {
-    border-color: rgb(44, 129, 179);
-}
-
-body {
-    background-image: url("madrid.jpg");
-}
-
-.forgotpass {
-    color: black;
-}
-
-.container {
-    margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
