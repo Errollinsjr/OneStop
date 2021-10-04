@@ -10,13 +10,15 @@ import AddDetailsPage from "./pages/AddDetailsPage";
 import SummaryPage from "./pages/SummaryPage";
 import EditTripPage from "./pages/EditTripPage";
 import { UserContext } from "./UserContext";
-import { AuthContext } from "./AuthContext"
+import { AuthContext } from "./AuthContext";
+import { EditTripContext } from "./EditTripContext";
 import API from "./utils/Auth";
 import NoMatch from "./pages/NoMatchPage";
 
 function App() {
   const [user, setUser] = useState(false);
   const [authorized, setAuthorized] = useState(false);
+  const [editTrip, setEditTrip] = useState(false);
  
   console.log("app line 17:" + user);
 
@@ -68,21 +70,24 @@ function App() {
                 <SignUpPage/>
               </Route> 
 
-              <Route exact path="/User">
-                {(authorized) ?  ( <UserTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
-              </Route>
+              <EditTripContext.Provider value={{editTrip, setEditTrip}} >
+                <Route exact path="/User">
+                  {(authorized) ?  ( <UserTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+                </Route>
 
-              <Route exact path="/Create">
-                {(authorized) ? (<TripCreationPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
-              </Route>
+                <Route exact path="/Create">
+                  {(authorized) ? (<TripCreationPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+                </Route>
+
+                <Route exact path="/edit_trip/:id">
+                {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+                </Route>
+              </EditTripContext.Provider>
 
               <Route exact path="/AddDetails/:id">
                 {(authorized) ? (<AddDetailsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
               </Route>
 
-              <Route exact path="/edit_trip/:id">
-              {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
-              </Route>
 
               <Route exact path="/Summary/:id">
               {(authorized) ? (<SummaryPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}

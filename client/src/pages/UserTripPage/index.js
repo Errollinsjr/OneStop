@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Layout, Table, Tag, Space } from "antd";
+import { Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
-import "./userStyles.scss"
+import "./userStyles.scss";
+import { EditTripContext } from "../../EditTripContext";
+
 
 function UserTripPage() {
-  const { Header, Content } = Layout;
   const history = useHistory();
+  const { setEditTrip } = useContext(EditTripContext);
+
 
   //setting component's initial state
   const [trips, setTrips] = useState();
@@ -24,6 +27,7 @@ function UserTripPage() {
       .then(res => {
         // console.log(res.data.trips)
         setTrips(res.data.trips)
+        setEditTrip(false);
       })
       .catch(err => console.log(err))  
   };

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { Table, Space } from "antd";
+import { useParams } from "react-router-dom";
+import { Table } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
 import "./summaryStyles.scss"
 
 function SummaryPage() {
-  const history = useHistory();
   const { id } = useParams()
 
   //setting component's initial state
