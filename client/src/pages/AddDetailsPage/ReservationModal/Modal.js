@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Table, Space } from "antd";
 import API from "../../../utils/API";
 import {useParams} from 'react-router-dom';
-import "./modalTable.scss";
+import "../../AddDetailsPage/addDetailsPageStyles.scss";
 
 const Modal = props => {
     const history = useHistory();
@@ -103,7 +103,7 @@ const Modal = props => {
              </div>
 
              <div className="modal-footer">
-                 <button onClick={props.onClose} className="button">Close</button>
+                 <button onClick={props.onClose} className="userTripPageButton btn btn-primary btn-sm">Close</button>
              </div>
          </div>
      </div>
