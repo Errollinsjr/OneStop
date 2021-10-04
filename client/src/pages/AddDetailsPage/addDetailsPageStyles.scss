@@ -1,37 +1,15 @@
 /*Add Details page styles*/
-.res-det-container{
-  width: 80%;
-  margin-top: 2%;
-  margin-left: 13%;
+.reservaion-detail{
+  width: 100%;
 }
 
-@media screen and (max-width: 994px) {
-  .res-det-container {
-      width: 50%;
-      margin-left: 25%;
-  }
-
-}
-
-.tripModal {
-  width: 17%;
-  height: 5%;
-  top: 92.5%;
-  left: 81.5%;
-  position: absolute;
-  border-radius: 5px;
-  border-style: dashed;
+.card-footer:last-child {
+  display: flex;
 }
 
 .modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ffffff;
+  background-color:transparent;
   display: flex;
-  // align-items: center;
   justify-content: center;
 }
 
@@ -58,6 +36,11 @@
   border-bottom: 1px solid white;
 }
 
-.card-footer:last-child {
-  display: flex;
+
+@media screen and (max-width: 400px) {
+  .reservation-footer {
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
 }
