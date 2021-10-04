@@ -77,22 +77,23 @@ function SummaryPage() {
 
   return (
     <>
-    <div className="customWrapper">
-
-        <div className="justify-content-center">
-                {/* <div className="card shadow-lg border-0 rounded-lg mt-6"> */}
-                  <div className="card-header header-color">
-                    <h1 className="text-center font-weight-light my-4">{tripInfo.trip_name}</h1>
-                    <h2 className="text-center font-weight-light my-4">{moment.utc(tripInfo.start_date).format("MM-DD-YYYY")}</h2>
-                    <h2 className="text-center font-weight-light my-4">{moment.utc(tripInfo.end_date).format("MM-DD-YYYY")}</h2>    
-                    <Table dataSource={reservations} columns={columns} rowKey="id"/>
-
-                  
-                  </div>
-                {/* </div> */}
-         </div>
-    
-   </div>
+    <div className="height back1"></div>
+    <div className="justify-content-center ">
+      <div className="header-color summary-header">
+        <h1 className="text-center font-weight-bold mt-3">{tripInfo.trip_name}</h1>
+        <div className="d-flex justify-content-between">
+          <div className="d-flex flex-column">
+            <h4 className="text-center font-weight-bold">Start Trip:</h4>
+            <p className="text-center font-weight-normal">{moment.utc(tripInfo.start_date).format("MM-DD-YYYY")}</p>
+          </div>
+          <div className="d-flex flex-column">
+            <h4 className="text-center font-weight-bold">End Trip:</h4>
+            <p className="text-center font-weight-normal">{moment.utc(tripInfo.end_date).format("MM-DD-YYYY")}</p>
+          </div>
+        </div>                   
+      </div>
+    </div>
+    <Table dataSource={reservations} columns={columns} rowKey="id" className='summary-table'/> 
     </>
   );
 }
