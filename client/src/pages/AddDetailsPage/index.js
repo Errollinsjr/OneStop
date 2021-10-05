@@ -56,7 +56,7 @@ function AddDetailsPage() {
     <>
     <div className='back1 height'>
         <div className=" row justify-content-center">
-            <div className="col-9 col-sm-7 col-md-5 col-lg-5">
+            <div className="col-9 col-sm-9 col-md-7 col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-5 reservation-detail">
                     <div className="card-header header-color">
                         <h3 className="text-center font-weight-light my-4">Add Reservation Details</h3>
