@@ -1,16 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import API from "../../utils/API"
 import { useHistory } from "react-router-dom";
 import "./addDetailsPageStyles.scss"
-import ReservationEditButton from "./ReservationModal/ReservationEdit";
-import Modal from "./ReservationModal/Modal";
+// import ReservationEditButton from "./ReservationModal/ReservationEdit";
+// import Modal from "./ReservationModal/Modal";
 import {useParams} from 'react-router-dom';
+import { EditReservationContext } from "../../EditReservationContext";
 
-function AddDetailsPage() {
-    const [show, setShow] = useState(false);
+function EditReservationsPage() {
+    // const [show, setShow] = useState(false);
     const history = useHistory();
+    const { setEditReservation } = useContext(EditReservationContext);
     const {id} = useParams() 
-    // const { setEditReservation } = useContext(EditReservationContext);
     const [formObject, setFormObject] = useState({
         type: "",
         name: "",
@@ -19,8 +20,24 @@ function AddDetailsPage() {
         trip_id: id
     })
     
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+
+    //when this page mounts, grab trip id from props.match.params.id
+    useEffect(() => {
+        API.getReservations(id)
+            .then(res => {
+                setFormObject({
+                    type: res.data.type,
+                    name: res.data.name,
+                    confirmation: res.data.confirmation,
+                    description: res.data.description,
+                    trip_id: id
+                })
+                setEditReservation(true);
+            })
+            .catch(err => console.log(err));
+    }, [id])
 
     //handle updating component state when user types into input fields
     function handleInputChange(event) {
@@ -32,21 +49,15 @@ function AddDetailsPage() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.name && formObject.confirmation ) {
-            API.saveReservation({
+            API.editReservation(id, {
             type: formObject.type,
             name: formObject.name,
             confirmation: formObject.confirmation,
             description: formObject.description,
             trip_id: formObject.trip_id
             })
-            .then(() => setFormObject(
-              {
-                type: "",    
-                name: "",
-                confirmation: "",
-                description:"",
-              }
-                ))
+            .then(res => data)
+            .then(history.push("/AddDetails/" + data.id))
             .catch(err => console.log(err));
         }
 }
@@ -78,7 +89,7 @@ function AddDetailsPage() {
                                     name="type" 
                                     placeholder="Reservation Name" 
                                     value={formObject.type}
-                                    onChange={ handleInputChange }
+                                    onChange={handleInputChange}
                                 />
                             </div>
                             <div className="form-floating mb-3">
@@ -90,7 +101,7 @@ function AddDetailsPage() {
                                     name="name" 
                                     placeholder="Reservation Name" 
                                     value={formObject.name}
-                                    onChange={ handleInputChange }
+                                    onChange={handleInputChange}
                                 />
                             </div>
                             <div className="form-floating mb-3">
@@ -121,31 +132,31 @@ function AddDetailsPage() {
                             <div className="form-floating mb-3">
                                 <input
                                     className= "btn btn-primary btn-sm"
-                                    type= "submit"
+                                    type="submit"
                                     value="Submit"
-                                    onClick= {handleFormSubmit}
+                                    onClick={handleFormSubmit}
                                 />
                             </div>
                         </form>                                                                         
                     </div>
                     
                     <div className="card-footer text-center py-3 d-flex justify-content-between reservation-footer">
-                        <button 
+                        {/* <button 
                             className="userTripPageButton btn btn-primary btn-sm" 
                             onClick={() => history.push("/Summary/" + formObject.trip_id)}>
                             Trip Summary
-                        </button>
-                        <ReservationEditButton onClick={handleShow}>View Reservations</ReservationEditButton>
+                        </button> */}
+                        {/* <ReservationEditButton onClick={handleShow}>View Reservations</ReservationEditButton> */}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <Modal onClose={handleClose} show={show}/>
+    {/* <Modal onClose={handleClose} show={show}/> */}
     </>
   );
 }
 
-export default AddDetailsPage;
+export default EditReservationsPage;
 

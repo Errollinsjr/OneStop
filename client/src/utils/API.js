@@ -35,13 +35,13 @@ export default {
   getReservations: function(id) {
     return axios.get("/api/reservations/" + id);
   },
-  // Deletes reservation witht the given id
+  // Deletes reservation with the given id
   deleteReservation: function(id) {
-    return axios.delete("/api/reservations/delete" + id)
+    return axios.delete("/api/reservations/" + id)
   },
   //Edit reservation by id
   editReservation: function(id, reservationData) {
-    return axios.put("/api/reservations/edit" + id, reservationData)
+    return axios.put("/api/reservations/edit/" + id, reservationData)
   },
   //Save reservation
   saveReservation: function(reservationData) {

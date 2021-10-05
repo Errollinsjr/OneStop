@@ -36,7 +36,7 @@ router.post('/createreservation', async(req, res) => {
     };
 });
 
-router.put('/:reservations_id', async(req, res) => {
+router.put('/edit/:reservations_id', async(req, res) => {
     try {
         console.log(req.body)
         console.log(req.params.id)
@@ -48,17 +48,16 @@ router.put('/:reservations_id', async(req, res) => {
             confirmation: req.body.confirmation,
             description: req.body.description,
             trip_id: req.session.trip_id
-
             }, 
-            { where:{
+            { where:
+              {
                 id: req.params.reservations_id
-            }
-               
+              }               
             },
         )
         res.status(200).json(editedReservation);
     } catch (err) {
-        res.status(400).json({ error: err})
+        res.status(400).json({error: err})
     }
 });
 
