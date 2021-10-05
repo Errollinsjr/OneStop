@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Table, Tag, Space } from "antd";
 import API from "../../utils/API.js"
 import moment from "moment";
-import "./userStyles.scss"
+import "./userStyles.scss";
+import { EditTripContext } from "../../EditTripContext";
+
 
 function UserTripPage() {
   const history = useHistory();
+  const { setEditTrip } = useContext(EditTripContext);
+
 
   //setting component's initial state
   const [trips, setTrips] = useState();
@@ -23,6 +27,7 @@ function UserTripPage() {
       .then(res => {
         // console.log(res.data.trips)
         setTrips(res.data.trips)
+        setEditTrip(false);
       })
       .catch(err => console.log(err))  
   };
@@ -97,12 +102,17 @@ function UserTripPage() {
           <button 
             className="userTripPageButton btn btn-primary btn-sm"
             onClick={() => history.push("/edit_trip/" + dataSource.id)}>
-              Edit Trip
+              Edit
           </button>
           <button 
             className="userTripPageButton btn btn-primary btn-sm" 
             onClick={() => history.push("/AddDetails/" + dataSource.id)}>
               Reservations
+          </button>
+          <button 
+            className="userTripPageButton btn btn-primary btn-sm" 
+            onClick={() => history.push("/Summary/" + dataSource.id)}>
+              Summary
           </button>
         </Space>
       ),
@@ -111,7 +121,9 @@ function UserTripPage() {
 
   return (
     <>
-    <Table dataSource={trips} columns={columns} rowKey="id"/>,
+    <div className='height back1'>
+      <Table dataSource={trips} columns={columns} rowKey="id"/>
+    </div>
     </>
   );
 }

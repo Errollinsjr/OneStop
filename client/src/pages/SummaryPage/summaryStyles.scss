@@ -1,38 +1,31 @@
+/*Summary page styles*/
+
 @import "~antd/dist/antd.css";
 
-.userTripPageTitle {
-  color: black;
-  padding-top: 1em;
+.summary-header {
+  height: 35%;
+  padding: 2%;
+  width: 95%;
+  margin: auto;
+  border-radius: 2px;
+  position: relative;
+  top: -600px;
+  left: 1px;
+}
+.summary-table {
+  top: 60%;
+  // position: absolute;
+  // right: 3%;
+  // left: 3%;
 }
 
-.userTripPageButton:focus {
-  outline: none;
-}
-
-.ant-table-wrapper {
-  top: 12%;
-  position: absolute;
-  right: 3%;
-  left: 3%;
-}
-
-//  .ant-table-wrapper {
-//   margin: 0;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   -ms-transform: translate(-50%, -50%);
-//   transform: translate(-50%, -50%);
+// .mt-6,
+// .my-6 {
+//   margin-top: 3rem !important;
+//   width: 110vh;
+//   height: 73vh;
+//   left: -56%;
+//   top: -10%;
 // }
 
-/* .ant-table-content, how to change header color to match others */
-/* .ant-table-head {
-  background-color: gold;
-}
-tr {
-  background-color: #ffeecc;
-} */
 
-// body {
-//   background-image: url("./mountainscape.jpg");
-// }

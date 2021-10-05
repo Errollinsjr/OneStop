@@ -9,6 +9,11 @@ export default {
   getTrip: function(id) {
     return axios.get("/api/trip/" + id);
   },
+
+  getSummary: function(id) {
+    return axios.get('/api/trip/Summary/' + id)
+  },
+
   // Deletes the trip with the given id
   deleteTrip: function(id) {
     return axios.delete("/api/trip/delete/" + id);
@@ -27,8 +32,8 @@ export default {
   },
 
   //Get all reservations
-  getReservations: function() {
-    return axios.get("/api/reservations/:trip_id");
+  getReservations: function(id) {
+    return axios.get("/api/reservations/" + id);
   },
   // Deletes reservation witht the given id
   deleteReservation: function(id) {

@@ -1,13 +1,15 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import "./editTripStyle.scss"
 import Uploader from "./Uploader.js";
 import moment from "moment";
+import { EditTripContext } from "../../EditTripContext";
 
 function EditTripPage() {
 
 const history = useHistory();
+const { setEditTrip } = useContext(EditTripContext);
 
 
   //setting initial state
@@ -31,6 +33,7 @@ const history = useHistory();
                 tags: res.data.tags.join(', '),
                 upload: res.data.upload
             })
+            setEditTrip(true);
         })
         .catch(err => console.log(err));
   }, [id])
@@ -62,7 +65,7 @@ const history = useHistory();
   return (
     <>
     <div className="back1">
-    <div className="container">
+    <div className="edit-trip-container">
         <div className="row justify-content-center">
             <div className="col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-5">
