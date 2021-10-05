@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { Table, Space } from "antd";
+import { useParams } from "react-router-dom";
+import { Table } from "antd";
 import API from "../../utils/API.js"
-// import moment from "moment";
+import moment from "moment";
 import "./summaryStyles.scss"
 
 function SummaryPage() {
-  const history = useHistory();
   const { id } = useParams()
 
   //setting component's initial state
+  const [tripInfo, setTripInfo] = useState({
+    trip_name:"",
+    start_date:"",
+    end_date:"",
+    tags:""
+  });
   const [reservations, setReservations] = useState();
 
   //load reservations and store them with setReservations
@@ -22,18 +27,18 @@ function SummaryPage() {
     console.log(id)
     API.getSummary(id)
       .then(res => {
-        console.log(res)
+        console.log(res.data)
+        setTripInfo({
+          trip_name:res.data.trip_name,
+          start_date: res.data.start_date,
+          end_date: res.data.end_date,
+          tags: res.data.tags
+        })
         setReservations(res.data.reservations)
       })
       .catch(err => console.log(err))  
   };
 
-  //make api call to delete selected trip
-  // function deleteReservation(id) {
-  //   API.deleteReservation(id)
-  //     .then(res => loadReservations())
-  //     .catch(err => console.log(err));
-  // }
 
   const columns = [
     {
@@ -69,32 +74,37 @@ function SummaryPage() {
     
   ];
 
-  return (
-    <>
+return (
+  <>
+  <div className="height back-summary">
+  <div className="customWrapper">
 
-    <div className="customWrapper">
+    <div className="container">
+        <div className="row justify-content-center">
+            <div className="col-lg-5">
+                <div className="card shadow-lg border-0 rounded-lg mt-6 summaryCard">
+                    <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Summary Page</h3></div>
+                        <div className="card-body summaryBody">
+                          <img src="" alt="place holder"/>
+                          <h3>{tripInfo.trip_name}</h3>
+                          <h4>{moment.utc(tripInfo.start_date).format("MM-DD-YYYY") + ' - ' + moment.utc(tripInfo.end_date).format("MM-DD-YYYY")}</h4>
+                          <h4>Upcoming Trip</h4>                                              
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <Table dataSource={reservations} columns={columns} rowKey="id" className="summaryTable"/>
 
-      <div className="container">
-          <div className="row justify-content-center">
-              <div className="col-lg-5">
-                  <div className="card shadow-lg border-0 rounded-lg mt-6 summaryCard">
-                      <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Summary Page</h3></div>
-                          <div className="card-body summaryBody">
-                            <img src="" alt="place holder"/>
-                            <h3>Hawaii</h3>
-                            <h4>1/09/2021 - 1/21/21</h4>
-                            <h4>Upcoming Trip</h4>                                              
-                          </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    
-    <Table dataSource={reservations} columns={columns} rowKey="id" className="summaryTable"/>
-
-   </div>
-    </>
-  );
+ </div>
+ </div>
+  </>
+);
 }
 
 export default SummaryPage;
+
+
+
+
