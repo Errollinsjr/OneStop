@@ -11,13 +11,13 @@ function EditReservationsPage() {
     // const [show, setShow] = useState(false);
     const history = useHistory();
     const { setEditReservation } = useContext(EditReservationContext);
-    const { trip_id, reservation_id } = useParams() 
+    const { reservation_id } = useParams() 
     const [formObject, setFormObject] = useState({
         type: "",
         name: "",
         confirmation: "",
         description: "",
-        trip_id: trip_id
+        trip_id:""
     })
     
     // const handleClose = () => setShow(false);
@@ -25,13 +25,14 @@ function EditReservationsPage() {
 
     //when this page mounts, grab trip id from props.match.params.id
     useEffect(() => {
-        API.getSingleReservation(trip_id, reservation_id)
+        API.getSingleReservation(reservation_id)
             .then(res => {
                 setFormObject({
                     type: res.data.type,
                     name: res.data.name,
                     confirmation: res.data.confirmation,
                     description: res.data.description,
+                    trip_id: res.data.trip_id
                 })
                 console.log(res);
                 setEditReservation(true);
@@ -54,9 +55,8 @@ function EditReservationsPage() {
                 name: formObject.name,
                 confirmation: formObject.confirmation,
                 description: formObject.description,
-                trip_id: trip_id
             })
-            .then(history.push("/AddDetails/" + trip_id))
+            .then(history.push("/AddDetails/" + formObject.trip_id))
             .catch(err => console.log(err));
         }
 }

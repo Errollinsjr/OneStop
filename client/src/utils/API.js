@@ -40,8 +40,8 @@ export default {
     return axios.get("/api/reservations/" + id);
   },
     //Get single reservation by trip_id and reservation_id
-  getSingleReservation: function(trip_id, res_id) {
-    return axios.get("/api/reservations/" + trip_id + "/" + res_id)
+  getSingleReservation: function(res_id) {
+    return axios.get("/api/reservations/single/" + res_id)
   },
     // Deletes reservation with the given id
   deleteReservation: function(id) {

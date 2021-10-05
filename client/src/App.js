@@ -87,7 +87,7 @@ function App() {
                   {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
                   </Route>
 
-                  <Route exact path="/edit_reservations/:trip_id/:reservation_id">
+                  <Route exact path="/edit_reservations/:reservation_id">
                   {(authorized) ? (<EditReservationsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
                   </Route>
                 

@@ -21,11 +21,10 @@ router.get('/:trip_id', async(req, res) => {
 });
 
 //Get single reservation by trip_id and reservation_id
-router.get('/:trip_id/:reservation_id', async(req, res) => {
+router.get('/single/:reservation_id', async(req, res) => {
     try {
         const resDetails = await Reservations.findOne({
-            where: {trip_id: req.params.trip_id, 
-                    id: req.params.reservation_id},
+            where: {id: req.params.reservation_id},
         })
         console.log(resDetails);
         res.status(200).json(resDetails)
@@ -61,7 +60,7 @@ router.put('/edit/:reservations_id', async(req, res) => {
             name: req.body.name,
             confirmation: req.body.confirmation,
             description: req.body.description,
-            trip_id: req.session.trip_id
+            // trip_id: req.session.trip_id
             }, 
             { where:
               {
