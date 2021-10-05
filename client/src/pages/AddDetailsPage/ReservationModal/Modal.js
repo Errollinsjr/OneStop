@@ -84,7 +84,7 @@ const Modal = props => {
               </button>
               <button 
                 className="userTripPageButton btn btn-primary btn-sm" 
-                onClick={() => history.push("/edit_reservations/" + dataSource.id)}>
+                onClick={() => history.push("/edit_reservations/" + id + "/" + dataSource.id)}>
                     Edit Reservation   
               </button>
             </Space>
