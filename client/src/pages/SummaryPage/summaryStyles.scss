@@ -1,41 +1,33 @@
 @import "~antd/dist/antd.css";
 
-.userTripPageTitle {
-  color: black;
-  padding-top: 1em;
-}
 
-.userTripPageButton:focus {
-  outline: none;
+.summary-container {
+  position: relative;
+  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
 }
-
 .summaryTable {
-  top: 80%;
-  position: absolute;
-  right: 3%;
-  left: 3%;
-  margin-left: 250px;
-  max-width: 127vh;
-  margin-top: -188px;
+  top: 20%;
+  position: relative;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
-.summaryCard {
-  margin-top: 3rem !important;
-  width: 127vh;
-  left: -56%;
-  top: -10%;
-  margin-bottom: 250px;
-  max-height: 50vh;
-}
+// .summaryCard {
+//   margin-top: 3rem !important;
+//   width: 127vh;
+//   left: -56%;
+//   top: -10%;
+//   margin-bottom: 250px;
+//   max-height: 50vh;
+// }
 
 .summaryBody {
   text-align: center;
-}
-
-.customWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .back-summary {

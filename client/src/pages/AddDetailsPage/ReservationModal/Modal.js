@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Table, Space } from "antd";
 import API from "../../../utils/API";
 import {useParams} from 'react-router-dom';
 import "../../AddDetailsPage/addDetailsPageStyles.scss";
+import { EditReservationContext } from "../../../EditReservationContext";
 
 const Modal = props => {
     const history = useHistory();
     const {id} = useParams() 
     //setting component's initial state
     const [reservations, setReservations] = useState();
+    const { setEditReservation } = useContext(EditReservationContext);
 
     //load trips and store them with setTrips
     useEffect(() => {
@@ -22,6 +24,7 @@ const Modal = props => {
         .then(res => {
             console.log(res)
             setReservations(res.data.reservations)
+            setEditReservation(false);
         })
         .catch(err => console.log(err))  
     };
@@ -81,7 +84,7 @@ const Modal = props => {
               </button>
               <button 
                 className="userTripPageButton btn btn-primary btn-sm" 
-                onClick={() => history.push("/AddDetails/" + dataSource.id)}>
+                onClick={() => history.push("/edit_reservations/" + dataSource.id)}>
                     Edit Reservation   
               </button>
             </Space>

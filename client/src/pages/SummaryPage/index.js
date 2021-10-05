@@ -77,18 +77,16 @@ function SummaryPage() {
 return (
   <>
   <div className="height back-summary">
-  <div className="customWrapper">
-
-    <div className="container">
+    <div className="summary-container">
         <div className="row justify-content-center">
-            <div className="col-lg-5">
-                <div className="card shadow-lg border-0 rounded-lg mt-6 summaryCard">
-                    <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Summary Page</h3></div>
+            <div className="col-9 col-sm-9 col-md-7 col-lg-5">
+                <div className="card shadow-lg border-0 rounded-lg summaryCard">
+                    <div className="card-header header-color"><h3 className="text-center font-weight-light my-1">{tripInfo.trip_name}</h3></div>
                         <div className="card-body summaryBody">
                           <img src="" alt="place holder"/>
-                          <h3>{tripInfo.trip_name}</h3>
-                          <h4>{moment.utc(tripInfo.start_date).format("MM-DD-YYYY") + ' - ' + moment.utc(tripInfo.end_date).format("MM-DD-YYYY")}</h4>
-                          <h4>Upcoming Trip</h4>                                              
+                          {/* <h3>{tripInfo.trip_name}</h3> */}
+                          <h4>{moment.utc(tripInfo.start_date).format("MM-DD-YYYY") + ' to ' + moment.utc(tripInfo.end_date).format("MM-DD-YYYY")}</h4>
+                          {/* <h4>Upcoming Trip</h4>                                               */}
                         </div>
                 </div>
             </div>
@@ -97,7 +95,6 @@ return (
   
   <Table dataSource={reservations} columns={columns} rowKey="id" className="summaryTable"/>
 
- </div>
  </div>
   </>
 );
