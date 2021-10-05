@@ -23,15 +23,11 @@ router.get('/:trip_id', async(req, res) => {
 //Get single reservation by trip_id and reservation_id
 router.get('/:trip_id/:reservation_id', async(req, res) => {
     try {
-        const resDetails = await Trip.findOne({
-            where: {id: req.params.trip_id},
-            include: [
-                {
-                    model: Reservations,
-                    where: {id: req.params.reservation_id}
-                }
-            ]
+        const resDetails = await Reservations.findOne({
+            where: {trip_id: req.params.trip_id, 
+                    id: req.params.reservation_id},
         })
+        console.log(resDetails);
         res.status(200).json(resDetails)
     } catch (err) {
         res.status(400).json(err)
