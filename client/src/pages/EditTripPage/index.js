@@ -64,7 +64,7 @@ const { setEditTrip } = useContext(EditTripContext);
 
   return (
     <>
-    <div className="back1">
+    <div className="back-edit">
     <div className="edit-trip-container">
         <div className="row justify-content-center">
             <div className="col-lg-5">

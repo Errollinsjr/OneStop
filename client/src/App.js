@@ -82,7 +82,7 @@ function App() {
                 <Route exact path="/edit_trip/:id">
                 {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
                 </Route>
-              </EditTripContext.Provider>
+              
 
               <Route exact path="/AddDetails/:id">
                 {(authorized) ? (<AddDetailsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
@@ -96,6 +96,7 @@ function App() {
               <Route exact path="/404">
                 <NoMatch /> 
               </Route>
+              </EditTripContext.Provider>
             </Switch>
           </UserContext.Provider>
         </AuthContext.Provider>
