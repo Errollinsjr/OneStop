@@ -122,7 +122,7 @@ function UserTripPage() {
   return (
     <>
     <div className='height back-trip'>
-      <Table dataSource={trips} columns={columns} rowKey="id"/>
+      <Table className='user-trip-container' dataSource={trips} columns={columns} rowKey="id"/>
     </div>
     </>
   );
