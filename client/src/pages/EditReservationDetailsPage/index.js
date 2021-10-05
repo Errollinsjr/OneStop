@@ -11,13 +11,13 @@ function EditReservationsPage() {
     // const [show, setShow] = useState(false);
     const history = useHistory();
     const { setEditReservation } = useContext(EditReservationContext);
-    const {id} = useParams() 
+    const { trip_id, reservation_id } = useParams() 
     const [formObject, setFormObject] = useState({
         type: "",
         name: "",
         confirmation: "",
         description: "",
-        trip_id: id
+        trip_id: trip_id
     })
     
     // const handleClose = () => setShow(false);
@@ -25,19 +25,19 @@ function EditReservationsPage() {
 
     //when this page mounts, grab trip id from props.match.params.id
     useEffect(() => {
-        API.getReservations(id)
+        API.getSingleReservation(trip_id, reservation_id)
             .then(res => {
                 setFormObject({
                     type: res.data.type,
                     name: res.data.name,
                     confirmation: res.data.confirmation,
                     description: res.data.description,
-                    trip_id: id
                 })
+                console.log(res);
                 setEditReservation(true);
             })
             .catch(err => console.log(err));
-    }, [id])
+    }, [reservation_id])
 
     //handle updating component state when user types into input fields
     function handleInputChange(event) {
@@ -49,15 +49,14 @@ function EditReservationsPage() {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (formObject.name && formObject.confirmation ) {
-            API.editReservation(id, {
-            type: formObject.type,
-            name: formObject.name,
-            confirmation: formObject.confirmation,
-            description: formObject.description,
-            trip_id: formObject.trip_id
+            API.editReservation(reservation_id, {
+                type: formObject.type,
+                name: formObject.name,
+                confirmation: formObject.confirmation,
+                description: formObject.description,
+                trip_id: trip_id
             })
-            .then(res => data)
-            .then(history.push("/AddDetails/" + data.id))
+            .then(history.push("/AddDetails/" + trip_id))
             .catch(err => console.log(err));
         }
 }
@@ -70,7 +69,7 @@ function EditReservationsPage() {
             <div className="col-9 col-sm-7 col-md-5 col-lg-5">
                 <div className="card shadow-lg border-0 rounded-lg mt-5 reservation-detail">
                     <div className="card-header header-color">
-                        <h3 className="text-center font-weight-light my-4">Add Reservation Details</h3>
+                        <h3 className="text-center font-weight-light my-4">Edit Reservation</h3>
                     </div>
                     <div className="card-body">
                         
@@ -88,7 +87,7 @@ function EditReservationsPage() {
                                     type="text" 
                                     name="type" 
                                     placeholder="Reservation Name" 
-                                    value={formObject.type}
+                                    defaultValue={formObject.type}
                                     onChange={handleInputChange}
                                 />
                             </div>
@@ -100,7 +99,7 @@ function EditReservationsPage() {
                                     type="text" 
                                     name="name" 
                                     placeholder="Reservation Name" 
-                                    value={formObject.name}
+                                    defaultValue={formObject.name}
                                     onChange={handleInputChange}
                                 />
                             </div>
@@ -112,7 +111,7 @@ function EditReservationsPage() {
                                     type="text" 
                                     name="confirmation"
                                     placeholder="Confirmation Number"
-                                    value={formObject.confirmation}
+                                    defaultValue={formObject.confirmation}
                                     onChange={handleInputChange}
                                     />
                             </div>
@@ -125,7 +124,7 @@ function EditReservationsPage() {
                                     type="text"
                                     name="description"
                                     placeholder="Description or Link"
-                                    value={formObject.description}
+                                    defaultValue={formObject.description}
                                     onChange={handleInputChange}
                                 />
                             </div>
