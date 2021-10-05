@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Reservations, Trip } = require("../../models");
 
-
+//Get all reservations by trip_id
 router.get('/:trip_id', async(req, res) => {
     try {
         const tripDetails = await Trip.findOne({
@@ -19,6 +19,24 @@ router.get('/:trip_id', async(req, res) => {
         res.status(400).json(err);
     }
 });
+
+//Get single reservation by trip_id and reservation_id
+router.get('/:trip_id/:reservation_id', async(req, res) => {
+    try {
+        const resDetails = await Trip.findOne({
+            where: {id: req.params.trip_id},
+            include: [
+                {
+                    model: Reservations,
+                    where: {id: req.params.reservation_id}
+                }
+            ]
+        })
+        res.status(200).json(resDetails)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+})
 
 router.post('/createreservation', async(req, res) => {
     try {
