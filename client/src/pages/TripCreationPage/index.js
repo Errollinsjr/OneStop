@@ -42,7 +42,7 @@ function TripCreationPage() {
 
   return (
     <>
-    <div className='back1'>
+    <div className='height back1'>
         <div className="trip-create-container">
             <div className="row justify-content-center">
                 <div className="col-9 col-sm-9 col-md-7 col-lg-5">
