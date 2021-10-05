@@ -1,45 +1,14 @@
 /*Trip Create Page Styles*/
 
-// @import "~antd/dist/antd.css";
-
-// .login-btn {
-//     margin: 10px;
-// }
-
-// .next-btn {
-//     color: white;
-// }
-
-// .header-color {
-//     background-color: rgb(231, 173, 64);
-//     color: white;
-    
-// }
-// input:hover {
-//     border-color: gold;
-// }
-
-// .input-color {
-//     border-color: rgb(44, 129, 179);
-// }
-
 .back1 { /*changes*/
-    background-image: url("mountainscape.jpg");
+    background-image: url("rain.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
 }
 
 
 .trip-create-container {
-    width: 100%;
     margin-top: 2%;
-    margin-left: 2%
 }
 
-@media screen and (max-width: 994px) {
-    .edit-trip-container {
-        width: 50%;
-        margin-left: 25%;
-    }
-
-}

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Reservations, Trip } = require("../../models");
 
-
+//Get all reservations by trip_id
 router.get('/:trip_id', async(req, res) => {
     try {
         const tripDetails = await Trip.findOne({
@@ -20,6 +20,19 @@ router.get('/:trip_id', async(req, res) => {
     }
 });
 
+//Get single reservation by trip_id and reservation_id
+router.get('/single/:reservation_id', async(req, res) => {
+    try {
+        const resDetails = await Reservations.findOne({
+            where: {id: req.params.reservation_id},
+        })
+        console.log(resDetails);
+        res.status(200).json(resDetails)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+})
+
 router.post('/createreservation', async(req, res) => {
     try {
         await Reservations.create({
@@ -36,7 +49,7 @@ router.post('/createreservation', async(req, res) => {
     };
 });
 
-router.put('/:reservations_id', async(req, res) => {
+router.put('/edit/:reservations_id', async(req, res) => {
     try {
         console.log(req.body)
         console.log(req.params.id)
@@ -47,18 +60,17 @@ router.put('/:reservations_id', async(req, res) => {
             name: req.body.name,
             confirmation: req.body.confirmation,
             description: req.body.description,
-            trip_id: req.session.trip_id
-
+            // trip_id: req.session.trip_id
             }, 
-            { where:{
+            { where:
+              {
                 id: req.params.reservations_id
-            }
-               
+              }               
             },
         )
         res.status(200).json(editedReservation);
     } catch (err) {
-        res.status(400).json({ error: err})
+        res.status(400).json({error: err})
     }
 });
 
