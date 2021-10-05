@@ -83,9 +83,16 @@ function App() {
                     {(authorized) ? (<TripCreationPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
                   </Route>
 
+<<<<<<< HEAD
                   <Route exact path="/edit_trip/:id">
                   {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
                   </Route>
+=======
+                <Route exact path="/edit_trip/:id">
+                {(authorized) ? (<EditTripPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
+                </Route>
+              
+>>>>>>> 73d5ddac566ad17227c61598894f5f54ddbee8d2
 
                   <Route exact path="/edit_reservations/:id">
                   {(authorized) ? (<EditReservationsPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
@@ -97,6 +104,7 @@ function App() {
                   </Route>
 
 
+<<<<<<< HEAD
                   <Route exact path="/Summary/:id">
                   {(authorized) ? (<SummaryPage />) : (<LoginPage authorizedStatus ={authorizedStatus}/>)}
                   </Route>
@@ -105,6 +113,11 @@ function App() {
                     <NoMatch /> 
                   </Route>
                 </EditReservationContext.Provider>
+=======
+              <Route exact path="/404">
+                <NoMatch /> 
+              </Route>
+>>>>>>> 73d5ddac566ad17227c61598894f5f54ddbee8d2
               </EditTripContext.Provider>
             </Switch>
           </UserContext.Provider>
