@@ -1,5 +1,3 @@
-
-
 $color-primary: #57f8c8; //<--this is connected to the blue font on the next step button
 $color-secondary: #38c3f9;
 $color-neutral-lt: #fff;
@@ -9,18 +7,6 @@ $a-tags: "a, a:active, a:hover, a:visited";
 $a-tags-no-hov: "a:link, a:visited, a:active";
 $headings-font: "Saira Semi Condensed", sans-serif;
 $shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-
-
-/*Nav Styles*/
-/*magic rabbit edits*/
-
-#nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: $color-neutral-lt; 
-}
 
 @mixin main-gradient {
   background: $color-primary;
@@ -40,8 +26,6 @@ $shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 @mixin unskew {
   transform: skew(20deg);
 }
-
-
 
 /*-------------Reset-------------*/
 
@@ -75,25 +59,27 @@ section {
   z-index: 100;
 }
 
+/*Nav Styles*/
+/*magic rabbit edits*/
+
 #nav {
   @include shadow-box;
+  //flex-child property
+  flex: 1 0 auto;
+  //flex-parent properties
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   font-family: $headings-font;
   height: 2em;
   overflow: hidden;
+  background-color: $color-neutral-lt; 
+
 
   &.nav-visible {
     height: 100%;
     overflow: auto;
   }
-}
-
-.nav {
-  display: flex;
-  height: 4em;
-  line-height: 4em;
-  flex-grow: 1;
 }
 
 .nav-link,
@@ -143,10 +129,49 @@ h1.logo #{$a-tags} {
   text-decoration: underline;
 }
 
+.nav #{$a-tags-no-hov} {
+  &.active {
+    @include main-gradient;
+    color: #fff;
+  }
+}
+
+.nav-link-span {
+  @include unskew;
+  display: inline-block;
+}
+
+.nav-link {
+  @include skew;
+  color: #777;
+  text-decoration: none;
+
+  &:last-child {
+    padding-right: 3em;
+  }
+}
+
+.a-tag:hover.nav-link:not(.active) {
+  color: $color-neutral-dk;
+  background: $color-neutral-med;
+  background: linear-gradient(45deg, $color-neutral-lt, #ddd);
+}
+
+
+@keyframes logo-hover {
+  20% {
+    padding-right: 0em;
+  }
+  100% {
+    padding-right: 5em;
+  }
+}
+
 .right {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  // left: 1.5em;
+  height: auto;
   line-height: 32px;
 }
 
@@ -166,68 +191,22 @@ h1.logo #{$a-tags} {
   color: $color-secondary;
 }
 
-@media (min-width: 800px) {
-  #nav-wrapper {
-    overflow: hidden;
-  }
+@media (max-width: 615px) {
+ #nav-wrapper {
+   height: 100px;
+ } 
+ #nav {
+   display: flex;
+   flex-direction: column;
+ }
 
-  #nav {
-    overflow: hidden;
-    flex-direction: row;
-  }
-
-  .nav-link {
-    border-top: none;
-  }
-
-  .right {
-    overflow: hidden;
-    flex-direction: row;
-    justify-content: flex-end;
-    position: relative;
-    left: 1.5em;
-    height: auto;
-    line-height: 32px;
-  }
-
-  // .btn-nav {
-  //   display: none;
-  // }
-
-  .nav #{$a-tags-no-hov} {
-    &.active {
-      @include main-gradient;
-      color: #fff;
-    }
-  }
-
-  .nav-link-span {
-    @include unskew;
-    display: inline-block;
-  }
-
-  .nav-link {
-    @include skew;
-    color: #777;
-    text-decoration: none;
-
-    &:last-child {
-      padding-right: 3em;
-    }
-  }
-
-  .a-tag:hover.nav-link:not(.active) {
-    color: $color-neutral-dk;
-    background: $color-neutral-med;
-    background: linear-gradient(45deg, $color-neutral-lt, #ddd);
-  }
-}
-
-@keyframes logo-hover {
-  20% {
-    padding-right: 0em;
-  }
-  100% {
-    padding-right: 5em;
-  }
+ .right {
+   justify-content: center;
+   background-color:white;
+   border: none;
+   position: absolute;
+   top: 26px;
+   width: 100%;
+   ;
+ }
 }
