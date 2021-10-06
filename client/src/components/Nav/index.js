@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import "./navStyle.scss";
 import API from "../../utils/API"
 import { UserContext } from "../../UserContext";
 
-function Nav( { unAuthorizedStatus }) {
+function NavBar( { unAuthorizedStatus }) {
   const history = useHistory();
   const { user, setUser } = useContext(UserContext);
   console.log("nav component line 9:" + user);
@@ -35,6 +36,7 @@ function Nav( { unAuthorizedStatus }) {
 
   return (
     <>
+      <Navbar collapseOnSelect expand= "lg">
       <header id="nav-wrapper">
         <nav id="nav">
           <div className="nav left">
@@ -47,8 +49,9 @@ function Nav( { unAuthorizedStatus }) {
             </span>
           {/* <button id="menu" className="btn-nav"><span className="fas fa-bars"></span></button>  */}
           </div>
-
-          <div className="nav right">
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="nav right me-auto">
               <div className="a-tag nav-link">
                 <span className="nav-link-span">
                   <span className="u-nav">
@@ -115,12 +118,17 @@ function Nav( { unAuthorizedStatus }) {
                   </span>
                 </div>
               </>
+              
             )}
-          </div>
+            
+          </Nav>
+          </Navbar.Collapse>
+
         </nav>
       </header>
+      </Navbar>
     </>
   );
 }
 
-export default Nav;
+export default NavBar;

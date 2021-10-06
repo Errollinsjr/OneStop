@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch  } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import Nav from "./components/Nav";
+import NavBar from "./components/Nav";
 import LoginPage from "./pages/LoginPage";
 import UserTripPage from "./pages/UserTripPage";
 import SignUpPage from "./pages/SignUpPage";
@@ -16,6 +16,7 @@ import { EditTripContext } from "./EditTripContext";
 import { EditReservationContext } from "./EditReservationContext";
 import API from "./utils/Auth";
 import NoMatch from "./pages/NoMatchPage";
+
 
 function App() {
   const [user, setUser] = useState(false);
@@ -59,7 +60,7 @@ function App() {
       <div>
         <AuthContext.Provider value={authorized}>
           <UserContext.Provider value={providerValue}>
-            <Nav unAuthorizedStatus={unAuthorizedStatus}/>
+            <NavBar unAuthorizedStatus={unAuthorizedStatus}/>
             <Switch>
               <Route exact path="/">
                 <HomePage />
