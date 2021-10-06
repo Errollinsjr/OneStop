@@ -41,11 +41,11 @@ const Modal = props => {
     }
 
     const columns = [
-        {
-          title: 'Id',
-          dataIndex: 'id',
-          key: 'id',
-        },  
+        // {
+        //   title: 'Id',
+        //   dataIndex: 'id',
+        //   key: 'id',
+        // },  
         {
           title: 'Reservation',
           dataIndex: 'name',
@@ -64,12 +64,14 @@ const Modal = props => {
           dataIndex: 'confirmation',
           key: 'confirmation',
           render: text => <span>{text}</span>,
+          responsive: ['sm']
         },
         {
           title: 'Description',
           dataIndex: 'description',
           key: 'description',
           render: text => <span>{text}</span>,
+          responsive: ['md']
         },
         
         {
