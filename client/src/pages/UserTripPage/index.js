@@ -40,11 +40,11 @@ function UserTripPage() {
   }
 
   const columns = [
-    {
-      title: 'Id',
-      dataIndex: 'id',
-      key: 'id',
-    },  
+    // {
+    //   title: 'Id',
+    //   dataIndex: 'id',
+    //   key: 'id',
+    // },  
     {
       title: 'Trip',
       dataIndex: 'trip_name',
@@ -63,12 +63,14 @@ function UserTripPage() {
       dataIndex: 'start_date',
       key: 'start_date',
       render: (text) => moment.utc(text).format("MM-DD-YYYY"),
+      responsive: ['sm','md']
     },
     {
       title: 'End Date',
       dataIndex: 'end_date',
       key: 'end_date',
       render: (text) => moment.utc(text).format("MM-DD-YYYY"),
+      responsive: ['sm','md']
     },
     {
       title: 'Tags',
@@ -88,6 +90,7 @@ function UserTripPage() {
           } 
         </>
       ),
+      responsive: ['md']
     },
     {
       title: 'Actions',

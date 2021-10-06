@@ -5,12 +5,13 @@ import "./addDetailsPageStyles.scss"
 import ReservationEditButton from "./ReservationModal/ReservationEdit";
 import Modal from "./ReservationModal/Modal";
 import {useParams} from 'react-router-dom';
+import { EditReservationContext } from "../../EditReservationContext";
 
 function AddDetailsPage() {
     const [show, setShow] = useState(false);
     const history = useHistory();
     const {id} = useParams() 
-    // const { setEditReservation } = useContext(EditReservationContext);
+    const { setEditReservation } = useContext(EditReservationContext);
     const [formObject, setFormObject] = useState({
         type: "",
         name: "",
@@ -39,16 +40,14 @@ function AddDetailsPage() {
             description: formObject.description,
             trip_id: formObject.trip_id
             })
-            .then(() => setFormObject(
+            .then(() => {setEditReservation(true); setFormObject(
               {
                 type: "",    
                 name: "",
                 confirmation: "",
                 description:"",
               }
-                )).then(
-                    alert('Reservation Submitted')
-                )
+                )})
             .catch(err => console.log(err));
         }
 }
@@ -134,7 +133,7 @@ function AddDetailsPage() {
                     <div className="card-footer text-center py-3 d-flex justify-content-between reservation-footer">
                         <button 
                             className="userTripPageButton btn btn-primary btn-sm" 
-                            onClick={() => history.push("/Summary/" + formObject.trip_id)}>
+                            onClick={() => history.push("/Summary/" + id)}>
                             Trip Summary
                         </button>
                         <ReservationEditButton onClick={handleShow}>View Reservations</ReservationEditButton>

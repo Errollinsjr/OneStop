@@ -13,23 +13,23 @@ const Modal = props => {
     const [reservations, setReservations] = useState();
     const { setEditReservation } = useContext(EditReservationContext);
 
-    //load trips and store them with setTrips
+    //load trips and store them with setReservations
     useEffect(() => {
         loadReservations();
-    }, []);
+    }, [setEditReservation]);
 
-    //make api call to get all user trips
+    //make api call to get all user reservations
     function loadReservations() {
         API.getReservations(id)
         .then(res => {
             console.log(res)
             setReservations(res.data.reservations)
-            setEditReservation(false);
+            //setEditReservation(false);
         })
         .catch(err => console.log(err))  
     };
 
-    //make api call to delete selected trip
+    //make api call to delete selected reservation
     function deleteReservations(id) {
         API.deleteReservation(id)
         .then(res => loadReservations())
@@ -41,11 +41,11 @@ const Modal = props => {
     }
 
     const columns = [
-        {
-          title: 'Id',
-          dataIndex: 'id',
-          key: 'id',
-        },  
+        // {
+        //   title: 'Id',
+        //   dataIndex: 'id',
+        //   key: 'id',
+        // },  
         {
           title: 'Reservation',
           dataIndex: 'name',
@@ -64,12 +64,14 @@ const Modal = props => {
           dataIndex: 'confirmation',
           key: 'confirmation',
           render: text => <span>{text}</span>,
+          responsive: ['sm']
         },
         {
           title: 'Description',
           dataIndex: 'description',
           key: 'description',
           render: text => <span>{text}</span>,
+          responsive: ['md']
         },
         
         {
