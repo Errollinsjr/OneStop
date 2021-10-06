@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container } from 'react-bootstrap'
 import "./navStyle.scss";
 import API from "../../utils/API"
 import { UserContext } from "../../UserContext";
@@ -122,6 +122,7 @@ function NavBar( { unAuthorizedStatus }) {
             )}
             
           </Nav>
+          
           </Navbar.Collapse>
 
         </nav>
