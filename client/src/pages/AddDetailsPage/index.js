@@ -17,11 +17,11 @@ function AddDetailsPage() {
         name: "",
         confirmation: "",
         description: "",
-        trip_id: id
     })
     
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const reload = () => window.location.reload();
 
     //handle updating component state when user types into input fields
     function handleInputChange(event) {
@@ -34,20 +34,24 @@ function AddDetailsPage() {
         event.preventDefault();
         if (formObject.name && formObject.confirmation ) {
             API.saveReservation({
-            type: formObject.type,
-            name: formObject.name,
-            confirmation: formObject.confirmation,
-            description: formObject.description,
-            trip_id: formObject.trip_id
+                type: formObject.type,
+                name: formObject.name,
+                confirmation: formObject.confirmation,
+                description: formObject.description,
+                trip_id: id
             })
-            .then(() => {setEditReservation(true); setFormObject(
-              {
-                type: "",    
-                name: "",
-                confirmation: "",
-                description:"",
-              }
-                )})
+            .then(() => {
+                setEditReservation(true); 
+                setFormObject(
+                    {
+                        type: "",    
+                        name: "",
+                        confirmation: "",
+                        description:"",
+                    }
+                )
+                reload()
+            })
             .catch(err => console.log(err));
         }
 }
