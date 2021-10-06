@@ -46,7 +46,9 @@ function AddDetailsPage() {
                 confirmation: "",
                 description:"",
               }
-                ))
+                )).then(
+                    alert('Reservation Submitted')
+                )
             .catch(err => console.log(err));
         }
 }
@@ -76,7 +78,7 @@ function AddDetailsPage() {
                                     id="inputFieldAddDetails" 
                                     type="text" 
                                     name="type" 
-                                    placeholder="Reservation Name" 
+                                    placeholder="Reservation Type" 
                                     value={formObject.type}
                                     onChange={ handleInputChange }
                                 />
