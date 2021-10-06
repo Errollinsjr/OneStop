@@ -58,10 +58,10 @@ function EditReservationsPage() {
 
   return (
     <>
-    <div className='back1 height'>
-        <div className='edit-reservation'>
-            <div className=" row justify-content-center">
-                <div className="col-9 col-sm-7 col-md-5 col-lg-5">
+    {/* <div className='back1 height'>
+        <div className='edit-reservation'> */}
+            <div className="back1 d-flex justify-content-center edit-reservation">
+                <div className="w-50">
                     <div className="card shadow-lg border-0 rounded-lg mt-5 reservation-detail">
                         <div className="card-header header-color">
                             <h3 className="text-center font-weight-light my-4">Edit Reservation</h3>
@@ -139,8 +139,8 @@ function EditReservationsPage() {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        {/* </div>
+    </div> */}
     </>
   );
 }

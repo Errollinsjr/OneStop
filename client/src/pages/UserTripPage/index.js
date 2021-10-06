@@ -56,26 +56,29 @@ function UserTripPage() {
           },
       ],
       render: text => <span>{text}</span>,
-      width: '30%',
+      width: '20%',
     },
     {
       title: 'Start Date',
       dataIndex: 'start_date',
       key: 'start_date',
       render: (text) => moment.utc(text).format("MM-DD-YYYY"),
-      responsive: ['sm','md']
+      responsive: ['sm','md'],
+      width: '15%'
     },
     {
       title: 'End Date',
       dataIndex: 'end_date',
       key: 'end_date',
       render: (text) => moment.utc(text).format("MM-DD-YYYY"),
-      responsive: ['sm','md']
+      responsive: ['sm','md'],
+      width: '15%'
     },
     {
       title: 'Tags',
       key: 'tags',
       dataIndex: 'tags',
+      width:'10%',
       render: tags => (
         <>
           {tags.map(tag => {
@@ -95,6 +98,7 @@ function UserTripPage() {
     {
       title: 'Actions',
       key: 'action',
+      width:'40%',
       render: (dataSource) => (
         <Space size="middle">
           <button 
