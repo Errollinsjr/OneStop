@@ -86,20 +86,8 @@ function Nav( { unAuthorizedStatus }) {
                 <div className="a-tag nav-link">
                   <span className="nav-link-span">
                     <span className="u-nav">
-                      <button
-                          className="btn-nav"
-                          onClick = {handleLogout}>
-                        Logout
-                      </button>
-                    </span>
-                  </span>
-                </div>
-
-                <div className="a-tag nav-link">
-                  <span className="nav-link-span">
-                    <span className="u-nav">
                       <Link to="/User">  
-                        UserTrip
+                        Your Trips
                       </Link> 
                     </span>
                   </span>
@@ -109,8 +97,20 @@ function Nav( { unAuthorizedStatus }) {
                   <span className="nav-link-span">
                     <span className="u-nav">
                       <Link to="/Create">   
-                        CreateTrip
+                        Create Trip
                       </Link>
+                    </span>
+                  </span>
+                </div>
+
+                <div className="a-tag nav-link">
+                  <span className="nav-link-span">
+                    <span className="u-nav">
+                      <button
+                          className="btn-nav"
+                          onClick = {handleLogout}>
+                        Logout
+                      </button>
                     </span>
                   </span>
                 </div>
