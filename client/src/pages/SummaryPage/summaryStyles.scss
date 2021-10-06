@@ -28,3 +28,11 @@
   background-size: cover;
 } 
 
+@media (max-width: 615px) {
+  .summary-container{
+    top: 20%;
+  }
+  .summaryTable{
+    top: 30%
+  }
+}

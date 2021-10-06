@@ -1,48 +1,10 @@
-/*Add Details page styles*/
-.reservaion-detail{
-  width: 100%;
-}
-
-.card-footer:last-child {
-  display: flex;
-}
-
-.modal {
-  background-color:transparent;
-  display: flex;
-  justify-content: center;
-  margin-top: 3%;
-  margin-bottom: 3%;
-}
-
-.modal-content {
-  width: 75%;
-  background-color: white;
-}
-
-.modal-header {
-  padding: 10px;
-}
-
-.modal-footer {
-  padding: 10px;
-}
-
-.modal-title {
-  margin: 0;
-}
-
-.modal-body {
-  padding: 10px;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-}
+/*Edit Reservation Details page styles*/
 
 
-@media screen and (max-width: 400px) {
-  .reservation-footer {
-      flex-direction: column;
-      justify-content: space-between;
+@media (max-width: 615px) {
+  .edit-reservation{
+    margin-top: 5%;
   }
-
 }
+
+

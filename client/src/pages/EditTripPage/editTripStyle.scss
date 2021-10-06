@@ -10,3 +10,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+@media (max-width: 615px) {
+    .edit-trip-container{
+      margin-top: 5%;
+    }
+}
