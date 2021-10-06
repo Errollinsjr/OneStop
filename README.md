@@ -21,7 +21,7 @@ Log in or sign up, include your destination, departure and arrivals, and reserva
 
 ## Deployed Link
 
-LINK WILL GO HERE
+[OneStop](https://dashboard.heroku.com/apps/onestop-us)
 
 ## Contributors
 

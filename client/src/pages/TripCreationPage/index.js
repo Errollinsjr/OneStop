@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import API from "../../utils/API"
 import "./tripCreationStyles.scss"
-import Uploader from "./Uploader.js";
+//import Uploader from "./Uploader.js";
 import { useHistory } from "react-router-dom";
+import { EditTripContext } from "../../EditTripContext";
 
 function TripCreationPage() {
     const history = useHistory();
+    const { setEditTrip } = useContext(EditTripContext);
 
   //setting initial state
   const [formObject, setFormObject] = useState({
@@ -13,7 +15,7 @@ function TripCreationPage() {
       start_date: "",
       end_date: "",
       tags: [],
-      upload: ""
+      //upload: ""
   });
 
   //handle updating component state when user types into input fields
@@ -33,9 +35,9 @@ function TripCreationPage() {
             start_date: formObject.start_date,
             end_date: formObject.end_date,
             tags: (!formObject.tags.length) ? ["None"] : formObject.tags.split(','),
-            upload: formObject.upload
+            //upload: formObject.upload
           })
-          .then(res => history.push("/AddDetails/" + res.data.data.id))
+          .then(res => {setEditTrip(true); history.push("/AddDetails/" + res.data.data.id)})
           .catch(err => console.log(err));
       }
   }
