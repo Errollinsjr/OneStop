@@ -11,3 +11,9 @@
 .trip-create-container {
     margin-top: 2%;
 }
+
+@media (max-width: 615px) {
+    .trip-create-container{
+      margin-top: 5%;
+    }
+  }
