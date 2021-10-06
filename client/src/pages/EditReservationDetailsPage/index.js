@@ -57,6 +57,9 @@ function EditReservationsPage() {
                 description: formObject.description,
             })
             .then(history.push("/AddDetails/" + formObject.trip_id))
+            .then(
+                alert('Reservation updated succesfully!')
+            )
             .catch(err => console.log(err));
         }
 }

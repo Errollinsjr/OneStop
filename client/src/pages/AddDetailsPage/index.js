@@ -47,7 +47,9 @@ function AddDetailsPage() {
                 confirmation: "",
                 description:"",
               }
-                )})
+                )}). then(
+                    alert('Reservation submitted succesfully!')
+                )
             .catch(err => console.log(err));
         }
 }
