@@ -47,7 +47,14 @@ function SummaryPage() {
     //   key: 'id',
     // },  
     {
-      title: 'Reservation',
+      title: 'Reservation Type',
+      dataIndex: 'type',
+      key: 'type',
+      render: text => <span>{text}</span>,
+      responsive: ['md']
+    },
+    {
+      title: 'Reservation Name',
       dataIndex: 'name',
       key: 'name',
       filters: [
@@ -70,6 +77,7 @@ function SummaryPage() {
       dataIndex: 'description',
       key: 'description',
       render: text => <span>{text}</span>,
+      responsive: ['md']
     },
     
   ];
