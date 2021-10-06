@@ -41,13 +41,20 @@ function SummaryPage() {
 
 
   const columns = [
+    // {
+    //   title: 'Id',
+    //   dataIndex: 'id',
+    //   key: 'id',
+    // },  
     {
-      title: 'Id',
-      dataIndex: 'id',
-      key: 'id',
-    },  
+      title: 'Reservation Type',
+      dataIndex: 'type',
+      key: 'type',
+      render: text => <span>{text}</span>,
+      responsive: ['md']
+    },
     {
-      title: 'Reservation',
+      title: 'Reservation Name',
       dataIndex: 'name',
       key: 'name',
       filters: [
@@ -70,6 +77,7 @@ function SummaryPage() {
       dataIndex: 'description',
       key: 'description',
       render: text => <span>{text}</span>,
+      responsive: ['md']
     },
     
   ];
@@ -83,7 +91,7 @@ return (
                 <div className="card shadow-lg border-0 rounded-lg summaryCard">
                     <div className="card-header header-color"><h3 className="text-center font-weight-light my-1">{tripInfo.trip_name}</h3></div>
                         <div className="card-body summaryBody">
-                          <img src="" alt="place holder"/>
+                          {/* <img src="" alt="place holder"/> */}
                           {/* <h3>{tripInfo.trip_name}</h3> */}
                           <h4>{moment.utc(tripInfo.start_date).format("MM-DD-YYYY") + ' to ' + moment.utc(tripInfo.end_date).format("MM-DD-YYYY")}</h4>
                           {/* <h4>Upcoming Trip</h4>                                               */}

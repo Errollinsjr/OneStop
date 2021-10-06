@@ -12,15 +12,23 @@
 }
 
 .user-trip-container {
-  top: 20%;
-  position: absolute;
-  right: 3%;
-  left: 3%;
+  top: 10%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%
+}
+
+.ant-space {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .back-trip {
   background-image: url(lake.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
+
 
