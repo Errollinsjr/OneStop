@@ -105,14 +105,18 @@ function TripCreationPage() {
                                     />
                                 </div>     
 
-                                <div>
+                                
+
+                                {/*
+                                For future development
+                                 <div>
                                     <label>Trip Image</label>
                                     <br/>
                                     <Uploader 
                                         name="upload"
                                         value={formObject.upload}
                                         onChange={handleInputChange}/>
-                                </div>
+                                </div> */}
                             </form>
 
 

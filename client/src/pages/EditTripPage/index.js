@@ -127,6 +127,8 @@ const { setEditTrip } = useContext(EditTripContext);
                                 />
                             </div>     
 
+                            {/* 
+                            For future development: 
                             <div>
                                 <label>Trip Image</label>
                                 <br/>
@@ -134,7 +136,7 @@ const { setEditTrip } = useContext(EditTripContext);
                                     name="upload"
                                     defaultValue={formObject.upload}
                                     onChange={handleInputChange}/>
-                            </div>
+                            </div> */}
                         </form>
 
 
