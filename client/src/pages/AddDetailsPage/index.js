@@ -50,7 +50,8 @@ function AddDetailsPage() {
                         description:"",
                     }
                 )
-                reload()
+                reload();
+                alert('Reservation added succesfully!')
             })
             .catch(err => console.log(err));
         }
