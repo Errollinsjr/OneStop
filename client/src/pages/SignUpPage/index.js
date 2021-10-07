@@ -57,7 +57,7 @@ function SignUpPage() {
         <div className="sign-up-container"> */}
             <div className="back-login d-flex justify-content-center sign-up-container">
                 <div className="w-50">
-                    <div className="card shadow-lg border-0 rounded-lg mt-5">
+                    <div className="card shadow-lg border-0 rounded-lg mt-5 mb-5">
                         <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Sign Up</h3></div>
                         <div className="card-body">
 
@@ -83,17 +83,17 @@ function SignUpPage() {
                                     <input className="form-control input-color" id="inputPassword" type="password" placeholder="Password" />
                                     
                                 </div>
-                                <div className="form-check mb-3">
+                                <div className="form-check">
                                     <input className="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
                                     <label className="form-check-label" htmlFor="inputRememberPassword">Remember Password</label>
                                 </div>
-                                <div className="d-flex align-items-center justify-content-center mt-4 mb-0">
-                                    <Link className="small forgotpass" to="/password">Forgot Password?</Link>
+                                <div className="d-flex align-items-center justify-content-center">
+                                    {/* <Link className="small forgotpass" to="/password">Forgot Password?</Link> */}
                                     <button className="login-btn btn btn-primary" type="submit" id="loginBtn" onClick={handleSignup}>Sign Up</button>
                                 </div>
                             </form>
                         </div>
-                        <div className="card-footer text-center py-3">
+                        <div className="card-footer text-center d-flex justify-content-between">
                             <div className="small forgotpass">
                                 <Link to="/Login">
                                     Have an account? Login!
