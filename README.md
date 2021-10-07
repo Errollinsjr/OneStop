@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-* Usage
-* Description
-* Deployed Link
-* Contributors
-* License
+* [Usage](##Usage)
+* [Description](##Description)
+* [Deployed Link](##Deployed-Link)
+* [Contributors](##Contributors)
+* [License](##License)
 
 
 ## Usage
