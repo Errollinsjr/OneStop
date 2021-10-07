@@ -19,17 +19,18 @@ As a user I can view my completed trip and make edits.
 One stop allows users to plan a trip all in once place. 
 Log in or sign up, include your destination, departure and arrivals, and reservations (hotels, destinations, travel, etc.) all on the app, with the flexibility to create, read, update, and delete. 
 
-## Deployed Link
+## Deployed Links
 
 [OneStop](https://dashboard.heroku.com/apps/onestop-us)
+[GitHub Repositories](https://github.com/Errollinsjr/OneStop)
 
 ## Contributors
 
-* Elizabeth Mangano
-* Edward Rollins Jr.
-* Melissa Armand
-* Michael Pierre-Louis
-* Shenilla Smith
+* [Elizabeth Mangano](https://github.com/emangano2816)
+* [Edward Rollins Jr.](https://github.com/Errollinsjr)
+* [Melissa Armand](https://github.com/melissarmand)
+* [Michael Pierre-Louis](https://github.com/mgpierrelouis)
+* [Shenilla Smith](https://github.com/SmithRBG)
 
 ## License
  ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
