@@ -27,8 +27,14 @@
 .back-trip {
   background-image: url(lake.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   
+}
+
+@media (max-width: 615px) {
+  .user-trip-container{
+    top: 15%;
+  }
 }
 
 

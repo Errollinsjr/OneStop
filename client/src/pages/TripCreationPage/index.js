@@ -44,13 +44,16 @@ function TripCreationPage() {
 
   return (
     <>
-    <div className='height back1'>
-        <div className="trip-create-container">
-            <div className="row justify-content-center">
-                <div className="col-9 col-sm-9 col-md-7 col-lg-5">
-                    <div className="card shadow-lg border-0 rounded-lg mt-5">
-                        <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Create Your Trip</h3></div>
-                        <div className="card-body">
+    {/* <div className='height back1'>
+        <div className="trip-create-container"> */}
+            <div className="back1 d-flex justify-content-center align-items-center trip-create-container">
+                <div className="w-50">
+                    <div className="card shadow-lg border-0 rounded-lg">
+                        <div className="card-header header-color">
+                            <h3 className="text-center font-weight-light my-4">Create Your Trip
+                            </h3>
+                        </div>
+                        <div className="card-body scroll">
 
                             <form id="signupForm">
 
@@ -134,8 +137,8 @@ function TripCreationPage() {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        {/* </div>
+    </div> */}
     </>
   );
 }

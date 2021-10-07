@@ -16,6 +16,7 @@ import { EditTripContext } from "./EditTripContext";
 import { EditReservationContext } from "./EditReservationContext";
 import API from "./utils/Auth";
 import NoMatch from "./pages/NoMatchPage";
+import "./App.scss"
 
 function App() {
   const [user, setUser] = useState(false);
@@ -56,7 +57,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className='fix-height'>
         <AuthContext.Provider value={authorized}>
           <UserContext.Provider value={providerValue}>
             <Nav unAuthorizedStatus={unAuthorizedStatus}/>

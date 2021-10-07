@@ -1,8 +1,7 @@
 /*Add Details page styles*/
-.reservaion-detail{
-  width: 100%;
+.add-reservation {
+  height: 100%
 }
-
 .card-footer:last-child {
   display: flex;
 }
@@ -39,6 +38,12 @@
   border-bottom: 1px solid white;
 }
 
+
+@media (max-width: 615px) {
+  .add-reservation{
+    margin-top: 5%;
+  }
+}
 
 @media screen and (max-width: 400px) {
   .reservation-footer {

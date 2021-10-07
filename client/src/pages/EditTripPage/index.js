@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import "./editTripStyle.scss"
-import Uploader from "./Uploader.js";
+// import Uploader from "./Uploader.js";
 import moment from "moment";
 import { EditTripContext } from "../../EditTripContext";
 
@@ -64,13 +64,13 @@ const { setEditTrip } = useContext(EditTripContext);
 
   return (
     <>
-    <div className="back-edit height">
-    <div className="edit-trip-container">
-        <div className="row justify-content-center">
-            <div className="col-9 col-sm-9 col-md-7 col-lg-5">
-                <div className="card shadow-lg border-0 rounded-lg mt-5">
+    {/* <div className="back-edit height">
+    <div className="edit-trip-container"> */}
+            <div className="back-edit d-flex justify-content-center align-items-center edit-trip-container">
+                <div className="w-50">
+                <div className="card shadow-lg border-0 rounded-lg">
                     <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Edit Trip</h3></div>
-                    <div className="card-body">
+                    <div className="card-body scroll">
 
                         <form id="signupForm">
 
@@ -152,8 +152,8 @@ const { setEditTrip } = useContext(EditTripContext);
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    {/* </div>
+    </div> */}
     </>
   );
 }

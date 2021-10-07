@@ -1,13 +1,17 @@
 /*Trip Create Page Styles*/
+.trip-create-container {
+  height: 100%;
+}
 
 .back1 { /*changes*/
     background-image: url("rain.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 1000px; */
 }
 
 
-.trip-create-container {
-    margin-top: 2%;
-}
+@media (max-width: 615px) {
+    .trip-create-container{
+      margin-top: 5%;
+    }
+  }

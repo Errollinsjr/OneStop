@@ -100,7 +100,3 @@ function LoginPage({ authorizedStatus }) {
 }
 
 export default LoginPage;
-//special class names:
-//login-btn
-//header-color
-//input-color

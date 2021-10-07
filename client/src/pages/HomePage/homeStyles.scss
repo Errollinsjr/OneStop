@@ -84,7 +84,7 @@ iframe {
   // border-style: outset;
   position: fixed;
   left: 50%;
-  top: 15%;
+  top: 20%;
   white-space: nowrap;
   transform: translate(-50%, -50%);
   box-shadow: -3px 3px 3px;
@@ -212,5 +212,11 @@ iframe {
   }
   80% {
     top: -200px;
+  }
+}
+
+@media (max-width: 615px) {
+  .HomePageText {
+    top: 25%
   }
 }

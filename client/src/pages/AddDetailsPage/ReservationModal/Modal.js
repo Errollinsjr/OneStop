@@ -4,19 +4,21 @@ import { Table, Space } from "antd";
 import API from "../../../utils/API";
 import {useParams} from 'react-router-dom';
 import "../../AddDetailsPage/addDetailsPageStyles.scss";
-import { EditReservationContext } from "../../../EditReservationContext";
+// import { EditReservationContext } from "../../../EditReservationContext";
 
 const Modal = props => {
     const history = useHistory();
     const {id} = useParams() 
     //setting component's initial state
     const [reservations, setReservations] = useState();
-    const { setEditReservation } = useContext(EditReservationContext);
+    // const { setEditReservation } = useContext(EditReservationContext);
+
+   
 
     //load trips and store them with setReservations
     useEffect(() => {
         loadReservations();
-    }, [setEditReservation]);
+    }, []);
 
     //make api call to get all user reservations
     function loadReservations() {
