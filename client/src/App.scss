@@ -1,6 +1,9 @@
 // @import '~antd/dist/antd.css';
 
-#root, #root > div {
-    height:100%
+#root {
+    height:100%;
+}
 
+.fix-height {
+    height: 100%;
 }

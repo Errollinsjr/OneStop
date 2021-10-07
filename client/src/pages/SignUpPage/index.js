@@ -55,11 +55,13 @@ function SignUpPage() {
     <>
     {/* <div className="height back-login">
         <div className="sign-up-container"> */}
-            <div className="back-login d-flex justify-content-center sign-up-container">
+            <div className="back-login d-flex justify-content-center align-items-center sign-up-container">
                 <div className="w-50">
-                    <div className="card shadow-lg border-0 rounded-lg mt-5 mb-5">
-                        <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Sign Up</h3></div>
-                        <div className="card-body">
+                    <div className="card shadow-lg border-0 rounded-lg">
+                        <div className="card-header header-color">
+                            <h3 className="text-center font-weight-light my-4">Sign Up</h3>
+                        </div>
+                        <div className="card-body scroll">
 
                             <form id="signupForm">
 

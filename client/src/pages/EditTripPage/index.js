@@ -66,11 +66,11 @@ const { setEditTrip } = useContext(EditTripContext);
     <>
     {/* <div className="back-edit height">
     <div className="edit-trip-container"> */}
-            <div className="back-edit d-flex justify-content-center edit-trip-container">
+            <div className="back-edit d-flex justify-content-center align-items-center edit-trip-container">
                 <div className="w-50">
-                <div className="card shadow-lg border-0 rounded-lg mt-5">
+                <div className="card shadow-lg border-0 rounded-lg">
                     <div className="card-header header-color"><h3 className="text-center font-weight-light my-4">Edit Trip</h3></div>
-                    <div className="card-body">
+                    <div className="card-body scroll">
 
                         <form id="signupForm">
 

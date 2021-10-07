@@ -1,6 +1,48 @@
 /*SignUp Page Styles*/
 
 .sign-up-container{
-    margin-top: 1%;
     height: 100%
+
 }
+
+// .card {
+//     margin-top: 10%;
+//     margin-bottom: 5%;
+// }
+
+
+
+@media  (max-height: 665px) {
+    .scroll {
+        height: 325px; 
+        overflow-y: scroll; 
+        width: 100%;
+    }
+    
+}
+
+@media  (max-height: 575px) {
+    .scroll {
+        height: 200px; 
+        overflow-y: scroll; 
+        width: 100%;
+    }
+    
+}
+
+
+@media  (max-height: 450px) {
+    .scroll {
+        height: 150px; 
+        overflow-y: scroll; 
+        width: 100%;
+    }
+    
+}
+
+
+
+
+
+
+

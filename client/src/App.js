@@ -57,7 +57,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className='fix-height'>
         <AuthContext.Provider value={authorized}>
           <UserContext.Provider value={providerValue}>
             <Nav unAuthorizedStatus={unAuthorizedStatus}/>

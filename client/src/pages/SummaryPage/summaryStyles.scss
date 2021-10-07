@@ -1,5 +1,7 @@
 @import "~antd/dist/antd.css";
-
+.back-summary {
+  height:100%;
+}
 
 .summary-container {
   position: relative;
@@ -8,8 +10,9 @@
   margin-right: auto;
   max-width: 80%;
 }
+
 .summaryTable {
-  top: 20%;
+  top: 15%;
   position: relative;
   max-width: 70%;
   margin-left: auto;

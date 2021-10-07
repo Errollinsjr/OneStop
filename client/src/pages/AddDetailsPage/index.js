@@ -62,13 +62,13 @@ function AddDetailsPage() {
     <>
     {/* <div className='back1 height'>
         <div className="add-reservation"> */}
-        <div className="back1 d-flex justify-content-center add-reservation">
+        <div className="back1 d-flex justify-content-center align-items-center add-reservation">
                 <div className="w-50">
-                    <div className="card shadow-lg border-0 rounded-lg mt-5 reservation-detail">
+                    <div className="card shadow-lg border-0 rounded-lg reservation-detail">
                         <div className="card-header header-color">
                             <h3 className="text-center font-weight-light my-4">Add Reservation Details</h3>
                         </div>
-                        <div className="card-body">
+                        <div className="card-body scroll">
                             
                             <form 
                                 id="reservationForm"
