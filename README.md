@@ -21,8 +21,13 @@ Log in or sign up, include your destination, departure and arrivals, and reserva
 
 ## Deployed Links
 
-[OneStop](https://dashboard.heroku.com/apps/onestop-us)
-[GitHub Repositories](https://github.com/Errollinsjr/OneStop)
+* [OneStop](https://onestop-us.herokuapp.com/)
+
+* [GitHub](https://github.com/Errollinsjr/OneStop)
+
+## Application
+
+![onestop](https://user-images.githubusercontent.com/81999910/136474969-1afc2e2f-2e65-4691-b444-45d32fcaeb6e.JPG)
 
 ## Contributors
 
@@ -37,6 +42,5 @@ Log in or sign up, include your destination, departure and arrivals, and reserva
   [MIT License](https://opensource.org/licenses/MIT)
   
   
-  ![onestop](https://user-images.githubusercontent.com/81999910/136474969-1afc2e2f-2e65-4691-b444-45d32fcaeb6e.JPG)
 
   
