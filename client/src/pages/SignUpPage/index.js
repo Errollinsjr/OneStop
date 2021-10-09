@@ -75,7 +75,7 @@ function SignUpPage() {
                                 </div>
                                 <div className="form-floating mb-3">
                                 <label htmlFor="inputPhone">Phone number</label>
-                                    <input className="form-control input-color" id="inputPhone" type="phoneNumber" placeholder="Enter 9 digit phone number" />
+                                    <input className="form-control input-color" id="inputPhone" type="phoneNumber" placeholder="Enter 10 digit phone number" />
                                     
                                 </div>
                                 <div className="form-floating mb-3">
